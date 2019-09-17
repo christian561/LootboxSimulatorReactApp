@@ -1,0 +1,557 @@
+$tickerHeight:100px;
+$tickerBackgroundColor:rgba(30,30,30,0.65);
+
+$firstRowBackgroundImage:"https://blueblots.com/wp-content/uploads/2011/12/35-seamless-wood-texture.jpg";
+$shopBackgroundImage:"https://blueblots.com/wp-content/uploads/2011/12/35-seamless-wood-texture.jpg";
+$shopTextColor:white;
+$shopItemBgColor:rgba(193, 158, 60,0.8);
+$mainGradient:linear-gradient(-45deg,white,#fbff87,pink);
+$volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
+
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+*{
+  padding:0;
+  margin:0;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+}
+.drunk{
+  animation: drunk 5s forwards 6;}
+  
+  // .bag,.tickerItems,.shopItem{
+  //   @for $i from 1 to 10 {
+  // *:nth-child(#{$i}) { animation-delay: $i * 0.5s;
+  //     }};
+  // }
+
+@keyframes drunk{
+  0%{
+    padding-top:-5px;
+  }
+  33%{
+    padding-left:20px;
+    padding-right:0px;
+    padding-top:0px;
+  }
+  50%{padding-top:15px;}
+  66%{
+    padding-left:0px;
+    padding-right:20px;
+  }
+  99%{
+    padding-top:-5px;
+  }
+}
+.menu button:hover{
+  cursor:pointer;
+  
+}
+body{
+  background:$mainGradient;
+  
+}
+
+.firstRow{
+  background-image:url($firstRowBackgroundImage);
+  padding:15px;
+  box-shadow:0px 4px 8px #443b2b;
+  
+}
+#bgOverlay{
+  position:absolute;
+  width:100vw;
+  height:100vh;
+  z-index:-1;
+}
+.shop{
+  // background-color:$shopBackgroundColor;
+  // background-image:url($shopBackgroundImage);
+  color:$shopTextColor;
+  padding-left:0;
+  padding-top:0;
+  text-align:center;
+  
+}
+
+#shopList li{
+  list-style-type:none;
+}
+.shopItem{
+  background-color:$shopItemBgColor;
+  border:3px outset gold;
+  width:45%;
+  margin:5px;
+  text-align:center;
+  display:inline-block;
+}
+#upgrade9{
+  background:url(https://upload.wikimedia.org/wikipedia/commons/2/22/Animated_fire_by_nevit.gif);
+  background-size:cover;
+  border-color:#380001;
+  width:95%;
+  border-width:1px;
+  background-size:105%;
+  background-position:center -5px;
+  animation: shrinkBackground forwards 2s;
+  
+}
+
+#upgrade9:hover{
+  border-width:1px;
+  background-size:145%;
+  animation: growBackground forwards 2s;
+ border-color:#A30100;
+  cursor: url(https://christianlong.design/assets/codepen/lootboxgame/pentagram.png) 20 22, auto;
+}
+#upgrade9:active{
+ border-color:#A30100;
+  cursor: url(https://christianlong.design/assets/codepen/lootboxgame/pentagram.png) 17 19, auto;
+}
+@keyframes growBackground{
+  0%{background-position:center -5px;}
+  100%{background-position:center -150px;}
+}
+@keyframes shrinkBackground{
+  0%{background-position:center -150px;}
+  100%{background-position:center -5px;}
+}
+.shopItem:hover{
+  background-color: darken($shopItemBgColor,10%);
+  cursor:copy;
+}
+.shopItem:active{
+  border:3px inset gold;
+  background-color: darken($shopItemBgColor,20%);
+}
+.hideUpgrade{
+  display:none;
+}
+.tier2Upgrade{
+  background: linear-gradient(130deg,#8A6E2D,#AB9000,#FFD700,#8A6E2D);
+  text-shadow:1px 2px 1px #AB9000;
+}
+.tier2Upgrade:hover{
+  background: linear-gradient(150deg,#8A6E2D,#AB9000,#FFD700,#8A6E2D);
+}
+.tier2Upgrade:active{
+  background: linear-gradient(130deg,#8A6E2D,#AB9000,#FFD700,#8A6E2D);
+}
+.tier3Upgrade{
+  background: linear-gradient(130deg,#8A6E2D,#E54207,#F29609,#8A6E2D);
+  text-shadow:1px 2px 1px #AB9000;
+}
+.costLabel{
+  display:inline;
+  
+}
+
+.yellow{
+  color:yellow;
+}
+.menu{
+  -moz-box-shadow:    inset 2 2 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0px 3px 9px #000000;
+  //background-image:url($menuBackgroundImage);
+  border-radius:35px;
+  min-height:356px;
+  padding-bottom:15px;
+  
+}
+.lootboxes{
+  margin:auto;
+  width:94%;
+  @include for-tablet-portrait-up {
+    margin-left:8%;
+    margin-right:8%;
+  }
+}
+.menu .col-sm-1{
+  
+  @include for-tablet-landscape-up {
+    display:inline-block;
+  }
+}
+// .menuFrame{
+//   background-image:url($menuFrameBackgroundImage);
+//   padding:10px;
+//   border-radius:0%;
+// }
+.menuHeader h3{
+  padding-top:4px;
+  
+}
+
+.bag{
+  // background-color:$bagBackgroundColor;
+  // min-height:254.176px;
+  min-height:750px;
+  
+  background-image:url(https://www.christianlong.design/assets/codepen/lootboxgame/bagBg2.png);
+  background-size:100% 100%;
+  padding-left:80px;
+  padding-top:35px;
+  margin-top:25px;
+  @include for-desktop-up {
+    transform: rotateX(40deg) rotateY(0deg) rotateZ(-10deg);
+  }
+  
+}
+
+.ticker{
+  @include for-tablet-landscape-up {
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px; 
+  }
+  
+  background-color:$tickerBackgroundColor;
+  height:$tickerHeight;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space:nowrap;
+  padding:0;
+}
+.ticker .col-sm-8{
+  
+}
+.tickerItems{
+  display:inline-block;
+  width:60px;
+  background-color:black;
+  border-left:2px solid white;
+  margin-left:0px;
+  padding:0;
+  margin:0;
+  height:300px;
+  width:80px;
+  text-align:center;
+  
+}
+.tickerItems p{
+  color:white;
+  margin-left:10px;
+  font-size:12px;
+  font-weight:bold;
+width:45px;}
+.tickerItems img{width:60px;height:55px;}
+.tickerSlider{
+  
+  background-color:blue;
+  // width:3600px;
+  // margin-left:-3650px;
+  width:0px;
+  margin-left:0px;
+  height:300px;
+  vertical-align:bottom;
+  display:inline-block;
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+}
+// #slider1{
+//   animation-play-state:paused;
+//   animation:slide 6s ease-out;
+//   animation-fill-mode:forwards;
+// }
+
+#sliderDogs, #sliderGods, #sliderItems, #sliderCSGO,#sliderVehicles{
+  
+}
+.animation{
+  animation-delay:0;
+  animation-play-state:paused;
+  animation:slide 6s ease-out;
+  animation-fill-mode:forwards;
+}
+.quickRollerAnimation{
+  animation-delay:0;
+  animation-play-state:paused;
+  animation:slide 4.5s ease-out;
+  animation-fill-mode:forwards;
+}
+.quickRollerIIAnimation{
+  animation-delay:0;
+  animation-play-state:paused;
+  animation:slide 3s ease-out;
+  animation-fill-mode:forwards;
+}
+.mercurysTreadsAnimation{
+  animation-delay:0;
+  animation-play-state:paused;
+  animation:slide 2s ease-out;
+  animation-fill-mode:forwards;
+}
+@keyframes slide{
+  
+  100%{width:0px;}
+}
+
+.itemPicture{
+  width:10%;
+  
+}
+.tooltip{
+  
+}
+.tickerArrow{
+  border:2px white solid;
+  position:absolute;
+  left:50.86%;
+  top:0%;
+  z-index:999;
+  color:red;
+  width:15px;
+  background-color:red;
+  -webkit-clip-path: polygon(51% 100%, 0 0, 100% 0);
+clip-path: polygon(51% 100%, 0 0, 100% 0);
+  animation:tick 0.1s infinite;
+  animation-play-state:paused;
+}
+@keyframes tick{
+  0%{
+    transform:rotate(0deg);
+  }
+  50%{
+    transform:rotate(30deg);
+  }
+  100%{
+    transform:rotate(0deg);
+  }
+}
+
+//type classes
+.A{background-color:#c16400;
+border-top: 3px solid orange;text-shadow:#844400 2px 2px;};
+.B{background-color:#b500af;
+border-top: 3px solid #ff00cb;text-shadow:#870082 2px 2px;};
+.C{background-color:#01b5b5;
+border-top: 3px solid #00ffff;text-shadow:#008787 2px 2px;};
+.D{background-color:#00b737;
+border-top: 3px solid #00ff4c;text-shadow:green 2px 2px;};
+.F{background-color:#494949;
+border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;};
+
+.white{
+  color:white;
+}
+
+.bagItems{
+  height:188px;  
+  box-shadow:-1px -1px 2px black;
+   animation-fill-mode: none;
+}
+.bagItems:hover{
+  
+  -webkit-perspective: 100px; /* Safari 4-8 */
+    perspective: 100px;
+  transform:translateY(-4px) translateX(2px) ;
+  
+  box-shadow:-4px -4px 9px black;
+ 
+  
+}
+.bagItems:active{
+ box-shadow:-1px -1px 2px black;
+    perspective: 100px;
+  transform:translateY(0px) translateX(0px) ;
+}
+.bagAnimation{
+  animation:intoBag 2s 1;
+}
+@keyframes intoBag{
+  0%{
+  }
+  100%{     
+    transform:rotateY(360deg);
+  }
+}
+.inventory{
+  padding-bottom:20px;
+}
+
+.sellButton{
+  width:80%;
+  background-color:#a00000;
+  border:2px solid red;
+  color:white;
+  margin-bottom:8px;
+  margin-top:-15px;
+  &:hover{background-color:#ed0000;cursor:copy;}
+}
+
+.cashCounter{
+  float:right;
+  bottom:0;
+}
+
+.notificationBox{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding-right:10px;
+    text-align:right;
+ pointer-events: none;
+  .notification{
+
+    animation: fadeUp 3.25s 1;
+    animation-fill-mode:forwards;
+  }
+}
+
+@keyframes fadeUp{
+  0%{ opacity:1;}
+  80%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+
+  }
+}
+
+.disabled{
+  
+  height:100px;
+  
+  background-color:rgba(30,30,30,0.8);
+  z-index:300;
+  user-select:none;
+}
+
+.disabled:hover{
+  background-color:rgba(30,30,30,0.7);
+  cursor:pointer;
+}
+.invisible{
+  display:none;
+}
+.boxPrice{
+  color:white;
+  text-align:center;
+  margin-top:25px;
+  font-size:38px;
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+  .disabled{
+    height:128px;
+  }
+  .boxPrice{
+    margin-top:60px;
+  }
+}
+
+
+
+//volume slider CSS
+$primary-color: #2ecc71;
+#percent{
+  pointer-events:none;
+}
+#player {
+	width: 350px;
+	height: 50px;
+	position: relative;
+	margin: 0 auto;
+	
+	
+	i {
+		position: absolute;
+		margin-top: -6px;
+		color: #666;
+	}
+	
+	i.fa-volume-down {
+		margin-left: -8px;
+	}
+	
+	i.fa-volume-up {
+		margin-right: -8px;
+		right: 0;
+	}
+}
+
+#volume {
+	position: absolute;
+	left: 24px;
+	margin: 0 auto;
+	height: 5px;
+	width: 300px;
+	background: #555;
+	border-radius: 15px;
+	
+	.ui-slider-range-min {
+		height: 5px;
+		width: 300px;
+		position: absolute;
+		background: $volumeSliderGradient;
+		border: none;
+		border-radius: 10px;
+  	outline: none;
+	}
+	
+	.ui-slider-handle {
+		width: 20px;
+  	height: 20px;
+		border-radius: 20px;
+  	background: pink;
+  	position: absolute;
+  	margin-left: -8px;
+  	margin-top: -8px;
+  	cursor: pointer;
+  	outline: none;
+	}
+}
+#player:hover{
+  #percent{
+    animation:unfade 0.25s forwards;
+  }
+}
+#percent{
+  width:100%;
+  text-align:center;
+  margin-bottom:-10px;
+  opacity:0.3;
+  animation:fade 0.25s forwards;
+}
+@keyframes unfade{
+  to{
+    opacity:1;
+  }
+}
+@keyframes fade{
+  to{
+    opacity:0.2;
+  }
+}
+.hidden{
+  display:none;
+}
+
+/*p5 canvas css*/
+#sketchHolder{
+  position:absolute;
+  width:100vw;
+  min-height:1000px;
+  top:0;
+  left:0;
+  z-index:-1;
+}
