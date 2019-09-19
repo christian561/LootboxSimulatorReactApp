@@ -2,9 +2,7 @@ $tickerHeight:100px;
 $tickerBackgroundColor:rgba(30,30,30,0.65);
 
 $firstRowBackgroundImage:"https://blueblots.com/wp-content/uploads/2011/12/35-seamless-wood-texture.jpg";
-$shopBackgroundImage:"https://blueblots.com/wp-content/uploads/2011/12/35-seamless-wood-texture.jpg";
-$shopTextColor:white;
-$shopItemBgColor:rgba(193, 158, 60,0.8);
+
 $mainGradient:linear-gradient(-45deg,white,#fbff87,pink);
 $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
 
@@ -80,87 +78,7 @@ body{
   height:100vh;
   z-index:-1;
 }
-.shop{
-  // background-color:$shopBackgroundColor;
-  // background-image:url($shopBackgroundImage);
-  color:$shopTextColor;
-  padding-left:0;
-  padding-top:0;
-  text-align:center;
-  
-}
 
-#shopList li{
-  list-style-type:none;
-}
-.shopItem{
-  background-color:$shopItemBgColor;
-  border:3px outset gold;
-  width:45%;
-  margin:5px;
-  text-align:center;
-  display:inline-block;
-}
-#upgrade9{
-  background:url(https://upload.wikimedia.org/wikipedia/commons/2/22/Animated_fire_by_nevit.gif);
-  background-size:cover;
-  border-color:#380001;
-  width:95%;
-  border-width:1px;
-  background-size:105%;
-  background-position:center -5px;
-  animation: shrinkBackground forwards 2s;
-  
-}
-
-#upgrade9:hover{
-  border-width:1px;
-  background-size:145%;
-  animation: growBackground forwards 2s;
- border-color:#A30100;
-  cursor: url(https://christianlong.design/assets/codepen/lootboxgame/pentagram.png) 20 22, auto;
-}
-#upgrade9:active{
- border-color:#A30100;
-  cursor: url(https://christianlong.design/assets/codepen/lootboxgame/pentagram.png) 17 19, auto;
-}
-@keyframes growBackground{
-  0%{background-position:center -5px;}
-  100%{background-position:center -150px;}
-}
-@keyframes shrinkBackground{
-  0%{background-position:center -150px;}
-  100%{background-position:center -5px;}
-}
-.shopItem:hover{
-  background-color: darken($shopItemBgColor,10%);
-  cursor:copy;
-}
-.shopItem:active{
-  border:3px inset gold;
-  background-color: darken($shopItemBgColor,20%);
-}
-.hideUpgrade{
-  display:none;
-}
-.tier2Upgrade{
-  background: linear-gradient(130deg,#8A6E2D,#AB9000,#FFD700,#8A6E2D);
-  text-shadow:1px 2px 1px #AB9000;
-}
-.tier2Upgrade:hover{
-  background: linear-gradient(150deg,#8A6E2D,#AB9000,#FFD700,#8A6E2D);
-}
-.tier2Upgrade:active{
-  background: linear-gradient(130deg,#8A6E2D,#AB9000,#FFD700,#8A6E2D);
-}
-.tier3Upgrade{
-  background: linear-gradient(130deg,#8A6E2D,#E54207,#F29609,#8A6E2D);
-  text-shadow:1px 2px 1px #AB9000;
-}
-.costLabel{
-  display:inline;
-  
-}
 
 .yellow{
   color:yellow;
