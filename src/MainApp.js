@@ -6,14 +6,14 @@ import NotificationDisplay from './NotificationDisplay'
 import DevelopmentTestButtons from './DevelopmentTestButtons'
 import VolumeSlider from './VolumeSlider'
 
-function MainApp() {
+function MainApp(props) {
   return (
     <div className="MainApp">
       
 
 <div id="bgOverlay"></div>
 <div class="container" id="mainContainer">
-<MenuContainer />
+<MenuContainer upgradeHandler={props.upgradeHandler}/>
   
  
   <Inventory />

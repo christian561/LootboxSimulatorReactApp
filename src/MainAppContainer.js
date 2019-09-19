@@ -16,7 +16,7 @@ class MainAppContainer extends React.Component {
     return (
       
       
-      <MainApp />
+      <MainApp upgradeHandler={this.props.upgradeHandler}/>
 
     );
   }
