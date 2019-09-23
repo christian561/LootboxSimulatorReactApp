@@ -14,10 +14,10 @@ const UpgradesData = [
 		cost:750
 	},{
 		Name: "Recycler",
-		Description: "Chance of turning garbage into keys!",
+		Description: "+50% Chance to turn worthless items into keys",
 		UpgradeID:3,
 		ParentUpgradeID:0,
-		cost:300
+		cost:150
 	},{
 		Name: "Barter Lessons",
 		Description: "Sell items for 15% more",
@@ -26,19 +26,19 @@ const UpgradesData = [
 		cost:650
 	},{
 		Name: "Quick Roller",
-		Description: "25% faster rolls",
+		Description: "+25% faster rolls",
 		UpgradeID:5,
 		ParentUpgradeID:0,
 		cost:500
 	},{
 		Name: "Box Upgrade II",
-		Description: "Unlocks new Lootbox",
-		UpgradeID:"20",
-		ParentUpgradeID:0,
-		cost:1850
+		Description: "Unlock new Lootboxes",
+		UpgradeID:19,
+		ParentUpgradeID:6,
+		cost:1250
 	},{
 		Name: "Shop Upgrade",
-		Description: "Unlocks new Shop Items",
+		Description: "Unlocks new Upgrades",
 		UpgradeID:6,
 		ParentUpgradeID:0,
 		cost:2500
@@ -50,7 +50,7 @@ const UpgradesData = [
 		cost:50
 	},{
 		Name: "Quick Roller II",
-		Description: "50% faster rolls",
+		Description: "+50% faster rolls",
 		UpgradeID:8,
 		ParentUpgradeID:6,
 		cost:2950
@@ -62,13 +62,13 @@ const UpgradesData = [
 		cost:'???'
 	},{
 		Name: "Fafnir\'s Tongue",
-		Description: "Sell items for a devilish price.. +66.6%",
+		Description: "Sell items for a devilish price.. +66.6% value",
 		UpgradeID:10,
 		ParentUpgradeID:9,
 		cost:6666
 	},{
 		Name: "Mercury\'s Treads",
-		Description: "𝘌𝘷𝘦𝘯 𝘧𝘢𝘴𝘵𝘦𝘳 rolls",
+		Description: "𝘌𝘷𝘦𝘯 𝘧𝘢𝘴𝘵𝘦𝘳 rolls.. +66.6% speed",
 		UpgradeID:11,
 		ParentUpgradeID:9,
 		cost:17500

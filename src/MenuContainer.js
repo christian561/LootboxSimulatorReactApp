@@ -15,7 +15,12 @@ class MenuContainer extends React.Component{
 			  	<UpgradeShop gold={this.context.gold} upgrades={this.Upgrades} upgradeHandler={this.props.upgradeHandler}/>
 			    
 				    
-				<LootboxMenu keys={this.context.keys}/>
+				<LootboxMenu 
+					keys={this.context.keys}
+					checkUpgrade={this.props.checkUpgrade}  
+					changeKeys={this.props.changeKeys}
+        			insertInventoryItem={this.props.insertInventoryItem}
+				/>
 		       
 		    </div>
 		);

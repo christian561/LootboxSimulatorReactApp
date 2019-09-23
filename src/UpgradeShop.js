@@ -11,7 +11,7 @@ class UpgradeShop extends React.Component{
     let unlockedUpgrades = this.context.upgrades
     let upgradeHandler = this.props.upgradeHandler
     let upgradeComponents = UpgradesData.map(function(upgrade){
-console.log(unlockedUpgrades)
+
       //filter out empty template upgrades
       if(upgrade.Name != "" && upgrade.Name != null){
         //check if parentUpgradeID is unlocked, if unlocked show the shop item
@@ -19,7 +19,7 @@ console.log(unlockedUpgrades)
           //hide all upgrades
           let hidden = true
           //show tier 1 upgrades
-          if(upgrade.ParentUpgradeID == 0){
+          if(upgrade.ParentUpgradeID == 0 ){
               hidden = false
           }
           //show 
@@ -29,11 +29,14 @@ console.log(unlockedUpgrades)
               hidden = false
             }
             //hide shop item if already purchased
-            if(upgrade.UpgradeID == unlockedUpgrades[i]){
+            if(upgrade.UpgradeID == unlockedUpgrades[i] && upgrade.UpgradeID != 7){
               hidden = true;
             }
           }
-          
+          //always show this upgrade
+          if(upgrade.UpgradeID == 1 ){
+              hidden = false
+          }
           console.log(upgrade.Name + " " + hidden)
           //don't render shop item if hidden
           if(hidden){
@@ -60,7 +63,7 @@ console.log(unlockedUpgrades)
               {upgradeComponents}
           </ul>
         </div>
-        <h3 className="cashCounter">${this.context.gold}</h3>
+        <h3 className="cashCounter">${Math.round(this.context.gold)}</h3>
       </div>
   	);
   }

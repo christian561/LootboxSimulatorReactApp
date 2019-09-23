@@ -170,12 +170,11 @@ body{
 width:45px;}
 .tickerItems img{width:60px;height:55px;}
 .tickerSlider{
-  
   background-color:blue;
   // width:3600px;
   // margin-left:-3650px;
   width:0px;
-  margin-left:0px;
+  margin-left:-250px;
   height:300px;
   vertical-align:bottom;
   display:inline-block;
@@ -195,13 +194,11 @@ width:45px;}
 }
 .animation{
   animation-delay:0;
-  animation-play-state:paused;
   animation:slide 6s ease-out;
   animation-fill-mode:forwards;
 }
 .quickRollerAnimation{
   animation-delay:0;
-  animation-play-state:paused;
   animation:slide 4.5s ease-out;
   animation-fill-mode:forwards;
 }
@@ -219,7 +216,7 @@ width:45px;}
 }
 @keyframes slide{
   
-  100%{width:0px;}
+  100%{transform: translateX(-6000px)}
 }
 
 .itemPicture{
@@ -256,8 +253,8 @@ clip-path: polygon(51% 100%, 0 0, 100% 0);
 }
 
 //type classes
-.A{background-color:#c16400;
-border-top: 3px solid orange;text-shadow:#844400 2px 2px;};
+.A{background-color:orange;
+border-top: 3px solid #c16400;text-shadow:#844400 2px 2px;};
 .B{background-color:#b500af;
 border-top: 3px solid #ff00cb;text-shadow:#870082 2px 2px;};
 .C{background-color:#01b5b5;

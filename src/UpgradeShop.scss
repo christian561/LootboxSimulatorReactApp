@@ -16,14 +16,32 @@ $shopItemBgColor:rgba(193, 158, 60,0.8);
   list-style-type:none;
 }
 .shopItem{
+
   background-color:$shopItemBgColor;
   border:3px outset gold;
   width:45%;
   margin:5px;
   text-align:center;
   display:inline-block;
+      backface-visibility: hidden;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+    background: linear-gradient(180deg,#f1e9c4 0%,#fffce2 39%,#debf4d 45%,#fffce2 79%,#efebcf 100%);
+    border-radius: 1px;
+    border: 0.5px solid rgba(0%,0%,0%,0.2);
+    border-width: 0.5px 0.5px 0.5px 0.5px;
+    padding: 4px 10px 5px 10px;
+    box-shadow: inset 0px 1px 1px rgba(0%,0%,0%,0.6), 0px 0px 5px rgba(255,255,255,1), 0px 1px 0px 3px rgba(0,0,0,0.2), inset 0px 1px 0px rgba(255,255,255,1);
+    color: #574317;
+    font-size: 16px;
+    font-family: Helvetica Neue;
+    font-weight: 900;
+    font-style: normal;
 }
 .godUpgrade{
+  color:orange;
   background:url(https://upload.wikimedia.org/wikipedia/commons/2/22/Animated_fire_by_nevit.gif);
   background-size:cover;
   border-color:#380001;
@@ -40,11 +58,11 @@ $shopItemBgColor:rgba(193, 158, 60,0.8);
   background-size:145%;
   animation: growBackground forwards 2s;
  border-color:#A30100;
-  cursor: url(https://christianlong.design/assets/codepen/lootboxgame/pentagram.png) 20 22, auto;
+  
 }
 .godUpgrade:active{
  border-color:#A30100;
-  cursor: url(https://christianlong.design/assets/codepen/lootboxgame/pentagram.png) 17 19, auto;
+  
 }
 @keyframes growBackground{
   0%{background-position:center -5px;}
@@ -55,29 +73,39 @@ $shopItemBgColor:rgba(193, 158, 60,0.8);
   100%{background-position:center -5px;}
 }
 .shopItem:hover{
-  background-color: darken($shopItemBgColor,10%);
+  filter:contrast(1.1);
   cursor:copy;
 }
 .shopItem:active{
-  border:3px inset gold;
-  background-color: darken($shopItemBgColor,20%);
 }
 .hideUpgrade{
   display:none;
 }
+.tier1Upgrade{
+  background: linear-gradient(180.5deg,#f1e9c4 0%,#fffce2 39%,#debf4d 46%,#fffce2 79%,#efebcf 100%);
+}
+.tier1Upgrade:active{
+
+  border:none;
+}
 .tier2Upgrade{
-  background: linear-gradient(130deg,#8A6E2D,#AB9000,#FFD700,#8A6E2D);
+  background: linear-gradient(180deg,#8A6E2D,#AB9000 10%,#FFD700 35%,#8A6E2D);
   text-shadow:1px 2px 1px #AB9000;
 }
 .tier2Upgrade:hover{
-  background: linear-gradient(150deg,#8A6E2D,#AB9000,#FFD700,#8A6E2D);
+  background: linear-gradient(180deg,#8A6E2D,#AB9000 10%,#FFD700 37%,#8A6E2D);
 }
 .tier2Upgrade:active{
-  background: linear-gradient(130deg,#8A6E2D,#AB9000,#FFD700,#8A6E2D);
+  background: linear-gradient(182deg,#8A6E2D,#AB9000 10%,#FFD700 37%,#8A6E2D);
+  
+  border:none;
 }
 .tier3Upgrade{
-  background: linear-gradient(130deg,#8A6E2D,#E54207,#F29609,#8A6E2D);
+  background: linear-gradient(180deg,#8A6E2D,#E54207,#F29609,#8A6E2D);
   text-shadow:1px 2px 1px #AB9000;
+}
+.tier3Upgrade:active{
+  background: linear-gradient(183deg,#8A6E2D,#AB9000,#FFD700,#8A6E2D);
 }
 .costLabel{
   display:inline;
