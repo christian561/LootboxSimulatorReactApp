@@ -55,6 +55,7 @@ class App extends React.Component {
   }
   insertInventoryItem(item){
     let newInventory = this.state.inventory
+
     //insert item into array
     newInventory.push(item)
     //access previous state
@@ -69,17 +70,21 @@ class App extends React.Component {
   //handle selling items
   removeInventoryItem(index){
     let newInventory = this.state.inventory
-    let goldGained = this.state.inventory[index].value*this.state.valueMultiplier
+    let goldGained = Math.round(this.state.inventory[index].value*this.state.valueMultiplier)
 
     //add gold to state
     this.changeGold(goldGained)
-    //remove item from array by index
-    newInventory.splice(index,1)
 
     //check for recycler upgrade
     if(goldGained <1){
       this.recycle()
     }
+    else{
+      this.notify("Sold " + this.state.inventory[index].name + " for $" + Math.floor(goldGained))
+    }
+
+    //remove item from array by index
+    newInventory.splice(index,1)
 
      //access previous state
     this.setState((prevState)=>{
@@ -92,6 +97,7 @@ class App extends React.Component {
   recycle(){
   //is hydraulic press unlocked
     if(this.checkUpgrade(18)){
+      this.notify("Hydraulic Pressed!")
       this.changeKeys(1)
       return ;
     }
@@ -101,12 +107,14 @@ class App extends React.Component {
       //50% chance to get an item
       let randomNumber = Math.round(Math.random())
       if(randomNumber){
+        this.notify("Recycled!")
         this.changeKeys(1)
       }
     }
     
   }
   resetGameSave(){
+    this.notify("Game reset!")
     window.localStorage.clear()
     this.loadGameSave()
   }
@@ -127,7 +135,7 @@ class App extends React.Component {
      
   }
   saveGame(){
-    console.log("Saved the Game!")
+    this.notify("Game saved!")
     let playerData = {gold : this.state.gold, keys : this.state.keys, upgrades : this.state.upgrades, inventory : this.state.inventory}
     window.localStorage.setItem("playerData", JSON.stringify(playerData)) 
   }
@@ -139,7 +147,7 @@ class App extends React.Component {
         gold : updatedBalance
       }
     })
-      console.log("Updated Key Balance")
+      
     }
     //change state method
   changeValue(amount){
@@ -251,6 +259,7 @@ class App extends React.Component {
     if(id == 11){
       this.changeSpeed(0.666)
     }
+    
   }
   purchaseUpgrade(id,cost){
     //console.log("buy " + id)
@@ -264,7 +273,7 @@ class App extends React.Component {
       }
     }
     else{
-      this.notify('Not Enough Gold! Need ' + (cost-this.state.gold) + ' more.')
+      this.notify('Can\'t Afford! Need $' + Math.floor(cost-this.state.gold) + ' more.')
     }
 
     //create notification if failed or succeeded purchase

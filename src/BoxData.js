@@ -159,7 +159,7 @@ items: [{
 name:"Guns",
 cost:200,
 parentUpgradeID:2,
-multiplier:1,
+multiplier:4,
 items: [{
 		
 		id:61,

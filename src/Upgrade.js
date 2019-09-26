@@ -41,7 +41,7 @@ class Upgrade extends React.Component{
 
 			<div  onClick={(e) => this.props.upgradeHandler(this.props.upgradeID,this.props.cost)} className={classes} id={this.props.upgradeID} data-toggle="tooltip" data-trigger="hover" data-placement="auto" title={this.props.description}>
 			
-				<li>{this.props.name}<br></br><h6 className="costLabel" id="costLabel'+i+'">{this.props.cost}</h6> <i className="fas fa-coins yellow"></i><br></br>
+				<li>{this.props.name}<br></br><h6 className="costLabel" id="costLabel'+i+'">${this.props.cost}</h6><br></br>
 				</li>
 			</div>   
 		)

@@ -57,6 +57,28 @@ $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
     padding-top:-5px;
   }
 }
+
+.lootboxes button{
+white-space: nowrap;
+  background: linear-gradient(0deg,#ff9 0%,#fff 50%,#e92 100%);
+  border: 3px solid #fff;
+  border-width: 2px 2px 1px 3px;
+  padding: 8px 10px 7px 10px;
+  box-shadow: inset 0px 1px 3px #55e9e8,inset 0px -1px 3px #35c9c8,0px 3px 6px rgba(0,0,0,0.3);
+  font-weight: 750;
+  transition:opacity 0.1s;
+  opacity: 0.95;
+  margin-right: -93px;
+  z-index:3;
+  }
+.lootboxes button:hover{
+  opacity: 1;
+}
+.lootboxes button:active{
+  opacity: 1;
+  filter:contrast(1.1);
+  background: linear-gradient(0deg,#ff9 10%,#fff 55%,#e92 90%);
+}
 .menu button:hover{
   cursor:pointer;
   
@@ -95,6 +117,7 @@ body{
 }
 .lootboxes{
   margin:auto;
+  padding-bottom:5px;
   width:94%;
   @include for-tablet-portrait-up {
     margin-left:8%;
@@ -269,6 +292,7 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;};
 }
 
 .bagItems{
+  transition:transform 0.1s ease;
   height:188px;  
   box-shadow:-1px -1px 2px black;
    animation-fill-mode: none;
@@ -277,7 +301,7 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;};
   
   -webkit-perspective: 100px; /* Safari 4-8 */
     perspective: 100px;
-  transform:translateY(-4px) translateX(2px) ;
+  transform:translateY(-5px) translateX(2px) rotateZ(3deg) ;
   
   box-shadow:-4px -4px 9px black;
  
@@ -289,10 +313,12 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;};
   transform:translateY(0px) translateX(0px) ;
 }
 .bagAnimation{
-  animation:intoBag 2s 1;
+  animation:intoBag .3s 1 ease;
 }
 @keyframes intoBag{
   0%{
+    width:70px;
+    transform:rotateY(90deg);
   }
   100%{     
     transform:rotateY(360deg);

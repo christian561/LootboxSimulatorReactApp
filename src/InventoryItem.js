@@ -29,12 +29,10 @@ class InventoryItem extends React.Component{
 				} 
 			}
 		}
-		console.log(box.multiplier)
-		console.log(box.multiplier)
-		console.log(box.multiplier)
-		console.log(box.multiplier)
 		//adds classes. adds color based on grade
-		let classes="tickerItems bagItems " + this.props.grade
+		
+		let classes="tickerItems bagItems bagAnimation " + this.props.grade 
+		
 		return(
 			<div class={classes} id="wonItem9" title={item.Description}>
 			<p>{item.Name}</p>

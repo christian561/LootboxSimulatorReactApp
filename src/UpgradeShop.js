@@ -7,6 +7,7 @@ import './UpgradeShop.scss'
 class UpgradeShop extends React.Component{
   static contextType = UserContext
 
+  
   render(){
     let unlockedUpgrades = this.context.upgrades
     let upgradeHandler = this.props.upgradeHandler
@@ -54,6 +55,7 @@ class UpgradeShop extends React.Component{
             />
       }
     })
+
     console.log(upgradeComponents)
   	return(
   		<div className="shop col-sm-4">

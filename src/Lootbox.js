@@ -42,7 +42,7 @@ class Lootbox extends React.Component{
 		let src = this.props.data.items[randomNameIndex].src
 		let randomGradeIndex = Math.floor(Math.random() * grades.length)
 		let grade = grades[randomGradeIndex]
-		let value =  Math.floor(((randomGradeIndex*10) + (3*rarity*randomGradeIndex))*0.3)
+		let value =  (Math.floor(((randomGradeIndex*10) + (3*rarity*randomGradeIndex))*0.3))*this.props.data.multiplier
 		//let value = Math.floor(((randomType *10) + (3*randomItem*randomType))*valueMultiplier);
 		var item = {id:id, name:name, src:src, grade:grade, value:value};
 		//let item = <item name={randomName} src={randomName} grade={randomGrade} value={value}/>
@@ -188,7 +188,7 @@ class Lootbox extends React.Component{
 		<div class="row lootboxes ">
 		<button class="col-sm-2" onClick={this.resetRoll} id="boxItems">
 		Open Box</button>
-		<div class="ticker col-sm-9" >
+		<div class="ticker col-sm-11" >
 		<div 
 			 id="sliderItems"
 			 data-isrolling="false" 

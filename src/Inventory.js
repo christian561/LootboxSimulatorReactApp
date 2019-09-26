@@ -15,6 +15,7 @@ class Inventory extends React.Component{
 		let key=-1
 		let inventoryItemComponents = inventoryItems.map(function(item){
 			key++
+			
 			return <InventoryItem 
 						key1={key} 
 						id={item.id} 
