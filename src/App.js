@@ -5,6 +5,8 @@ import logo from './logo.svg';
 
 import './App.css'
 import { UserProvider } from './UserContext'
+import Winscreen from './Winscreen'
+import Mainmenu from './Mainmenu'
 import Navbar from './Navbar'
 import MainAppContainer from './MainAppContainer'
 
@@ -16,7 +18,9 @@ class App extends React.Component {
       //todoData: TodoItemData,
       loggedIn: false,
       save:"",
-      notifications:[]
+      notifications:[],
+      upgrades:[],
+      scene:"Main Menu"
     }
     //anytime using a method with setState you want to bind it to the class
     //this.toggleLogin = this.toggleLogin.bind(this)
@@ -29,16 +33,50 @@ class App extends React.Component {
     this.resetGameSave = this.resetGameSave.bind(this)
     this.loadGameSave = this.loadGameSave.bind(this)
     this.changeKeys = this.changeKeys.bind(this)
+    this.changeReaperKeys = this.changeReaperKeys.bind(this)
     this.changeSpeed = this.changeSpeed.bind(this)
     this.changeValue = this.changeValue.bind(this)
     this.insertInventoryItem = this.insertInventoryItem.bind(this)
     this.removeInventoryItem = this.removeInventoryItem.bind(this)
+    this.searchInventory = this.searchInventory.bind(this)
+    this.drink = this.drink.bind(this)
+    this.removeInventoryItemsByGrade = this.removeInventoryItemsByGrade.bind(this)
+    this.sellAll = this.sellAll.bind(this)
+    this.sceneSwitch = this.sceneSwitch.bind(this)
+  }
+  sceneSwitch(scene){
+    this.setState({
+      scene:scene
+    })
+    if(scene === "Game"){
+      this.resetGameSave()
+      this.loadGameSave()
+    }
+    if(scene === "ContinueGame"){
+      this.loadGameSave()
+    }
+    
+    if(scene === "NewGamePlus"){
+      //keep old level while resetting game
+      let level = this.state.newGamePlusLevel
+      
+      //go up a level
+      level = level + 1
+      let newValueMultiplier = this.state.valueMultiplier*level
+      //start a new game
+      this.resetGameSave()
+      this.loadGameSave()
+      //set newgameplus level to incremented level
+      this.setState({newGamePlusLevel:level, valueMultiplier:newValueMultiplier})
+    }
   }
    //anytime using a method with setState you want to bind it to the class
   toggleLogin(){
     console.log("Save Found or Created.. Logged in successfully")
     var saveData = JSON.parse(window.localStorage.getItem("playerData"))
-    
+    console.log(saveData.speedMultiplier)
+    let speed = saveData.speedMultiplier
+    let valueMultiplier = saveData.valueMultiplier*saveData.newGamePlusLevel
     //access previous state
     this.setState((prevState)=>{
       //!!!make sure you use curly braces for the return statement if you are returning an object
@@ -46,12 +84,54 @@ class App extends React.Component {
       loggedIn: true,
       gold : Number(saveData.gold),
       keys : Number(saveData.keys),
+      reaperKeys : Number(saveData.reaperKeys),
       inventory: saveData.inventory,
       upgrades : saveData.upgrades,
-      speedMultiplier:1,
-      valueMultiplier:1
+      speedMultiplier:speed,
+      valueMultiplier:valueMultiplier,
+      newGamePlusLevel:saveData.newGamePlusLevel,
+      drunk:false
       }
     })
+    console.log(this.state.speedMultiplier)
+  }
+  //demon bag upgrade sells all items in bag for $1000 fee
+  sellAll(){
+      
+    if(this.state.gold >= 1000){
+      
+      let inventoryItems = this.state.inventory
+      
+      let totalValue = 0
+      let blacklist = []
+      
+      //loop through all items in the inventory from the end
+      inventoryItems.map((item,index)=>{
+        //skip items without sell value
+        if(Number.isInteger(Math.round(item.value))){
+          totalValue += item.value*this.state.valueMultiplier
+          //sell the item
+          this.removeInventoryItem(index)
+        }})
+
+      let count = inventoryItems.length
+      //loop through all items in the inventory from the end
+      for(var i=count;i>0;i--){
+        
+        //skip items without sell value
+        if(Number.isInteger(Math.round(inventoryItems[i-1].value))){
+          //sell the item
+          this.removeInventoryItem(i-1)
+        }
+      }
+         
+        
+      
+      this.changeGold(totalValue-1000)
+      
+      return null
+      
+    }
   }
   insertInventoryItem(item){
     let newInventory = this.state.inventory
@@ -66,11 +146,27 @@ class App extends React.Component {
       }
     })
   }
-
+  //remove inventory items by grade and how many(for legendary and crafting upgrades)
+  removeInventoryItemsByGrade(grade,amount){
+    let newInventory = this.state.inventory
+    let index =0
+    let removedItemCount = 0
+    newInventory.map((item)=>{
+      if(removedItemCount < amount){
+        if(item.grade === grade){
+          newInventory.splice(index,1)
+          removedItemCount++
+        }
+      index++
+      }
+    })
+    //update state
+    this.setState({inventory: newInventory})
+  }
   //handle selling items
   removeInventoryItem(index){
     let newInventory = this.state.inventory
-    let goldGained = Math.round(this.state.inventory[index].value*this.state.valueMultiplier)
+    let goldGained = Math.round(newInventory[index].value*this.state.valueMultiplier)
 
     //add gold to state
     this.changeGold(goldGained)
@@ -113,6 +209,19 @@ class App extends React.Component {
     }
     
   }
+  drink(){
+    //access previous state
+    this.notify("You suddenly feel smashed")
+    this.setState({drunk: true});
+      const timer = setTimeout(function(){
+         this.setState({drunk: false});
+         this.notify("You sobered up")
+      }.bind(this),20000); 
+     return () => clearTimeout(timer);
+    
+
+    
+  }
   resetGameSave(){
     this.notify("Game reset!")
     window.localStorage.clear()
@@ -125,30 +234,36 @@ class App extends React.Component {
         this.toggleLogin()
      }
      else{
-        let playerData = {gold : 0, keys : 5, upgrades : [], inventory : []}
+        //instantiate new save
+        let playerData = {gold : 0, keys : 5,reaperKeys:0, upgrades : [], inventory : [], speedMultiplier: 1, valueMultiplier:1,newGamePlusLevel:1}
         window.localStorage.setItem("playerData", JSON.stringify(playerData)) 
         this.toggleLogin()
      }
-  }
-  componentDidMount(){
-    this.loadGameSave()
      
   }
+    
+  componentDidMount(){
+    
+  }
+  
+
+    
+
   saveGame(){
     this.notify("Game saved!")
-    let playerData = {gold : this.state.gold, keys : this.state.keys, upgrades : this.state.upgrades, inventory : this.state.inventory}
+    let playerData = {gold : this.state.gold, keys : this.state.keys,reaperKeys:this.state.reaperKeys, upgrades : this.state.upgrades, inventory : this.state.inventory, speedMultiplier: this.state.speedMultiplier, valueMultiplier: this.state.valueMultiplier, newGamePlusLevel: this.state.newGamePlusLevel}
     window.localStorage.setItem("playerData", JSON.stringify(playerData)) 
   }
     //change state method
   changeGold(amount){
+    //find new balance
     let updatedBalance = this.state.gold + amount
-    this.setState((prevState)=>{
-      return{
+    //update state
+    this.setState({
         gold : updatedBalance
-      }
-    })
-      
-    }
+      })
+    
+  }
     //change state method
   changeValue(amount){
     let updatedValue = this.state.valueMultiplier + amount
@@ -160,6 +275,7 @@ class App extends React.Component {
     }
     //change state method
   changeSpeed(amount){
+
     let updatedSpeed = this.state.speedMultiplier + amount
     this.setState((prevState)=>{
       return{
@@ -194,7 +310,35 @@ class App extends React.Component {
         return false
       }
     }
+    //change state method
+    changeReaperKeys(amount){
+      
+      let updatedBalance = this.state.reaperKeys + amount
+      //make sure you have enough keys first
+      if(updatedBalance >-1){
+        if(amount<0){
+        this.notify(amount +' Reaper Key')
+        }
+        else{
+
+        this.notify('+'+amount +' Reaper Key')
+        }
+        //update key balance
+      this.setState((prevState)=>{ //!!!make sure you use curly braces for the return statement if you are returning an object
+        return{
+          reaperKeys : updatedBalance
+        }
+      })
+        return true
+        
+      }
+      else{
+        this.notify('You need a reaper key!')
+        return false
+      }
+    }
   checkUpgrade(upgradeID){
+
     //get upgrades
     let upgrades = this.state.upgrades
     let flag = false
@@ -218,14 +362,16 @@ class App extends React.Component {
 
     //get upgrades
     let upgrades = this.state.upgrades
-    //add new upgrade
-    upgrades.push(id)
-    //update state
-    this.setState((prevState)=>{
-      return{
-        upgrades: upgrades 
-      }
-    })
+    //add new upgrade if its not a key or bacchus drink
+    if(id !== 1 && id !== 7 && id !== 12 && id !== 20){
+      upgrades.push(id)
+      //update state
+      this.setState((prevState)=>{
+        return{
+          upgrades: upgrades 
+        }
+      })
+    }
     //code specific to each upgrade goes here if it doesn't fit in a specific component
     //box key x1 upgrade
     if(id == 1){
@@ -234,6 +380,10 @@ class App extends React.Component {
     //box key x5 upgrade
     if(id == 7){
       this.changeKeys(5)
+    }
+    //drink with bacchus
+    if(id == 12){
+      this.drink()
     }
     //barter lessons upgrade
     if(id == 4){
@@ -259,28 +409,100 @@ class App extends React.Component {
     if(id == 11){
       this.changeSpeed(0.666)
     }
+    //Immortal Sacrifice upgrade
+    if(id == 9){
+      this.removeInventoryItemsByGrade('A',20)
+    }
+    //Craft Reaper key
+    if(id == 20){
+      this.removeInventoryItemsByGrade('R',3)
+      this.changeReaperKeys(1)
+    }
+    //Win the game
+    if(id == 23){
+      this.removeInventoryItemsByGrade('Z',5)
+      this.sceneSwitch("Win")
+    }
     
   }
   purchaseUpgrade(id,cost){
     //console.log("buy " + id)
-    //check to see if there is enough gold
-    if(this.state.gold >= cost){
-    //subtract cost of upgrade from total gold
-      this.changeGold(-1*cost)
-      this.unlockUpgrade(id)
-      if(id != 1 && id != 7){
-        this.notify('Upgrade Unlocked!')
+    //check for immortal upgrade
+    if(id === 9){
+      let matchingItemCount = this.searchInventory('A').length
+      if(matchingItemCount >= 20){
+        this.unlockUpgrade(id)
+      }
+      else{
+
+        this.notify('The gods are not yet pleased.. (' + matchingItemCount + '/20 Legendaries)')
+      }
+    }
+    //check for win condition 5 souls
+    if(id === 23){
+      let matchingItemCount = this.searchInventory('Z').length
+      if(matchingItemCount >= 5){
+        this.unlockUpgrade(id)
+      }
+      else{
+
+        this.notify('You can\'t leave them behind! (' + matchingItemCount + '/5 Souls)')
+      }
+    }
+    //check if crafting a reaper key
+    else if(id===20){
+      //count owned reaper shards
+      let matchingItemCount = this.searchInventory('R').length
+      //check you have atleast 3 shards 
+      if(matchingItemCount >= 3){
+        //craft
+        this.unlockUpgrade(id)
+      }
+      else{
+        //dont craft, read error
+        this.notify('You attempt to summon a hell portal but get knocked away by the explosion. (' + matchingItemCount + '/3 Shards)')
       }
     }
     else{
-      this.notify('Can\'t Afford! Need $' + Math.floor(cost-this.state.gold) + ' more.')
+      //if its not immortal do the normal upgrades
+      //check to see if there is enough gold
+      if(this.state.gold >= cost ){
+        //25% refund if king kappa is unlocked
+        if(this.checkUpgrade(14) && id !== 14){
+          this.changeGold(cost*(-0.75))
+          this.notify("King Kappa refunded you $" + cost*0.25 + "!")
+        }
+        //normal purchase with no upgrades
+        else{
+          //subtract cost of upgrade from total gold
+          this.changeGold(-1*cost)
+        }
+        this.unlockUpgrade(id)
+        if(id !== 1 && id !== 7 && id !== 12){
+          this.notify('Upgrade Unlocked!')
+        }
+      }
+      else{
+        this.notify('Can\'t Afford! Need $' + Math.floor(cost-this.state.gold) + ' more.')
+      }
     }
-
     //create notification if failed or succeeded purchase
 
     return null
 
 
+  }
+  //returns an array of all items in the inventory with a matching grade
+  searchInventory(grade){
+    let inventory = this.state.inventory
+    let matchingItems = []
+    //find items with matching grades
+    inventory.map((item)=>{
+      if(item.grade === grade){
+        matchingItems.push(item)
+      }
+    })
+    return matchingItems;
   }
   //add notification to notifications list
   notify(notification){
@@ -296,25 +518,31 @@ class App extends React.Component {
   }
    
   render(){
-
+    console.log(this.state.scene)
     return (
       //provide access to state to all components inside the <UserProvider> Tag
       <UserProvider value={this.state}>
-
+      {this.state.scene === "Main Menu" ? <Mainmenu  sceneSwitch={this.sceneSwitch}/> : <></>}
+      {this.state.scene === "Win" ? <Winscreen sceneSwitch={this.sceneSwitch}/> : <></>}
+      {this.state.scene === "Game" || this.state.scene === "ContinueGame" || this.state.scene === "NewGamePlus" ? 
       <div className="App">
-        <Navbar save={this.saveGame} reset={this.resetGameSave}/>
+        <Navbar save={this.saveGame} reset={this.resetGameSave} />
         {this.state.loggedIn &&
           <MainAppContainer  
             upgradeHandler={this.purchaseUpgrade} 
             checkUpgrade={this.checkUpgrade} 
-            changeKeys={this.changeKeys} 
+            changeKeys={this.changeKeys}  
+            changeGold={this.changeGold}
+            changeReaperKeys={this.changeReaperKeys} 
             insertInventoryItem={this.insertInventoryItem}
             removeInventoryItem={this.removeInventoryItem}
+            sellAll={this.sellAll}
+            notify={this.notify}
           />
         }
         
       </div>
-
+    :<></>}
       </UserProvider>
     );
   }

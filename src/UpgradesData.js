@@ -7,11 +7,11 @@ const UpgradesData = [
 		cost:10
 	},
 	{
-		Name: "Box Upgrade I",
-		Description: "Unlock new lootboxes",
+		Name: "Unlock Gems Box",
+		Description: "Unlock a new lootbox",
 		UpgradeID:2,
 		ParentUpgradeID:0,
-		cost:750
+		cost:200
 	},{
 		Name: "Recycler",
 		Description: "+50% Chance to turn worthless items into keys",
@@ -29,19 +29,13 @@ const UpgradesData = [
 		Description: "+25% faster rolls",
 		UpgradeID:5,
 		ParentUpgradeID:0,
-		cost:500
-	},{
-		Name: "Box Upgrade II",
-		Description: "Unlock new Lootboxes",
-		UpgradeID:19,
-		ParentUpgradeID:6,
-		cost:1250
+		cost:300
 	},{
 		Name: "Shop Upgrade",
 		Description: "Unlocks new Upgrades",
 		UpgradeID:6,
 		ParentUpgradeID:0,
-		cost:2500
+		cost:1000
 	},{
 		Name: "Box Key x5",
 		Description: "Bundle of Keys",
@@ -53,7 +47,7 @@ const UpgradesData = [
 		Description: "+50% faster rolls",
 		UpgradeID:8,
 		ParentUpgradeID:6,
-		cost:2950
+		cost:1650
 	},{
 		Name: "Immortal Upgrades",
 		Description: "O̧th̶͝èrwo̵r̵ĺ͢d̨̢ly̵͟ ̀P̢͟o͟͠w͡e͞͞r̸͡͞s̵̛͘    Requires great sacrifice  (20 Legendary items in Bag)",
@@ -86,7 +80,7 @@ const UpgradesData = [
 		cost:12700
 	},{
 		Name: "King Kappa",
-		Description: "Refunds 20% of shop upgrade purchases",
+		Description: "Refunds 25% of shop upgrade purchases",
 		UpgradeID:14,
 		ParentUpgradeID:9,
 		cost:9001
@@ -98,7 +92,7 @@ const UpgradesData = [
 		cost:25000
 	},{
 		Name: "Reaper Sacrifice",
-		Description: "Collect mortal souls",
+		Description: "Summon unholy items",
 		UpgradeID:16,
 		ParentUpgradeID:9,
 		cost:20000
@@ -107,7 +101,7 @@ const UpgradesData = [
 		Description: "Flea market apprenticeship +30% item value",
 		UpgradeID:17,
 		ParentUpgradeID:6,
-		cost:3150
+		cost:2300
 	},{
 		Name: "Key Former",
 		Description: "Hydraulic press garbage into keys",
@@ -115,17 +109,41 @@ const UpgradesData = [
 		ParentUpgradeID:6,
 		cost:800
 	},{
-		Name: "",
-		Description: "",
-		UpgradeID:0,
+		Name: "Craft Reaper Key",
+		Description: "Unlocks a portal to hell",
+		UpgradeID:20,
+		ParentUpgradeID:16,
+		cost:"x3 Hellshards"
+	},{
+		Name: "Unlock Guns Box",
+		Description: "Unlock a new lootbox",
+		UpgradeID:21,
 		ParentUpgradeID:0,
-		cost:0
+		cost:550
+	},{
+		Name: "Unlock Cars Box",
+		Description: "Unlock a new lootbox",
+		UpgradeID:19,
+		ParentUpgradeID:6,
+		cost:900
+	},{
+		Name: "Unlock Rich Box",
+		Description: "Unlock a new lootbox",
+		UpgradeID:22,
+		ParentUpgradeID:6,
+		cost:1250
 	},{
 		Name: "",
 		Description: "",
 		UpgradeID:0,
 		ParentUpgradeID:0,
 		cost:0
+	},{
+		Name: "Return to your Universe",
+		Description: "Rescue them while you still can.. (5 Souls in Bag)",
+		UpgradeID:23,
+		ParentUpgradeID:9,
+		cost:'Save 5 lost souls.'
 	}
 
 

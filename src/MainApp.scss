@@ -63,21 +63,40 @@ white-space: nowrap;
   background: linear-gradient(0deg,#ff9 0%,#fff 50%,#e92 100%);
   border: 3px solid #fff;
   border-width: 2px 2px 1px 3px;
-  padding: 8px 10px 7px 10px;
+  padding: 8px 10px 7px 8px;
   box-shadow: inset 0px 1px 3px #55e9e8,inset 0px -1px 3px #35c9c8,0px 3px 6px rgba(0,0,0,0.3);
   font-weight: 750;
   transition:opacity 0.1s;
   opacity: 0.95;
-  margin-right: -93px;
+  margin-right: -4vw;
   z-index:3;
+  @include for-tablet-portrait-up {
+    
+  margin-right: -4vw;
+  margin-left: 2vw;
+  }
+  @include for-tablet-landscape-up {
+    
+  margin-right: -7vw;
+  margin-left: 3.5vw;
+  }
   }
 .lootboxes button:hover{
   opacity: 1;
 }
 .lootboxes button:active{
   opacity: 1;
+  color:grey;
   filter:contrast(1.1);
   background: linear-gradient(0deg,#ff9 10%,#fff 55%,#e92 90%);
+}
+.reaperBox button{
+  background: linear-gradient(0deg,#E43A08 0%,#FCC757 50%,#B58535 100%);
+}
+.reaperBox button:active{
+  opacity: 1;
+  filter:contrast(1.1);
+  background: linear-gradient(0deg,#E43A08 10%,#FCC757 55%,#B58535 90%);
 }
 .menu button:hover{
   cursor:pointer;
@@ -85,14 +104,27 @@ white-space: nowrap;
 }
 body{
   background:$mainGradient;
-  
+  background-image:url('https://blueblots.com/wp-content/uploads/2011/12/35-seamless-wood-texture.jpg');
+  background-size:100% 50%;
+  background-position: center;
+  background-attachment:fixed;
+  overflow-x: hidden;
+  z-index:10;
+  position:relative;
 }
 
 .firstRow{
   background-image:url($firstRowBackgroundImage);
   padding:15px;
   box-shadow:0px 4px 8px #443b2b;
-  
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  padding:30px;
+  @include for-tablet-landscape-up {
+    padding-left:10vw;
+    padding-right:10vw;
+  }
 }
 #bgOverlay{
   position:absolute;
@@ -113,15 +145,17 @@ body{
   border-radius:35px;
   min-height:356px;
   padding-bottom:15px;
-  
+  @include for-tablet-landscape-up {
+    
+  }
 }
 .lootboxes{
   margin:auto;
   padding-bottom:5px;
   width:94%;
   @include for-tablet-portrait-up {
-    margin-left:8%;
-    margin-right:8%;
+    /*margin-left:8%;
+    margin-right:8%;*/
   }
 }
 .menu .col-sm-1{
@@ -135,27 +169,41 @@ body{
 //   padding:10px;
 //   border-radius:0%;
 // }
-.menuHeader h3{
-  padding-top:4px;
-  
+.menuHeader{
+  background: rgba(40,40,40,0.8);
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  margin-bottom:4px;
+} 
+.menuHeader h3,.menuHeader h2{
+  padding-top:8px;
 }
 
 .bag{
   // background-color:$bagBackgroundColor;
   // min-height:254.176px;
-  min-height:750px;
-  
-  background-image:url(https://www.christianlong.design/assets/codepen/lootboxgame/bagBg2.png);
-  background-size:100% 100%;
-  padding-left:80px;
-  padding-top:35px;
-  margin-top:25px;
+  //min-height:750px;
+  min-height:32vh;
+  //background-image:url(https://www.christianlong.design/assets/codepen/lootboxgame/menuBg3.jpg);
+  background-image:url(https://i.imgur.com/cpNYMAp.jpg);
+  min-width:110vw;
+  margin-left:-5vw;
+  z-index: 0;
+    padding-top:20px;
+    padding-bottom:20px;
   @include for-desktop-up {
-    transform: rotateX(40deg) rotateY(0deg) rotateZ(-10deg);
+    transform: rotateX(40deg) rotateY(9.5deg) rotateZ(-8deg);
+    padding-top:360px;
+  margin-left:-3.5vw;
+    padding-bottom:150px;
+    margin-top:-350px;
   }
   
 }
+.bagContainer{
+  height:400px;
 
+}
 .ticker{
   @include for-tablet-landscape-up {
     border-top-right-radius:5px;
@@ -181,9 +229,9 @@ body{
   padding:0;
   margin:0;
   height:300px;
-  width:80px;
+  min-width:80px;
   text-align:center;
-  
+  vertical-align:top;
 }
 .tickerItems p{
   color:white;
@@ -239,7 +287,7 @@ width:45px;}
 }
 @keyframes slide{
   
-  100%{transform: translateX(-6000px)}
+  100%{transform: translateX(-5982px)}
 }
 
 .itemPicture{
@@ -275,18 +323,40 @@ clip-path: polygon(51% 100%, 0 0, 100% 0);
   }
 }
 
-//type classes
+//grade classes
 .A{background-color:orange;
-border-top: 3px solid #c16400;text-shadow:#844400 2px 2px;};
+border-top: 3px solid #c16400;text-shadow:#844400 2px 2px;}
 .B{background-color:#b500af;
-border-top: 3px solid #ff00cb;text-shadow:#870082 2px 2px;};
+border-top: 3px solid #ff00cb;text-shadow:#870082 2px 2px;}
 .C{background-color:#01b5b5;
-border-top: 3px solid #00ffff;text-shadow:#008787 2px 2px;};
+border-top: 3px solid #00ffff;text-shadow:#008787 2px 2px;}
 .D{background-color:#00b737;
-border-top: 3px solid #00ff4c;text-shadow:green 2px 2px;};
+border-top: 3px solid #00ff4c;text-shadow:green 2px 2px;}
 .F{background-color:#494949;
-border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;};
-
+border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;}
+.Z{
+  background-color:#494949;
+  border-top: 3px solid red;
+  text-shadow:#2d2d2d 2px 2px;
+  background: url(https://orig00.deviantart.net/982d/f/2015/126/a/7/celestia_and_sun6ex_by_equumamici-d8sf8uv.gif);
+  background-position:center -200px;
+  filter:hue-rotate(226deg);
+}
+.R{
+  background-color:#494949;
+  border-top: 3px solid red;
+  text-shadow:#2d2d2d 2px 2px;
+  background: url(https://orig00.deviantart.net/982d/f/2015/126/a/7/celestia_and_sun6ex_by_equumamici-d8sf8uv.gif);
+  background-position:center -200px;
+}
+.bagItems.R:hover{
+  
+  animation:growBackground2 1s ease forwards 1;
+}
+@keyframes growBackground2{
+  0%{background-position:center -200px;}
+  100%{background-position:center -350px;}
+}
 .white{
   color:white;
 }
@@ -298,7 +368,7 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;};
    animation-fill-mode: none;
 }
 .bagItems:hover{
-  
+  transform-origin: bottom right 40px;
   -webkit-perspective: 100px; /* Safari 4-8 */
     perspective: 100px;
   transform:translateY(-5px) translateX(2px) rotateZ(3deg) ;
@@ -313,7 +383,7 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;};
   transform:translateY(0px) translateX(0px) ;
 }
 .bagAnimation{
-  animation:intoBag .3s 1 ease;
+  animation:intoBag .5s 1 ease;
 }
 @keyframes intoBag{
   0%{
@@ -325,7 +395,15 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;};
   }
 }
 .inventory{
-  padding-bottom:20px;
+  transition:all 0.4s ease;
+  min-height: 43vh;
+  padding:15px;
+  padding-bottom:10px;
+  text-align:left;
+  width:80vw;
+  overflow-x: hidden;
+  background: url(https://christianlong.design/assets/codepen/lootboxgame/menuBg1.jpg);
+  box-shadow: inset 0px 3px 9px #000000;
 }
 
 .sellButton{
@@ -338,21 +416,71 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;};
   &:hover{background-color:#ed0000;cursor:copy;}
 }
 
-.cashCounter{
-  float:right;
-  bottom:0;
-}
 
+.winScreenContainer{
+  text-align:center;
+  padding-top:26vh;
+  opacity:0;
+  background:url(https://media.giphy.com/media/9U9gK6Fx4whyw/giphy.gif);
+  width:100vw;
+  min-height: 100vh;
+  background-size:cover;
+  background-position: 50% 100%;
+  animation:fadeIn 5s forwards 1;
+}
+.MainMenuContainer{
+  text-align:center;
+  padding-top:26vh;
+  opacity:0;
+  background:url(https://miro.medium.com/max/10514/1*TG8yT-bltiG0FcRpx3YkRA.jpeg);
+  width:100vw;
+  min-height: 100vh;
+  background-size:cover;
+  background-position: 50% 100%;
+  animation:fadeIn 2s forwards 1;
+  
+
+}
+.MainMenuContainer li{
+  list-style-type: none;
+}
+.MainMenu{
+  width:60vw;
+  margin:auto;
+  background-color: rgba(30,30,30,0.6);
+  border:4px double purple;
+}
+.winScreenContainer h1,.MainMenuContainer h1{
+  font-size:calc(2vw + 30px);
+  color:#FFCD2F;
+  }
+.winScreenContainer h2,.MainMenuContainer h2{
+  font-size:calc(2vw + 15px);
+  color:#FFCD2F;
+  }
+.winScreenContainer h3,.MainMenuContainer h3{
+  margin-top:25px;
+  font-size:calc(1vw + 12px);
+  color:#FEFDB5;
+  }
+@keyframes fadeIn{
+  0%{opacity:0;}
+  40%{opacity:0.3;}
+  100%{opacity:1;}
+  }
 .notificationBox{
     position: fixed;
+    z-index:9;
     bottom: 0;
     right: 0;
     padding-right:10px;
     text-align:right;
- pointer-events: none;
+    pointer-events: none;
   .notification{
-
-    animation: fadeUp 3.25s 1;
+    font-size:25px;
+    color:#f0ead6;
+    text-shadow:0px 1px 2px #000,0px 1px 30px #fff,0px 1px 20px #fff;
+    animation: fadeUp 3.75s 1;
     animation-fill-mode:forwards;
   }
 }

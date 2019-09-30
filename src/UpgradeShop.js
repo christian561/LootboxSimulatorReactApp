@@ -55,17 +55,18 @@ class UpgradeShop extends React.Component{
             />
       }
     })
-
-    console.log(upgradeComponents)
+    
+    let titleClass = this.props.checkUpgrade(6) ? "shopTier2" : "shopTier1"
+    let moneyClass = this.props.checkUpgrade(6) ? "shopTier2money" : "shopTier1money"
   	return(
-  		<div className="shop col-sm-4">
+  		<div className="shop col-lg-4 ">
         <div>
-          <h2>Shop</h2>
+          <h2 className={titleClass}>Shop</h2>
           <ul id="shopList">
               {upgradeComponents}
           </ul>
         </div>
-        <h3 className="cashCounter">${Math.round(this.context.gold)}</h3>
+        <h2 className={"cashCounter " + moneyClass}>${Math.round(this.context.gold)}</h2>
       </div>
   	);
   }

@@ -20,8 +20,13 @@ class MainAppContainer extends React.Component {
         upgradeHandler={this.props.upgradeHandler}  
         checkUpgrade={this.props.checkUpgrade}  
         changeKeys={this.props.changeKeys}
+        changeGold={this.props.changeGold}
+        changeReaperKeys={this.props.changeReaperKeys} 
         insertInventoryItem={this.props.insertInventoryItem}
         removeInventoryItem={this.props.removeInventoryItem}
+        sellAll={this.props.sellAll}
+        notify={this.props.notify}
+
       />
 
     );

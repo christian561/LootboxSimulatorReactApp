@@ -61,19 +61,28 @@ class LootboxMenu extends React.Component{
 				return <Lootbox 
 							data={box}  
 							changeKeys={this.props.changeKeys} 
+							changeReaperKeys={this.props.changeReaperKeys} 
 							insertInventoryItem={this.props.insertInventoryItem} 
+							includeReaperShards={this.props.checkUpgrade(16)}
+							includeSoulsShards={this.props.checkUpgrade(16)}
         				/>
 			}
 		})
 		
 		console.log(this.getUpgradeStyle())
-		let background = {"background":"url("+this.getUpgradeStyle()+")"}
+		let background = {"background":"url("+this.getUpgradeStyle()+")","background-size": "cover"}
 		let color = this.getUpgradeColor()
 		return(
 			
-			<div class="menu col-sm-8" style={background}>
+			<div class="menu col-lg-8" style={background}>
 			{/*Menu*/}
-				<LootboxMenuHeader keys={this.props.keys} getUpgradeStyle={this.getUpgradeStyle()} color={color}/>
+				<LootboxMenuHeader 
+					keys={this.context.keys} 
+          			reaperKeys={this.context.reaperKeys}
+					checkUpgrade={this.props.checkUpgrade} 
+  					getUpgradeStyle={this.getUpgradeStyle()} 
+  					color={color}
+  				/>
 		      <div class="row">
 		        {/*Spacer*/}
 		        <div class="col-sm-1"></div> 

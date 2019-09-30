@@ -1,7 +1,7 @@
 const BoxData = [
 {
 	
-name:"Fast Food",
+name:"Food",
 cost:0,
 parentUpgradeID:0,
 multiplier:1,
@@ -158,7 +158,7 @@ items: [{
 	
 name:"Guns",
 cost:200,
-parentUpgradeID:2,
+parentUpgradeID:21,
 multiplier:4,
 items: [{
 		
@@ -187,7 +187,7 @@ items: [{
 name:"Cars",
 cost:2900,
 parentUpgradeID:19,
-multiplier:1,
+multiplier:5,
 items: [{
 		
 		id:81,
@@ -212,10 +212,10 @@ items: [{
 		}]
   },{
 	
-name:"HighEnd2",
+name:"Rich",
 cost:200,
-parentUpgradeID:19,
-multiplier:1,
+parentUpgradeID:22,
+multiplier:6,
 items: [{
 		
 		id:101,
@@ -243,7 +243,7 @@ items: [{
 name:"Gods",
 cost:200,
 parentUpgradeID:9,
-multiplier:1,
+multiplier:8,
 items: [{
 		
 		id:121,
@@ -265,6 +265,48 @@ items: [{
 		src: 'https://christianlong.design/assets/codepen/lootboxgame/7.png',
 		Description: "shrek, but it faded",
 		rarity:4
+		}]
+  },{
+	
+name:"Reaper",
+cost:200,
+parentUpgradeID:16,
+multiplier:18,
+items: [
+		{
+		id:143,
+		Name: "Demon",
+		src: 'https://christianlong.design/assets/codepen/lootboxgame/7.png',
+		Description: "shrek, but it faded",
+		rarity:4
+		},
+		{
+		id:144,
+		Name: "Meme",
+		src: 'https://christianlong.design/assets/codepen/lootboxgame/7.png',
+		Description: "shrek, but it faded",
+		rarity:4
+		}]
+  },{
+	
+name:"Special Items",
+cost:200,
+parentUpgradeID:-1,
+multiplier:-1,
+items: [{
+		
+		id:666,
+		Name: "Hellshard",
+		src: 'https://vignette.wikia.nocookie.net/fireemblem/images/5/5e/FEH_Universal_Shard.png/revision/latest?cb=20170204105911',
+		Description: "Summon lovecraftian horrors",
+		rarity:2
+		},
+		{
+		id:999,
+		Name: "Soul",
+		src: 'https://sirfishy.files.wordpress.com/2014/02/lost-soul-sketch.gif',
+		Description: "You think you see a reflection of shrek, but it faded away too quickly",
+		rarity:0
 		}]
   }
 ]

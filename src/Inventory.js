@@ -8,7 +8,10 @@ class Inventory extends React.Component{
 	static contextType = UserContext
 	constructor(){
 		super()
+
+		
 	}
+
 	render(){
 		let removeInventoryItem = this.props.removeInventoryItem
 		let inventoryItems = this.context.inventory
@@ -25,21 +28,22 @@ class Inventory extends React.Component{
        				/>
 			
 		})
-		
+		let disabledStyle = (this.context.gold >= 1000 ? {"backgroundColor":"green",borderColor:"lime"}:{"backgroundColor":"red",borderColor:"#D52B06"})
 		
 		return(
 		
 		  <div class="row">
 		    {/*Bag Inventory*/}
+		    <div class="bagContainer">
 		    <div class="bag col-sm-12">
 			{/*       <h2>Bag</h2>     */}
-		      <button></button>
+		      {this.props.checkUpgrade(15) ? <button onClick={this.props.sellAll} style={disabledStyle}>Sell Items for $1000</button> : <></>}
 		      <div class="inventory container-fluid">
 		        {inventoryItemComponents}
 		      </div>
 		   
 		    </div>
-		    
+		    </div>
 		  </div>
 	);
 	}

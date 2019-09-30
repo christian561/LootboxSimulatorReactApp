@@ -54,14 +54,20 @@ class MenuContainer extends React.Component{
 		return(
 			<div class="row firstRow" style={background}>
 
-			  	<UpgradeShop gold={this.context.gold} upgrades={this.Upgrades} upgradeHandler={this.props.upgradeHandler}/>
+			  	<UpgradeShop 
+			  		gold={this.context.gold} 
+			  		upgrades={this.Upgrades} 
+			  		upgradeHandler={this.props.upgradeHandler}
+					checkUpgrade={this.props.checkUpgrade}  
+			  	/>
 			    
 				    
 				<LootboxMenu 
 					keys={this.context.keys}
 					checkUpgrade={this.props.checkUpgrade}  
 					changeKeys={this.props.changeKeys}
-        			insertInventoryItem={this.props.insertInventoryItem}
+          changeReaperKeys={this.props.changeReaperKeys} 
+    			insertInventoryItem={this.props.insertInventoryItem}
 				/>
 		       
 		    </div>
