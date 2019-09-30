@@ -62,7 +62,7 @@ class App extends React.Component {
       
       //go up a level
       level = level + 1
-      let newValueMultiplier = this.state.valueMultiplier*level
+      let newValueMultiplier = level
       //start a new game
       this.resetGameSave()
       this.loadGameSave()
@@ -76,7 +76,7 @@ class App extends React.Component {
     var saveData = JSON.parse(window.localStorage.getItem("playerData"))
     console.log(saveData.speedMultiplier)
     let speed = saveData.speedMultiplier
-    let valueMultiplier = saveData.valueMultiplier*saveData.newGamePlusLevel
+    let valueMultiplier = saveData.newGamePlusLevel
     //access previous state
     this.setState((prevState)=>{
       //!!!make sure you use curly braces for the return statement if you are returning an object
