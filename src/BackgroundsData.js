@@ -3,7 +3,7 @@ const BackgroundsData = [
 		id:1,
 		name:"No upgrades",
 		src:"https://christianlong.design/assets/codepen/lootboxgame/menuBg1.jpg",
-		color:"#212529"
+		color:"#fff"
 	},
 	{
 		id:2,

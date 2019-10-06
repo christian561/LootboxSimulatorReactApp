@@ -1,7 +1,7 @@
 import React from 'react'
 function LootboxMenuHeader(props){
 	console.log(props);
-	let colorStyle = {"color":props.color, "text-shadow":props.color +" 0px 1px 4px"}
+	let colorStyle = {"color":props.color, "text-shadow":props.color +" 0px 0px 3px"}
 	return(
 		
 	      

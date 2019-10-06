@@ -36,7 +36,7 @@ class InventoryItem extends React.Component{
 		console.log(drunk)
 		let randomTiming = parseInt(Math.floor(Math.random() * 8)+1)
 		let animationDuration = {"animation-duration": randomTiming + 's'}
-		let value = Math.round(this.props.value*this.context.valueMultiplier)
+		let value = Math.round(this.props.value*this.context.valueMultiplier*this.context.newGamePlusLevel)
 		return(
 			<div class={classes}  id="wonItem9" title={item.Description}>
 			<p>{item.Name}</p>

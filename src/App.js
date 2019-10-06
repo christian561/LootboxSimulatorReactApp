@@ -20,6 +20,7 @@ class App extends React.Component {
       save:"",
       notifications:[],
       upgrades:[],
+      trash:[],
       scene:"Main Menu"
     }
     //anytime using a method with setState you want to bind it to the class
@@ -62,12 +63,11 @@ class App extends React.Component {
       
       //go up a level
       level = level + 1
-      let newValueMultiplier = level
       //start a new game
       this.resetGameSave()
       this.loadGameSave()
       //set newgameplus level to incremented level
-      this.setState({newGamePlusLevel:level, valueMultiplier:newValueMultiplier})
+      this.setState({newGamePlusLevel:level})
     }
   }
    //anytime using a method with setState you want to bind it to the class
@@ -76,7 +76,7 @@ class App extends React.Component {
     var saveData = JSON.parse(window.localStorage.getItem("playerData"))
     console.log(saveData.speedMultiplier)
     let speed = saveData.speedMultiplier
-    let valueMultiplier = saveData.newGamePlusLevel
+    let valueMultiplier = saveData.valueMultiplier
     //access previous state
     this.setState((prevState)=>{
       //!!!make sure you use curly braces for the return statement if you are returning an object
@@ -90,7 +90,8 @@ class App extends React.Component {
       speedMultiplier:speed,
       valueMultiplier:valueMultiplier,
       newGamePlusLevel:saveData.newGamePlusLevel,
-      drunk:false
+      drunk:false,
+      trash:[]
       }
     })
     console.log(this.state.speedMultiplier)
@@ -109,7 +110,7 @@ class App extends React.Component {
       inventoryItems.map((item,index)=>{
         //skip items without sell value
         if(Number.isInteger(Math.round(item.value))){
-          totalValue += item.value*this.state.valueMultiplier
+          totalValue += item.value*this.state.valueMultiplier*this.state.newGamePlusLevel
           //sell the item
           this.removeInventoryItem(index)
         }})
@@ -149,24 +150,25 @@ class App extends React.Component {
   //remove inventory items by grade and how many(for legendary and crafting upgrades)
   removeInventoryItemsByGrade(grade,amount){
     let newInventory = this.state.inventory
-    let index =0
+    let newTrash = this.state.trash
     let removedItemCount = 0
-    newInventory.map((item)=>{
+    newInventory.map((item,index)=>{
       if(removedItemCount < amount){
         if(item.grade === grade){
+          newTrash.push(newInventory[index])
           newInventory.splice(index,1)
           removedItemCount++
         }
-      index++
       }
     })
     //update state
-    this.setState({inventory: newInventory})
+    this.setState({inventory: newInventory,trash:newTrash})
+    console.log(this.state.trash)
   }
   //handle selling items
   removeInventoryItem(index){
     let newInventory = this.state.inventory
-    let goldGained = Math.round(newInventory[index].value*this.state.valueMultiplier)
+    let goldGained = Math.round(newInventory[index].value*this.state.valueMultiplier*this.state.newGamePlusLevel)
 
     //add gold to state
     this.changeGold(goldGained)
@@ -421,7 +423,11 @@ class App extends React.Component {
     //Win the game
     if(id == 23){
       this.removeInventoryItemsByGrade('Z',5)
-      this.sceneSwitch("Win")
+      //switch to win screen after a few seconds so trash animation can show
+      const timer = setTimeout(function(){
+         this.sceneSwitch("Win")
+      }.bind(this),6000); 
+     return () => clearTimeout(timer);
     }
     
   }
@@ -439,7 +445,7 @@ class App extends React.Component {
       }
     }
     //check for win condition 5 souls
-    if(id === 23){
+    else if(id === 23){
       let matchingItemCount = this.searchInventory('Z').length
       if(matchingItemCount >= 5){
         this.unlockUpgrade(id)
@@ -460,7 +466,7 @@ class App extends React.Component {
       }
       else{
         //dont craft, read error
-        this.notify('You attempt to summon a hell portal but get knocked away by the explosion. (' + matchingItemCount + '/3 Shards)')
+        this.notify('Not enough power to summon.. (' + matchingItemCount + '/3 Shards)')
       }
     }
     else{
@@ -522,8 +528,8 @@ class App extends React.Component {
     return (
       //provide access to state to all components inside the <UserProvider> Tag
       <UserProvider value={this.state}>
-      {this.state.scene === "Main Menu" ? <Mainmenu  sceneSwitch={this.sceneSwitch}/> : <></>}
-      {this.state.scene === "Win" ? <Winscreen sceneSwitch={this.sceneSwitch}/> : <></>}
+      {this.state.scene === "Main Menu" ? <Mainmenu  sceneSwitch={this.sceneSwitch}/> : ""}
+      {this.state.scene === "Win" ? <Winscreen sceneSwitch={this.sceneSwitch}/> : ""}
       {this.state.scene === "Game" || this.state.scene === "ContinueGame" || this.state.scene === "NewGamePlus" ? 
       <div className="App">
         <Navbar save={this.saveGame} reset={this.resetGameSave} />

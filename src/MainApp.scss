@@ -102,16 +102,6 @@ $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
   cursor:pointer;
   
 }
-body{
-  background:$mainGradient;
-  background-image:url('https://blueblots.com/wp-content/uploads/2011/12/35-seamless-wood-texture.jpg');
-  background-size:100% 50%;
-  background-position: center;
-  background-attachment:fixed;
-  overflow-x: hidden;
-  z-index:10;
-  position:relative;
-}
 
 .firstRow{
   background-image:url($firstRowBackgroundImage);
@@ -221,6 +211,7 @@ body{
   
 }
 .tickerItems{
+  box-shadow:2px 0px 17px #fff;
   display:inline-block;
   width:60px;
   background-color:black;
@@ -324,16 +315,25 @@ clip-path: polygon(51% 100%, 0 0, 100% 0);
 }
 
 //grade classes
-.A{background-color:orange;
-border-top: 3px solid #c16400;text-shadow:#844400 2px 2px;}
+.A{
+  background:linear-gradient(orange,orange,#FFDB98,orange);
+  border-top: 3px solid #c16400;
+  text-shadow:#844400 2px 2px;
+  img{filter: hue-rotate(150deg) saturate(1.4);
+  }
+}
 .B{background-color:#b500af;
-border-top: 3px solid #ff00cb;text-shadow:#870082 2px 2px;}
+border-top: 3px solid #ff00cb;text-shadow:#870082 2px 2px;
+  }
 .C{background-color:#01b5b5;
-border-top: 3px solid #00ffff;text-shadow:#008787 2px 2px;}
+border-top: 3px solid #00ffff;text-shadow:#008787 2px 2px;
+  }
 .D{background-color:#00b737;
-border-top: 3px solid #00ff4c;text-shadow:green 2px 2px;}
+border-top: 3px solid #00ff4c;text-shadow:green 2px 2px;
+  }
 .F{background-color:#494949;
-border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;}
+border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
+ }
 .Z{
   background-color:#494949;
   border-top: 3px solid red;
@@ -417,6 +417,11 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;}
 }
 
 
+.App{
+  width:100vw;
+  min-height: 100vh;
+  animation:fadeIn 1.6s forwards 1;
+}
 .winScreenContainer{
   text-align:center;
   padding-top:26vh;
@@ -431,13 +436,12 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;}
 .MainMenuContainer{
   text-align:center;
   padding-top:26vh;
-  opacity:0;
   background:url(https://miro.medium.com/max/10514/1*TG8yT-bltiG0FcRpx3YkRA.jpeg);
   width:100vw;
   min-height: 100vh;
-  background-size:cover;
+    background-size: 100vw 100vh;;
   background-position: 50% 100%;
-  animation:fadeIn 2s forwards 1;
+  animation:fadeIn 0.7s cubic-bezier(0.5,0.3,0.8,1) forwards 1,zoom 20s cubic-bezier(0.2,0.5,0.8,1) forwards 1, glowStars ease 14s infinite;
   
 
 }
@@ -449,6 +453,22 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;}
   margin:auto;
   background-color: rgba(30,30,30,0.6);
   border:4px double purple;
+  animation:glow ease 14s infinite;
+  animation-fill-mode: forwards;
+
+}
+@keyframes glow{
+  0%{text-shadow: 0px 0px 15px #ff8800;}
+  15%{text-shadow: 0px 0px 13px #ffa53f;}
+  23%{text-shadow: 0px 0px 18px #ffe3c4;}
+  35%{text-shadow: 0px 0px 24px #a55d0b;}
+  50%{text-shadow: 0px 0px 16px #ff8800;}
+  60%{text-shadow: 0px 0px 10px #ff8800;}
+  65%{text-shadow: 0px 0px 6px #ffa53f;}
+  70%{text-shadow: 0px 0px 14px #ffe3c4;}
+  75%{text-shadow: 0px 0px 18px #a55d0b;}
+  100%{text-shadow: 0px 0px 15px #ff8800;}
+
 }
 .winScreenContainer h1,.MainMenuContainer h1{
   font-size:calc(2vw + 30px);
@@ -464,10 +484,84 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;}
   color:#FEFDB5;
   }
 @keyframes fadeIn{
-  0%{opacity:0;}
-  40%{opacity:0.3;}
-  100%{opacity:1;}
+  0%{
+    filter:brightness(2.4);
+    
   }
+  100%{
+    opacity:1;
+  }
+  }
+  @keyframes zoom{
+
+  0%{
+    background-size: 500% 650%;
+  }
+  }
+
+@keyframes glowStars{
+  0%{filter:brightness(1.15);}
+  15%{filter:brightness(1.13);}
+  23%{filter:brightness(1.18);}
+  35%{filter:brightness(1.24);}
+  50%{filter:brightness(1.16);}
+  60%{filter:brightness(1.10);}
+  65%{filter:brightness(1.06);}
+  70%{filter:brightness(1.14);}
+  75%{filter:brightness(1.18);}
+  100%{filter:brightness(1.15);}
+
+}
+.trashContainer{
+position: absolute;
+top:40%;
+pointer-events: none;
+}
+.trash{
+  opacity:0;
+  animation: unhide 10s cubic-bezier(0,0.45,0.95,1) 1;
+  animation-fill-mode:forwards;
+  fill:lime;
+  position:absolute;
+  
+}
+@keyframes unhide{
+  0%{
+   transform: rotateY(90deg);
+    opacity:0;
+    margin-top:150%;
+    padding:15px;
+  }
+  3%{
+    opacity:1;
+  }
+  10%{
+   transform: rotate(47deg);
+     margin-top:750%;
+    margin-top:0%;
+    padding:145px;
+  }
+  25%{
+   transform: rotate(47deg);
+     margin-top:150%;
+    opacity:1;
+    padding:145px;
+  }
+  95%{
+   transform: rotate(47deg);
+
+    opacity:1;
+  }
+  100%{
+   transform: rotate(47deg) rotateX(40deg);
+   margin-left:0;
+   margin-bottom:0;
+     margin-top:150%;
+    opacity:0;
+    padding:145px;
+  }
+  
+}
 .notificationBox{
     position: fixed;
     z-index:9;
@@ -623,4 +717,16 @@ $primary-color: #2ecc71;
   top:0;
   left:0;
   z-index:-1;
+}
+
+
+body{
+  //background:$mainGradient;
+  background-image:url('https://blueblots.com/wp-content/uploads/2011/12/35-seamless-wood-texture.jpg');
+  background-size:100% 50%;
+  background-position: center;
+  background-attachment:fixed;
+  overflow-x: hidden;
+  z-index:10;
+  position:relative;
 }

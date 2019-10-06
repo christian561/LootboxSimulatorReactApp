@@ -2,6 +2,7 @@ import React from 'react'
 import UserContext, { UserConsumer } from './UserContext'
 import Upgrade from './Upgrade'
 import UpgradesData from './UpgradesData'
+import Trash from './Trash'
 import './UpgradeShop.scss'
 
 class UpgradeShop extends React.Component{
@@ -67,6 +68,7 @@ class UpgradeShop extends React.Component{
           </ul>
         </div>
         <h2 className={"cashCounter " + moneyClass}>${Math.round(this.context.gold)}</h2>
+        <Trash trashContents={this.context.trash}/>
       </div>
   	);
   }
