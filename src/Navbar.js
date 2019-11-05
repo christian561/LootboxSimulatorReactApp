@@ -34,7 +34,7 @@ function NavBar(props){
 
 				<li><button onClick={props.save}  >Save Game</button></li>
 				<li><button onClick={props.reset} >Reset Game</button></li>
-				<li><a href="https://www.christianlong.design" target="_blank">My Website</a></li>
+				{/*<li><a href="https://www.christianlong.design" target="_blank">My Website</a></li>*/}
 			</ul>
 		</div>
 	);

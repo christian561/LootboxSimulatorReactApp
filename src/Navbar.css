@@ -10,12 +10,12 @@
 	line-height:50px;
 	padding:0;
 	margin:0;
-	margin-top:-50px;
+	margin-top:-45px;
 	z-index:40;
 	position:relative;
 }
 #navBar #image{
-	height:50px;
+	height:37px;
 	background-image:url('https://blueblots.com/wp-content/uploads/2011/12/35-seamless-wood-texture.jpg');
 	//background-size:cover;
 	background-position:center;
@@ -54,7 +54,9 @@
   margin-right: auto;
   max-height:50px;
   overflow:hidden;
+  /*change visibility to use logo*/
+  visibility: hidden;
 }
 .navLogo{
-	max-height:50px;
+	max-height:35px;
 }
