@@ -1,4 +1,4 @@
-$tickerHeight:70px;
+$tickerHeight:100px;
 $tickerBackgroundColor:rgba(30,30,30,0.65);
 
 $firstRowBackgroundImage:"https://blueblots.com/wp-content/uploads/2011/12/35-seamless-wood-texture.jpg";
@@ -111,7 +111,7 @@ $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
   z-index: 2;
   width: 100vw;
   padding:30px;
-  @include for-desktop-up {
+  @include for-tablet-landscape-up {
     padding-left:10vw;
     padding-right:10vw;
   }
@@ -229,10 +229,8 @@ $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
   margin-left:10px;
   font-size:12px;
   font-weight:bold;
-  width:100%;
-  margin-left:0;
-text-align: center;}
-.tickerItems img{width:41px;height:41px;margin-top:-14px}
+width:45px;}
+.tickerItems img{width:60px;height:55px;}
 .tickerSlider{
   background-color:blue;
   // width:3600px;
@@ -342,7 +340,6 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
   text-shadow:#2d2d2d 2px 2px;
   background: url(https://orig00.deviantart.net/982d/f/2015/126/a/7/celestia_and_sun6ex_by_equumamici-d8sf8uv.gif);
   background-position:center -200px;
-
   filter:hue-rotate(226deg);
 }
 .R{
@@ -370,7 +367,6 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
   box-shadow:-1px -1px 2px black;
    animation-fill-mode: none;
 }
-.bagItems img{width:60px;height:60px;margin-top:-4px}
 .bagItems:hover{
   transform-origin: bottom right 40px;
   -webkit-perspective: 100px; /* Safari 4-8 */
@@ -418,20 +414,6 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
   margin-bottom:8px;
   margin-top:-15px;
   &:hover{background-color:#ed0000;cursor:copy;}
-
-}
-.sellAllButton{
-  color:white;
-  margin-bottom:8px;
-  margin-top:15px;
-  padding:0 15px;
-  padding-top:5px;
-  transition:box-shadow 0.1s;
-  box-sizing:border-box;
-  perspective: 1000;
-  box-shadow:1px 2px 3px #111,3px 4px 12px #111;
-  &:hover{cursor:pointer;margin-top:12px;margin-bottom: 11px;}
-  &:active{filter:brightness(1.2);outline:1px solid yellow;margin-top:15px;margin-bottom: 8px;}
 }
 
 

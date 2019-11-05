@@ -102,8 +102,8 @@ items: [{
 		id:22,
 		Name: "Lucky",
 		src: 'https://media2.giphy.com/media/Ti9bG57GFzVM4/giphy.gif',
-		Description: "Worth A LOT",
-		rarity:20
+		Description: "shrek, but it faded",
+		rarity:7
 		},
 		{
 		id:23,
@@ -116,7 +116,7 @@ items: [{
 		id:24,
 		Name: "Roger",
 		src: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5ff09206-abe7-4bd5-9fcb-d7f039a12d92/d96zw3k-e465dc55-0c56-475b-a1c9-6f4cd24c13db.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzVmZjA5MjA2LWFiZTctNGJkNS05ZmNiLWQ3ZjAzOWExMmQ5MlwvZDk2enczay1lNDY1ZGM1NS0wYzU2LTQ3NWItYTFjOS02ZjRjZDI0YzEzZGIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.jPiUock54gWZHN-y6piG5uWBnJANBTuV_G_Z3FOrspc',
-		Description: "Hello Human",
+		Description: "shrek, but it faded",
 		rarity:4
 		},
 		{
@@ -135,7 +135,7 @@ items: [{
 		},
 		{
 		id:27,
-		Name: "Furreal",
+		Name: "Fureal",
 		src: 'http://33.media.tumblr.com/bac3cee75caa1d42e56873637813c7e8/tumblr_nkd3qqNqYa1syjt2wo1_500.gif',
 		Description: "What is this? Where am I?",
 		rarity:10
@@ -345,129 +345,52 @@ multiplier:6,
 items: [{
 		
 		id:101,
-		Name: "Silver",
-		src: 'http://cdn.lowgif.com/full/7f5f17d8ffc42735-transparent-cat-cat-transparent-memes.gif',
-		Description: "Degravitised and magnetised",
-		rarity:3
+		Name: "Ruby",
+		src: 'https://christianlong.design/assets/codepen/lootboxgame/6.png',
+		Description: "Shimmering with light",
+		rarity:2
 		},
 		{
 		id:102,
-		Name: "Gloworms",
-		src: 'https://media0.giphy.com/media/qkyM57SkZ0Kkw/source.gif',
-		Description: "Wiggly Wogglers make a good pet",
-		rarity:8
+		Name: "Amethyst",
+		src: 'https://christianlong.design/assets/codepen/lootboxgame/1.png',
+		Description: "You think you see a reflection of shrek, but it faded away too quickly",
+		rarity:3
 		},
 		{
 		id:103,
-		Name: "Peacestal",
-		src: 'https://media0.giphy.com/media/NaZGAMnacCXgA/source.gif',
-		Description: "Only one in existance",
-		rarity:5
-		},
-		{
-		id:104,
-		Name: "Starking",
-		src: 'https://66.media.tumblr.com/fc100d7efc1539f595fa08f21fae322e/tumblr_nhzsf4pBBR1s44i03o1_400.gif',
-		Description: "Rainbow",
-		rarity:9
-		},
-		{
-		id:105,
-		Name: "Sands",
-		src: 'https://media2.giphy.com/media/ijChsZQ0oAzU4/source.gif',
-		Description: "The universe is full of aliens",
+		Name: "Tear",
+		src: 'https://christianlong.design/assets/codepen/lootboxgame/7.png',
+		Description: "shrek, but it faded",
 		rarity:4
-		},
-		{
-		id:106,
-		Name: "Throne",
-		src: 'http://24.media.tumblr.com/9ae55e94ca7062eaa84b89f68ae7d15e/tumblr_n2yqrttNsM1qim76zo1_500.gif',
-		Description: "Found in one of the pyramid's secret chambers",
-		rarity:5
-		},
-		{
-		id:107,
-		Name: "Gold Shoe",
-		src: 'https://media1.giphy.com/media/LruCAqfNRxxra/source.gif',
-		Description: "Sold seperately",
-		rarity:8
-		},
-		{
-		id:108,
-		Name: "Lunarock",
-		src: 'https://media1.giphy.com/media/gimklXHKgIx1u/source.gif',
-		Description: "Lighter than a feather",
-		rarity:6
 		}]
   },{
 	
-name:"Sentient",
+name:"Gods",
 cost:200,
 parentUpgradeID:9,
 multiplier:8,
 items: [{
 		
 		id:121,
-		Name: "Cubes",
-		src: 'https://i.imgur.com/GCNyjJY.gif?noredirect',
-		Description: "They are self organizing.. forever",
+		Name: "Ruby",
+		src: 'https://christianlong.design/assets/codepen/lootboxgame/6.png',
+		Description: "Shimmering with light",
 		rarity:2
 		},
 		{
 		id:122,
-		Name: "Bouncymer",
-		src: 'https://media0.giphy.com/media/o4tgqyyIPrZjq/source.gif',
-		Description: "Dip your shoes in it to jump higher",
+		Name: "Amethyst",
+		src: 'https://christianlong.design/assets/codepen/lootboxgame/1.png',
+		Description: "You think you see a reflection of shrek, but it faded away too quickly",
 		rarity:3
 		},
 		{
 		id:123,
-		Name: "Prosm",
-		src: 'https://media2.giphy.com/media/fgk3CY5UeALpS/giphy.gif',
-		Description: "Creates infinite colors, even though you can't see them",
-		rarity:6
-		},
-		{
-		id:124,
-		Name: "The Cube",
-		src: 'https://roobeedoo2.files.wordpress.com/2017/07/twisting-rubix-cube.gif',
-		Description: "Quantum Entangled, remotely operated by alien intelligence",
-		rarity:5
-		},
-		{
-		id:125,
-		Name: "4-D Printer",
-		src: 'https://upload.wikimedia.org/wikipedia/commons/d/df/Tesseract-1K.gif',
-		Description: "Mass marketed as a way to create storage boxes with infinite space",
-		rarity:7
-		},
-		{
-		id:126,
-		Name: "Explorer",
-		src: 'https://media2.giphy.com/media/lNE8P6FQPDpok/giphy.gif',
-		Description: "Records data from any dimension you can think of",
-		rarity:4
-		},
-		{
-		id:127,
-		Name: "Mazer",
-		src: 'https://i.pinimg.com/originals/ce/e3/3a/cee33aa8a4e3861d4aee9ba79533da2a.gif',
-		Description: "An unsolvable maze game, if that's what you're into..",
-		rarity:1
-		},
-		{
-		id:128,
-		Name: "Arron",
-		src: 'https://media.giphy.com/media/BppFR0O3e7FFtAtwRC/giphy.gif',
-		Description: "Futuristic WMD created by the United States Army, combat trained in Call of Duty",
-		rarity:15
-		},
-		{
-		id:129,
-		Name: "ExLenze",
-		src: 'https://media.giphy.com/media/hpLH87DQNVG3cHtGsO/giphy.gif',
-		Description: "Extend your eyes",
-		rarity:7
+		Name: "Pearl",
+		src: 'https://i.pinimg.com/originals/83/75/e5/8375e55425de5c918ded505460f7acbd.gif',
+		Description: "It's so shiny",
+		rarity:10
 		}]
   },{
 	
@@ -479,36 +402,15 @@ items: [
 		{
 		id:143,
 		Name: "Demon",
-		src: 'https://thumbs.gfycat.com/AmazingVillainousFoal-size_restricted.gif',
-		Description: "Kinda scary, right?",
+		src: 'https://christianlong.design/assets/codepen/lootboxgame/7.png',
+		Description: "shrek, but it faded",
 		rarity:4
 		},
 		{
 		id:144,
-		Name: "Torture",
-		src: 'https://media3.giphy.com/media/l4FGqytK3dxRjv2rm/source.gif',
-		Description: "Give the gift of eternal pain",
-		rarity:6
-		},
-		{
-		id:145,
-		Name: "Suffering",
-		src: 'https://i.gifer.com/X9Yh.gif',
-		Description: "Surgically installed.. forever",
-		rarity:7
-		},
-		{
-		id:146,
-		Name: "Death",
-		src: 'https://media.giphy.com/media/BpRuO0CHyEC4kAWcEJ/giphy.gif',
-		Description: "Only one person ever buys this.. The Reaper",
-		rarity:8
-		},
-		{
-		id:147,
-		Name: "Heart",
-		src: 'https://media.giphy.com/media/l6JC0IxMDIS4QrUxO5/giphy.gif',
-		Description: "Guess whose",
+		Name: "Meme",
+		src: 'https://christianlong.design/assets/codepen/lootboxgame/7.png',
+		Description: "shrek, but it faded",
 		rarity:4
 		}]
   },{
@@ -521,14 +423,14 @@ items: [{
 		
 		id:666,
 		Name: "Hellshard",
-		src: 'https://66.media.tumblr.com/da5e9411ec126ca391bcc3acb2fd44ff/tumblr_okrcmghfr01sox2ufo6_250.gif',
-		Description: "Summon The Reaper",
+		src: 'https://vignette.wikia.nocookie.net/fireemblem/images/5/5e/FEH_Universal_Shard.png/revision/latest?cb=20170204105911',
+		Description: "Summon lovecraftian horrors",
 		rarity:2
 		},
 		{
 		id:999,
 		Name: "Soul",
-		src: 'https://media.giphy.com/media/YVeAsX39QNaTNF2S0c/giphy.gif',
+		src: 'https://sirfishy.files.wordpress.com/2014/02/lost-soul-sketch.gif',
 		Description: "You think you see a reflection of shrek, but it faded away too quickly",
 		rarity:0
 		}]

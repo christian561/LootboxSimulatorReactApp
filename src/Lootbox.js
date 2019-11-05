@@ -48,17 +48,22 @@ class Lootbox extends React.Component{
 		let grade = grades[randomGradeIndex]
 		if(grade === 'R'){
 			//make a reaper shard item
-			var item = {id:666,name:"Hellshard",src:"https://66.media.tumblr.com/da5e9411ec126ca391bcc3acb2fd44ff/tumblr_okrcmghfr01sox2ufo6_250.gif", grade:grade,value:"???"}
+			var item = {id:666,name:"Hellshard",src:"https://vignette.wikia.nocookie.net/fireemblem/images/5/5e/FEH_Universal_Shard.png/revision/latest?cb=20170204105911", grade:grade,value:"???"}
 			
 			return item;
 		}
 		if(grade === 'Z'){
 			//make a soul item
-			var item = {id:999,name:"Soul",src:"https://media.giphy.com/media/YVeAsX39QNaTNF2S0c/giphy.gif", grade:grade,value:"Infinite"}
+			var item = {id:999,name:"Soul",src:"https://sirfishy.files.wordpress.com/2014/02/lost-soul-sketch.gif", grade:grade,value:"Infinite"}
 			
 			return item;
 		}
-		
+		if(grade === 'R'){
+			//make a reaper shard item
+			var item = {id:666,name:"Hellshard",src:"https://vignette.wikia.nocookie.net/fireemblem/images/5/5e/FEH_Universal_Shard.png/revision/latest?cb=20170204105911", grade:grade,value:"???"}
+			
+			return item;
+		}
 		let randomNameIndex = Math.floor(Math.random() * (this.props.data.items.length))
 		let rarity = this.props.data.items[randomNameIndex].rarity
 		let name = this.props.data.items[randomNameIndex].Name

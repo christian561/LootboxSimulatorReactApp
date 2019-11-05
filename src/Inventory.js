@@ -37,12 +37,11 @@ class Inventory extends React.Component{
 		    <div class="bagContainer">
 		    <div class="bag col-sm-12">
 			{/*       <h2>Bag</h2>     */}
-		      
+		      {this.props.checkUpgrade(15) ? <button onClick={this.props.sellAll} style={disabledStyle}>Sell Items for $1000</button> : <></>}
 		      <div class="inventory container-fluid">
 		        {inventoryItemComponents}
 		      </div>
-
-		      {this.props.checkUpgrade(15) ? <button className="sellAllButton" onClick={this.props.sellAll} style={disabledStyle}><h3>Sell All Items for $1000</h3></button> : <></>}
+		   
 		    </div>
 		    </div>
 		  </div>
