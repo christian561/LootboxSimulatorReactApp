@@ -19,9 +19,9 @@ function RotateColors(rotation){
 	return null
 }
 //hue-rotate css style function
-	RotateColors(340)
-function NavBar(){
-
+	
+RotateColors(350)
+function NavBar(props){
 	
 
 	return(
@@ -31,9 +31,10 @@ function NavBar(){
 				<li>
 					<img src={logo} className="App-logo navLogo" alt="logo" />
 				</li>
-				<li><a href="https://google.com" target="_blank">Add Task</a></li>
-				<li><a href="https://facebook.com" target="_blank">Reset List</a></li>
-				<li><a href="https://www.christianlong.design" target="_blank">About the Dev</a></li>
+
+				<li><button onClick={props.save}  >Save Game</button></li>
+				<li><button onClick={props.reset} >Reset Game</button></li>
+				{/*<li><a href="https://www.christianlong.design" target="_blank">My Website</a></li>*/}
 			</ul>
 		</div>
 	);
