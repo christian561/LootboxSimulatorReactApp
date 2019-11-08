@@ -365,7 +365,7 @@ class App extends React.Component {
     //get upgrades
     let upgrades = this.state.upgrades
     //add new upgrade if its not a key or bacchus drink
-    if(id !== 1 && id !== 7 && id !== 12 && id !== 20){
+    if(id !== 1 && id !== 7 && id !== 12 && id !== 20 && id !==23){
       upgrades.push(id)
       //update state
       this.setState((prevState)=>{
@@ -422,6 +422,8 @@ class App extends React.Component {
     }
     //Win the game
     if(id == 23){
+      //save game so player can reload save right before winning the game
+      this.saveGame()
       this.removeInventoryItemsByGrade('Z',5)
       //switch to win screen after a few seconds so trash animation can show
       const timer = setTimeout(function(){

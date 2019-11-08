@@ -3,6 +3,12 @@ body{
 
     background: url(https://media.giphy.com/media/9U9gK6Fx4whyw/giphy.gif);
 }
+marquee{
+	transition:filter .6s;
+}
+marquee:hover{
+	filter:blue(100px);
+}
 #svgBackgroundContainer{
 	background-color: #bb76e8; 
 	height: 100%;
