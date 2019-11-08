@@ -7,7 +7,7 @@ marquee{
 	transition:filter .6s;
 }
 marquee:hover{
-	filter:blue(100px);
+	filter:blur(100px);
 }
 #svgBackgroundContainer{
 	background-color: #bb76e8; 
