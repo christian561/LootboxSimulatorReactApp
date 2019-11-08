@@ -530,7 +530,7 @@ class App extends React.Component {
       <UserProvider value={this.state}>
       {this.state.scene === "Main Menu" ? <Mainmenu  sceneSwitch={this.sceneSwitch}/> : ""}
 
-      {this.state.scene === "Win" ? <Winscreen newGamePlusLevel={this.state.newGamePlusLevel} sceneSwitch={this.sceneSwitch}/> : ""}
+      {this.state.scene === "Win" ? <Winscreen newGamePlusLevel={this.state.newGamePlusLevel + 1} sceneSwitch={this.sceneSwitch}/> : ""}
 
       {this.state.scene === "Game" || this.state.scene === "ContinueGame" || this.state.scene === "NewGamePlus" ? 
       <div className="App">
