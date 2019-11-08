@@ -1,19 +1,65 @@
 $shopBackgroundImage:"https://blueblots.com/wp-content/uploads/2011/12/35-seamless-wood-texture.jpg";
 $shopTextColor:white;
 $shopItemBgColor:rgba(193, 158, 60,0.8);
-
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
 .shop{
   // background-color:$shopBackgroundColor;
   // background-image:url($shopBackgroundImage);
   color:$shopTextColor;
   padding-left:0;
   padding-top:0;
+  padding-right:0;
   text-align:center;
-  
+  @include for-tablet-landscape-up {
+    padding-left:1vw;
+    padding-right:5vw;
+  }
 }
-
+.cashCounter{
+  float:right;
+  padding-right:20px;
+  bottom:0;
+}
+.shop h2{
+  font-family:times new roman;
+  text-shadow: 0px 1px 3px grey;
+  padding-bottom: 7px;
+}
+.shopTier1{
+  color:white;
+  border-bottom: 3px double orange;
+}
+.shopTier1money{
+  color:white;
+}
+.shopTier2{
+  color:#574317;
+  border-bottom: 3px double gold;
+}
+.shopTier2money{
+  color:#574317;
+}
+.shopTier3{
+  color:#574317;
+  border-bottom: 3px double gold;
+}
 #shopList li{
   list-style-type:none;
+  max-height:48px;
 }
 .shopItem{
 
@@ -62,7 +108,29 @@ $shopItemBgColor:rgba(193, 158, 60,0.8);
 }
 .godUpgrade:active{
  border-color:#A30100;
+}
+.winUpgrade{
+  color:orange;
+  background:url(https://media1.giphy.com/media/xUA7bdb438bTcgY0h2/giphy.gif);
+  background-size:cover;
+  border-color:#380001;
+  width:95%;
+  transition:all 7s ease;
+  border-width:1px;
+  background-size:105%;
+  background-position:center center;
+
   
+}
+
+.winUpgrade:hover{
+  border-width:1px;
+  background-size:895%;
+ border-color:#A30100;
+  
+}
+.winUpgrade:active{
+ border-color:#A30100;
 }
 @keyframes growBackground{
   0%{background-position:center -5px;}

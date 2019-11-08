@@ -29,22 +29,28 @@ class InventoryItem extends React.Component{
 				} 
 			}
 		}
-		console.log(box.multiplier)
-		console.log(box.multiplier)
-		console.log(box.multiplier)
-		console.log(box.multiplier)
 		//adds classes. adds color based on grade
-		let classes="tickerItems bagItems " + this.props.grade
+		
+		let drunk = this.context.drunk ? "drunk" : ""
+		let classes="tickerItems bagItems bagAnimation " + " " + this.props.grade 
+		console.log(drunk)
+		let randomTiming = parseInt(Math.floor(Math.random() * 8)+1)
+		let animationDuration = {"animation-duration": randomTiming + 's'}
+		let value = Math.round(this.props.value*this.context.valueMultiplier*this.context.newGamePlusLevel)
 		return(
-			<div class={classes} id="wonItem9" title={item.Description}>
+			<div class={classes}  id="wonItem9" title={item.Description}>
 			<p>{item.Name}</p>
-			<img src={item.src}></img>
+			<img src={item.src} class={drunk}  style={animationDuration}></img>
 			<span style={{display:"none"}}>Good Condition</span>
-			<h6 class="white">Sells for </h6>
-			<h3 class="white">{Math.round(this.props.value*this.context.valueMultiplier)}</h3>
-			<button onClick={this.sell} class="sellButton button" data-value="83" data-index="9">
-				SELL
-			</button></div>
+			{Number.isInteger(value) ? 
+				<><h6 class="white">Sells for </h6>
+				<h3 class="white">{value}</h3>
+				<button onClick={this.sell} class="sellButton button" data-value="83" data-index="9">
+					SELL
+				</button>
+				</>
+			:""}
+			</div>
 		);
 	}
 }

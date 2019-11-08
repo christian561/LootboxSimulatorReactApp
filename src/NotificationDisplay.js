@@ -5,7 +5,9 @@ import Notification from './Notification'
 class NotificationDisplay extends React.Component{
 	//get info from contextAPI
 	static contextType = UserContext
-
+state = {
+    isMouseTooltipVisible: true,
+  };
 	render(){
 		
       
@@ -17,9 +19,10 @@ class NotificationDisplay extends React.Component{
 		
 		console.log(this.context)
 		return(
-			<div class="notificationBox">
-			{notificationComponents}
-			</div>
+			
+				<div class="notificationBox">
+				{notificationComponents}
+				</div>
 		);
 	}
 }

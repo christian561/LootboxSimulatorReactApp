@@ -8,20 +8,25 @@ class Winscreen extends React.Component{
 		super()
 
     	this.mainMenu = this.mainMenu.bind(this)
+
     	this.continueGame = this.continueGame.bind(this)
+
     	this.newGamePlus = this.newGamePlus.bind(this)
 	}
 	mainMenu(){
 		this.props.sceneSwitch("Main Menu")
 	}
+
 	continueGame(){
 		this.props.sceneSwitch("ContinueGame")
 	}
+
 	newGamePlus(){
 		this.props.sceneSwitch("NewGamePlus")
 	}
 	render(){
 		return(
+
 			<span>
 			<span dangerouslySetInnerHTML={{__html: "<div id='svgBackgroundContainer'>\
 <div id='gradientOverlay'></div>\
@@ -59,6 +64,7 @@ class Winscreen extends React.Component{
 
 </div>
 </span>
+
 		);
 	}
 }

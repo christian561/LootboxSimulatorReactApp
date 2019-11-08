@@ -1,3 +1,6 @@
+#navBar{
+    margin-bottom: -5px;
+}
 #navLinks{
 	
 	text-align: right;
@@ -7,32 +10,42 @@
 	line-height:50px;
 	padding:0;
 	margin:0;
-	margin-top:-50px;
+	margin-top:-45px;
 	z-index:40;
 	position:relative;
 }
 #navBar #image{
-	height:50px;
-	/*background-image:url('./sunlight.jpg');*/
-	background-size:cover;
+	height:37px;
+	background-image:url('https://blueblots.com/wp-content/uploads/2011/12/35-seamless-wood-texture.jpg');
+	//background-size:cover;
 	background-position:center;
 	background-attachment:fixed;
-	filter: blur(6px) contrast(60%);
-	-webkit-filter: blur(6px) contrast(70%) brightness(120%);
+	filter: blur(1px) contrast(60%);
+	-webkit-filter: blur(1px) contrast(70%) brightness(120%);
 	z-index:10;
 	position:relative;
+}
+#navBar button{
+	background-color: Transparent;
+	border:none;
+	outline:none;
+}
+#navBar li:active{
+	padding-top:2px;
+	border:none;
 }
 #navBar li{
 	padding-right:calc(20px + 1vw);
   	list-style-type: none;
-
+  	
+	border-bottom:2px solid transparent;
 }
-#navBar li a{
+#navBar li a, #navBar button{
 	font-weight:bold;
 	color:#282c34;
 	text-decoration:none;
 }
-#navBar li a:hover{
+#navBar li a:hover, #navBar button:hover{
 	font-weight:bold;
 	color:#3d434e;
 	text-decoration:double;
@@ -41,7 +54,9 @@
   margin-right: auto;
   max-height:50px;
   overflow:hidden;
+  /*change visibility to use logo*/
+  visibility: hidden;
 }
 .navLogo{
-	max-height:50px;
+	max-height:35px;
 }
