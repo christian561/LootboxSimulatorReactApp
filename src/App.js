@@ -291,7 +291,13 @@ class App extends React.Component {
     return (
       //provide access to state to all components inside the <UserProvider> Tag
       <UserProvider value={this.state}>
+<<<<<<< Updated upstream
 
+=======
+      {this.state.scene === "Main Menu" ? <Mainmenu  sceneSwitch={this.sceneSwitch}/> : ""}
+      {this.state.scene === "Win" ? <Winscreen newGamePlusLevel={this.state.newGamePlusLevel} sceneSwitch={this.sceneSwitch}/> : ""}
+      {this.state.scene === "Game" || this.state.scene === "ContinueGame" || this.state.scene === "NewGamePlus" ? 
+>>>>>>> Stashed changes
       <div className="App">
         <Navbar save={this.saveGame} reset={this.resetGameSave}/>
         {this.state.loggedIn &&

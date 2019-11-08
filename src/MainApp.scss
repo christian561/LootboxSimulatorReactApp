@@ -312,10 +312,29 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;};
   &:hover{background-color:#ed0000;cursor:copy;}
 }
 
+<<<<<<< Updated upstream
 .cashCounter{
   float:right;
   bottom:0;
 }
+=======
+
+.App{
+  width:100vw;
+  min-height: 100vh;
+  animation:fadeIn 1.6s forwards 1;
+}
+.MainMenuContainer{
+  text-align:center;
+  padding-top:26vh;
+  background:url(https://miro.medium.com/max/10514/1*TG8yT-bltiG0FcRpx3YkRA.jpeg);
+  width:100vw;
+  min-height: 100vh;
+    background-size: 100vw 100vh;;
+  background-position: 50% 100%;
+  animation:fadeIn 0.7s cubic-bezier(0.5,0.3,0.8,1) forwards 1,zoom 20s cubic-bezier(0.2,0.5,0.8,1) forwards 1, glowStars ease 14s infinite;
+  
+>>>>>>> Stashed changes
 
 .notificationBox{
     position: fixed;
