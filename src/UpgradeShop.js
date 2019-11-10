@@ -39,7 +39,7 @@ class UpgradeShop extends React.Component{
           if(upgrade.UpgradeID == 1 ){
               hidden = false
           }
-          console.log(upgrade.Name + " " + hidden)
+          //console.log(upgrade.Name + " " + hidden)
           //don't render shop item if hidden
           if(hidden){
             return;

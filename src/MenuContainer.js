@@ -12,10 +12,21 @@ class MenuContainer extends React.Component{
 
     this.getUpgradeBackground = this.getUpgradeBackground.bind(this)
     this.getUpgradeColor = this.getUpgradeColor.bind(this)
+  this.getBorderColors = this.getBorderColors.bind(this)
+  }
+  getBorderColors(){
+    //find what tier
+    let colors=["#e2a36e","#804a1e"]
+
+    if (this.props.checkUpgrade(6)){
+      //shop upgrade is unlocked code here
+      colors=["#FFF","#8f8f8f"]
+    }
+      return colors
   }
   getUpgradeBackground(){
     //find what tier
-    console.log(BackgroundsData[4].src)
+    //console.log(BackgroundsData[4].src)
     if (this.props.checkUpgrade(9)){
       //immortal shop upgrade is unlocked code here
       return BackgroundsData[6].src
@@ -49,8 +60,8 @@ class MenuContainer extends React.Component{
     }
   }
 	render(){
-
-    	let background = {"background":"url("+this.getUpgradeBackground()+")"}
+      let borderColors = this.getBorderColors()
+    	let background = {"background":"url("+this.getUpgradeBackground()+")","border-top": "2px solid "+borderColors[0],"border-bottom": "2px solid" +borderColors[1]}
 		return(
 			<div class="row firstRow" style={background}>
 
@@ -68,6 +79,7 @@ class MenuContainer extends React.Component{
 					changeKeys={this.props.changeKeys}
           changeReaperKeys={this.props.changeReaperKeys} 
     			insertInventoryItem={this.props.insertInventoryItem}
+
 				/>
 		       
 		    </div>

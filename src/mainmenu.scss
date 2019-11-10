@@ -1,0 +1,232 @@
+
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
+marquee{
+	transition:filter .6s;
+}
+marquee:hover{
+	filter:blur(100px);
+}
+#svgBackgroundContainer{
+    	overflow: hidden;
+	background-color: #B51717; 
+	height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+}
+#MainMenuTextContainer{
+  position:fixed;
+      width: 100vw;
+    height: 100vh;
+    top:20vh;
+    z-index: 6;
+  vertical-align: middle;
+	text-align: center;
+	pointer-events: none;
+	text-shadow:1px 1px 2px  #BB76E8 ,2px 2px 2px  orange;
+}
+#buttonContainer{
+	display:block;
+}
+.mainMenu svg{
+      width: 90%;
+      animation:fadeIn 0.8s forwards 1;
+      opacity:0;
+}
+@keyframes fadeIn{
+to{opacity:1;}
+}
+.mainMenu svg:nth-child(1){
+     animation-delay:1s;
+}
+.mainMenu svg:nth-child(2){
+     animation-delay:2s;
+}
+#mainMenuTextContainer #buttonContainer button{
+  backface-visibility: hidden;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  background: linear-gradient(110deg,#eee 0%,#e3e3e3 10%,#fff 20.1%,#fff 25%,#f0f0f0 26%,#fff 28.000000000000004%,#ddd 55.00000000000001%,#eee 100%);
+  border-radius: 100px;
+  border: 1px solid #999;
+  border-width: 1px 1px 1px 1px;
+  padding: 5px 20px 7px 20px;
+  box-shadow: 0px 2px 2px rgba(0%,0%,0%,0.5),0px 0px 5px rgba(0,0,0,0.25),0px 0px 2px 4px rgba(0,0,0,0.1);
+    color: #444;
+  font-size: 26px;
+  font-family: Helvetica Neue;
+  font-weight: 900;
+  font-style: normal;
+  text-shadow: 0px 2px 1px rgba(0,0,0,0.3);
+  margin:40px 10px;
+    opacity:0;
+	pointer-events: all;
+	animation:fadeIn 0.4s forwards 1;
+
+	background-size:140% 170%;
+	transition: background-size .3s ease-out;
+-moz-transition: background-size .3s ease-out;
+-ms-transition: background-size .3s ease-out;
+-o-transition: background-size .3s ease-out;
+-webkit-transition: background-size .3s ease-out;
+	outline:none;
+	margin-top:14px;
+}
+#mainMenuTextContainer #buttonContainer button:nth-child(1){
+
+     animation-delay:1.5s;
+}
+#mainMenuTextContainer #buttonContainer button:nth-child(2){
+     animation-delay:1s;
+}
+#mainMenuTextContainer #buttonContainer button:nth-child(3){
+     animation-delay:2.5s;
+     background: linear-gradient(110deg,#a6a25a 0%,#e3e3e3 10%,#fff 20.1%,#ded9b2 25%,#f0f0f0 26%,#fff 28.000000000000004%,#cac282 55.00000000000001%,#ffffff 100%);
+
+	background-size:140% 170%;
+}
+#mainMenuTextContainer #buttonContainer button:hover{
+	background-size:240% 270%;
+}
+
+#mainMenuTextContainer #buttonContainer button:active{
+	background-size:100% 100%;
+}
+#gradientOverlay{
+	  opacity: 0.65;
+	 display: block;
+	  position: absolute;
+	background: radial-gradient(circle at 32.5%, transparent 10%,   #FF9D1D 25%, #A171D6 45%, transparent 57%);
+	background-size:150% 250%;
+	background-repeat:no-repeat;
+	mix-blend-mode: soft-light;
+	  height: 100vh;
+	  width:100%;
+	  content: '';
+	  pointer-events: none;
+	  transition:all 0.6s;
+	  overflow:hidden;
+
+}
+#svgBackgroundContainer:hover > #gradientOverlay{
+	  
+	  background-size:150% 275%;
+	  opacity: 0.8;
+
+}
+#rainbowOverlayMainMenu{
+	 display: block;
+	  opacity: 0.4;
+	  position: fixed;
+	  top:0;
+	  left:0;
+	background: linear-gradient(-183deg, transparent 30%, orange 45%,red,yellow,orange,red,  yellow 55%, transparent  );
+	background-size:150% 300%;
+	background-repeat:no-repeat;
+	mix-blend-mode: color;
+	  height: 100%;
+	  width:100%;
+	  content: '';
+	  pointer-events: none;
+	  overflow:hidden;
+	  transition:all .3s;
+	  animation:flicker 6s forwards linear infinite;
+}
+@keyframes flicker{
+	10%{
+
+	  background-size:150% 300%;
+	}
+	30%{
+		background-size:150% 270%;
+	}
+	50%{
+
+	  background-size:150% 300%;
+	}
+	70%{
+		background-size:150% 270%;
+	}
+	100%{
+		background-size:150% 300%;
+	}
+	}
+#svgBackgroundContainer a{
+	position:absolute;
+	top:50%;
+	left:45%;
+	z-index:6 ;
+}
+#buttonContainer button:hover ~ #rainbowOverlayMainMenu,#buttonContainer button:active ~ #rainbowOverlayMainMenu{
+	  
+	  opacity: 1;
+
+}
+#treeBackground{
+
+  	position:relative;
+  @include for-phone-only {
+    bottom:-35vh;
+  }
+  @include for-tablet-portrait-up {
+    
+    bottom:-25vh;
+  }
+  @include for-tablet-landscape-up {
+    
+    bottom:-15vh;
+  }
+  @include for-desktop-up {
+    
+    bottom:-10vh;
+  }
+	}
+#treeBackground svg path{
+	transition: all 2s ;
+	transition-timing-function: cubic-bezier(0.1, 0.8, 1, 0.1);
+	pointer-events: all;
+}
+#treeBackground svg path:hover {
+    transform: rotate3d(0.2,0,0,30deg);
+    perspective: 100px;
+    transition: none;
+}
+
+#svgContainer1{
+  height:100px;
+}
+#clouds{
+	position:absolute;
+	top:0;
+	width:100vw;
+	height:100px;
+	z-index: 5;
+}
+#cloud1{
+  filter:blur(2px);
+}
+#cloud2{
+  filter:blur(3px);
+}
+*{
+  padding:0;
+  margin:0;
+  
+}

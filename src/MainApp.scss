@@ -70,6 +70,7 @@ $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
   opacity: 0.95;
   margin-right: -4vw;
   z-index:3;
+  min-width:130px;
   @include for-tablet-portrait-up {
     
   margin-right: -4vw;
@@ -132,6 +133,8 @@ $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
    -webkit-box-shadow: inset 0 0 10px #000000;
    box-shadow:         inset 0px 3px 9px #000000;
   //background-image:url($menuBackgroundImage);
+  
+    background-size: cover;
   border-radius:35px;
   min-height:356px;
   padding-bottom:15px;
@@ -170,30 +173,57 @@ $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
 }
 
 .bag{
+    position: relative;
+    z-index: 14;
   // background-color:$bagBackgroundColor;
   // min-height:254.176px;
   //min-height:750px;
   min-height:32vh;
   //background-image:url(https://www.christianlong.design/assets/codepen/lootboxgame/menuBg3.jpg);
-  background-image:url(https://i.imgur.com/cpNYMAp.jpg);
-  min-width:110vw;
-  margin-left:-5vw;
-  z-index: 0;
+  
+
+  background-size: 24%;
+  background-position-y: 55%;
+  width:100vw;
+  margin:auto;
+  /*margin-left:-25vw;*/
+  z-index: 10;
     padding-top:20px;
     padding-bottom:20px;
-  @include for-desktop-up {
-    transform: rotateX(40deg) rotateY(9.5deg) rotateZ(-8deg);
-    padding-top:360px;
-  margin-left:-3.5vw;
-    padding-bottom:150px;
-    margin-top:-350px;
-  }
+
   
 }
 .bagContainer{
-  height:400px;
-
+background-image:url(https://i.imgur.com/cpNYMAp.jpg);
+  overflow: hidden;
+  @include for-desktop-up {
+    transform: rotateX(40deg) rotateY(9.5deg) rotateZ(-8deg);
+    transform-origin: bottom;
+    padding-top: 190px;
+    margin-left: -5.5vw;
+    padding-bottom: 150px;
+    margin-top: -350px;
+    min-width: 120vw;
+  }
 }
+.bagContainer:before{
+  content:"";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;    
+    pointer-events: none;
+    background: linear-gradient(125deg,transparent, rgba(20,20,20,0.35) 50%, transparent 65%,transparent 75%,rgba(30,20,20,0.23) 70%);
+    @include for-tablet-landscape-up{
+
+    background: linear-gradient(125deg,transparent, rgba(20,20,20,0.35) 45%, transparent 60%,transparent 70%,rgba(30,20,20,0.23) 70%);
+    }
+    @include for-desktop-up {
+    background: linear-gradient(125deg,transparent, rgba(20,20,20,0.35) 18%, transparent 30%,transparent 40%,rgba(30,20,20,0.23) 70%);
+  }
+  }
 .ticker{
   @include for-tablet-landscape-up {
     border-top-right-radius:5px;
@@ -321,6 +351,8 @@ clip-path: polygon(51% 100%, 0 0, 100% 0);
   background:linear-gradient(orange,orange,#FFDB98,orange);
   border-top: 3px solid #c16400;
   text-shadow:#844400 2px 2px;
+  
+  background-size:120% 140%;
   img{filter: hue-rotate(150deg) saturate(1.4);
   }
 }
@@ -352,6 +384,34 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
   background: url(https://orig00.deviantart.net/982d/f/2015/126/a/7/celestia_and_sun6ex_by_equumamici-d8sf8uv.gif);
   background-position:center -200px;
 }
+/*grade classes with no background color*/
+.Areduced{
+  border-top: 3px solid #c16400;
+  }
+
+.Breduced{
+border-top: 3px solid #ff00cb;text-shadow:#870082 2px 2px;
+  }
+.Creduced{
+border-top: 3px solid #00ffff;text-shadow:#008787 2px 2px;
+  }
+.Dreduced{
+border-top: 3px solid #00ff4c;text-shadow:green 2px 2px;
+  }
+.Freduced{
+border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
+ }
+.Zreduced{
+  background-color:#494949;
+  border-top: 3px solid red;
+  text-shadow:#2d2d2d 2px 2px;
+
+  filter:hue-rotate(226deg);
+}
+.Rreduced{
+  border-top: 3px solid red;
+  text-shadow:#2d2d2d 2px 2px;
+}
 .bagItems.R:hover{
   
   animation:growBackground2 1s ease forwards 1;
@@ -365,10 +425,11 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
 }
 
 .bagItems{
-  transition:transform 0.1s ease;
-  height:188px;  
+  transition:transform 0.15s ease;
+  height:195px;  
   box-shadow:-1px -1px 2px black;
    animation-fill-mode: none;
+
 }
 .bagItems img{width:60px;height:60px;margin-top:-4px}
 .bagItems:hover{
@@ -379,6 +440,8 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
   
   box-shadow:-4px -4px 9px black;
  
+    position: relative;
+    z-index: 7;
   
 }
 .bagItems:active{
@@ -400,7 +463,7 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
 }
 .inventory{
   transition:all 0.4s ease;
-  min-height: 43vh;
+  min-height: 600px;
   padding:15px;
   padding-bottom:10px;
   text-align:left;
@@ -408,6 +471,10 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
   overflow-x: hidden;
   background: url(https://christianlong.design/assets/codepen/lootboxgame/menuBg1.jpg);
   box-shadow: inset 0px 3px 9px #000000;
+  border-top:2px solid #63412B;
+  border-left:2px solid #63412B;
+  border-bottom:2px solid #CB9D70;
+  border-right:2px solid #CB9D70;
 }
 
 .sellButton{
@@ -441,7 +508,6 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
 
 
 .App{
-  width:100vw;
   min-height: 100vh;
   animation:fadeIn 1.6s forwards 1;
 }
@@ -449,35 +515,50 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
   text-align:center;
   padding-top:26vh;
   opacity:0;
-  background:url(https://media.giphy.com/media/9U9gK6Fx4whyw/giphy.gif);
+
   width:100vw;
   min-height: 100vh;
   background-size:cover;
   background-position: 50% 100%;
   animation:fadeIn 5s forwards 1;
 }
-
+.MainMenuTextContainer{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+    /* top: 20vh; */
+  z-index: 6;
+  vertical-align: middle;
+  text-align: center;
+  pointer-events: none;
+  text-shadow: 1px 1px 2px #BB76E8, 2px 2px 2px orange;
+}
 .MainMenuContainer{
   text-align:center;
-  padding-top:26vh;
-  background:url(https://miro.medium.com/max/10514/1*TG8yT-bltiG0FcRpx3YkRA.jpeg);
   width:100vw;
   min-height: 100vh;
-    background-size: 100vw 100vh;;
+  /*Old Spacetheme css here
+  background:url(https://miro.medium.com/max/10514/1*TG8yT-bltiG0FcRpx3YkRA.jpeg);
+  background-size: 100vw 100vh;;
   background-position: 50% 100%;
   animation:fadeIn 0.7s cubic-bezier(0.5,0.3,0.8,1) forwards 1,zoom 20s cubic-bezier(0.2,0.5,0.8,1) forwards 1, glowStars ease 14s infinite;
-  
-
+  */
 
 }
 .MainMenuContainer li{
   list-style-type: none;
 }
 .MainMenu{
-  width:60vw;
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  text-align: center;
+
   margin:auto;
+  z-index: 6;
+  display:block;/*
   background-color: rgba(30,30,30,0.6);
-  border:4px double purple;
+  border:4px double purple;*/
   animation:glow ease 14s infinite;
   animation-fill-mode: forwards;
 

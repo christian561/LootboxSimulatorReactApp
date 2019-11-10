@@ -33,7 +33,7 @@ class InventoryItem extends React.Component{
 		
 		let drunk = this.context.drunk ? "drunk" : ""
 		let classes="tickerItems bagItems bagAnimation " + " " + this.props.grade 
-		console.log(drunk)
+		//console.log(drunk)
 		let randomTiming = parseInt(Math.floor(Math.random() * 8)+1)
 		let animationDuration = {"animation-duration": randomTiming + 's'}
 		let value = Math.round(this.props.value*this.context.valueMultiplier*this.context.newGamePlusLevel)

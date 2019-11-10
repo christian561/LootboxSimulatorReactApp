@@ -32,6 +32,7 @@ function NavBar(props){
 					<img src={logo} className="App-logo navLogo" alt="logo" />
 				</li>
 
+				<li><button onClick={props.toggleInstructions} >Instructions</button></li>
 				<li><button onClick={props.save}  >Save Game</button></li>
 				<li><button onClick={props.reset} >Reset Game</button></li>
 				{/*<li><a href="https://www.christianlong.design" target="_blank">My Website</a></li>*/}

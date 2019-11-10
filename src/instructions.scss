@@ -1,0 +1,168 @@
+
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+.instructions{
+	height:0;
+	padding:0px 0;
+    z-index: -21;
+    position: relative;
+    color:#9E9E9E;
+    box-shadow: inset 0px 0px 40px #000;
+    animation:grow 0.6s 1 forwards ease-in;
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
+.instructions::-webkit-scrollbar { 
+    display: none; 
+} 	
+@keyframes grow{
+	to{height:130vh;}
+}
+.title{
+	vertical-align: middle;
+}
+.title h1{
+	width:50%;
+	margin-left:75px;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+}
+.title button,.title button:hover, .title button:active{
+	border:none;
+	background:transparent;
+	outline: 0;
+}
+.title button:hover > div{
+	background-color:#BFBFBF;
+}
+.title button{
+	padding:20px;
+}
+hr{
+	border-style: ridge;
+	border-color: #050505;
+}
+.title button div{
+	display: inline-block;
+	vertical-align: middle;
+	clip-path: polygon(21% 3%, 4% 22%, 30% 50%, 3% 79%, 20% 98%, 50% 70%, 79% 98%, 96% 79%, 70% 50%, 97% 20%, 79% 4%, 50% 30%);
+	width:50px;
+	height:50px;
+	background-color:#9E9E9E;
+	box-shadow: inset 0px 0px 25px #000,inset 0px 0px 45px white;
+
+}
+.instructions h1{
+	text-shadow: -1px 1px 1px #000,-1px 1px 3px #FFF;
+}
+.instructions li{
+	list-style: none;
+
+}
+#tipsInformation span{
+	padding:0 10px;
+	font-size:20px;
+	color: #1c1c1c;
+	text-shadow: 1px 1px 2px #fff;
+	border-left:2px solid white;
+	border-right:1px solid #1c1c1c;
+	border-bottom:1px solid #1c1c1c;
+}
+
+#gradeInformation ul li h3{
+	text-align: left;
+	margin-bottom: 1px;
+}
+#gradeInformation ul li h3 span{
+	text-align: center;
+	border-top:1px solid transparent;
+
+	margin-top: 0;
+	margin-right:10px;
+}
+#gradeInformation ul li h3,#gradeInformation ul li h3 div{
+	color: #1c1c1c;
+	mix-blend-mode:luminosity;
+}
+ul li:hover > .subInfo,ul li:active > .subInfo{
+	height:260px;
+	transition-delay:0.25s;
+	}
+ul li:active > .subInfo{
+	transition: none;
+}
+@keyframes  shrink{
+	to{height:0px}
+}
+#gradeInformation  ul li span{
+	width:40px;
+	margin-top:4px;
+	float:left;
+	height:100%;
+	border-right:2px solid rgba(255,255,255,0.2);
+}
+.subInfo{
+	background-color:rgba(50,50,50,0.4);
+	overflow:hidden;
+	font-size:20px;
+	height:0;
+	transition:height 0.2s ease;
+	transition-delay:2s;
+	@include for-desktop-up {
+		transition-delay:0.35s;
+	}
+	text-align: left;
+}
+.subInfo p{
+	padding:10px;
+	font-weight:bold;
+	color:#DDD;
+}
+.infoContainer{
+	box-sizing:border-box;
+	border-radius:8px;
+	background-color:#131313;
+	margin:10px;
+	padding: 20px;
+
+}
+.upgradeSubInfo{
+	border-radius: 8px;
+	
+}
+.upgradeSubInfo p{
+	padding:10px;
+}
+.infoRow {
+	text-align:center !important;
+	display:block;
+	margin:0;
+}
+.infoRow section{
+	display:inline-block;
+	vertical-align: top;
+}
+/*layers are in receding order, gets darker and darker*/
+.layer1{
+	background-color:#1c1c1c;
+}
+.layer2{
+	background-color:#131313;
+}
+.layer3{
+	background-color:#030303;
+}

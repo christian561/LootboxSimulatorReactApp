@@ -12,6 +12,7 @@ class LootboxMenu extends React.Component{
 		
 		this.getUpgradeStyle = this.getUpgradeStyle.bind(this)
 		this.getUpgradeColor = this.getUpgradeColor.bind(this)
+		
 	}
 	static contextType = UserContext
 	// componentDidMount(){
@@ -36,24 +37,24 @@ class LootboxMenu extends React.Component{
 		}
 	}
 	getUpgradeColor(){
-	//find what tier
-	if (this.props.checkUpgrade(9)){
-		//immortal box upgrade is unlocked code here
-		return BackgroundsData[4].color
+		//find what tier
+		if (this.props.checkUpgrade(9)){
+			//immortal box upgrade is unlocked code here
+			return BackgroundsData[4].color
+		}
+		else if (this.props.checkUpgrade(19)){
+			//2 box upgrades is unlocked code here
+			return BackgroundsData[2].color
+		}
+		else if(this.props.checkUpgrade(2)){
+			//1 box upgrade is unlocked code here
+			return BackgroundsData[1].color
+		}
+		else{
+			//0 box upgrades is unlocked code here
+			return BackgroundsData[0].color
+		}
 	}
-	else if (this.props.checkUpgrade(19)){
-		//2 box upgrades is unlocked code here
-		return BackgroundsData[2].color
-	}
-	else if(this.props.checkUpgrade(2)){
-		//1 box upgrade is unlocked code here
-		return BackgroundsData[1].color
-	}
-	else{
-		//0 box upgrades is unlocked code here
-		return BackgroundsData[0].color
-	}
-}
 	// }
 	render(){
 		var lootboxComponents = BoxData.map((box)=>{
@@ -69,12 +70,16 @@ class LootboxMenu extends React.Component{
 			}
 		})
 		
-		console.log(this.getUpgradeStyle())
-		let background = {"background":"url("+this.getUpgradeStyle()+")","background-size": "cover"}
+		var style = {
+			    backgroundImage: "url("+this.getUpgradeStyle()+")",
+			    backgroundSize: this.getUpgradeStyle() === BackgroundsData[4].src ? 'cover' : 'auto',
+			    border:"1px solid " + this.getUpgradeColor(),
+			    boxShadow:"inset 0px 0px 9px " + this.getUpgradeColor()
+		}
 		let color = this.getUpgradeColor()
 		return(
 			
-			<div class="menu col-lg-8" style={background}>
+			<div class="menu col-lg-8" style={style}>
 			{/*Menu*/}
 				<LootboxMenuHeader 
 					keys={this.context.keys} 

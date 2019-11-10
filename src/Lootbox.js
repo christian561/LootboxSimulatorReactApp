@@ -124,7 +124,7 @@ class Lootbox extends React.Component{
 		const timer = setTimeout(() => {this.setState({lockedButton:false})}, 300);
     	return () => clearTimeout(timer);
 	}
-	//a hack to get the animation working with the right timing
+	//to get the animation working with the right timing
 	resetRoll(){
 		this.lock()
 
@@ -205,7 +205,7 @@ class Lootbox extends React.Component{
 	}
 	//add item to box state
 	stopRollAnimation(){
-		console.log("stopped")
+		//console.log("box roll stopped")
 		this.setState((prevState)=>{
 	      return{
 	      	playing: false
@@ -228,9 +228,9 @@ class Lootbox extends React.Component{
 	let styles = {width: 8198, marginLeft: -8198}
 	let animated = this.state.animationPlaying ? "animation tickerSlider" : "tickerSlider"
 	let x = this.state.xOffset
-	console.log("speed: " + this.context.speedMultiplier)
+	//console.log("speed: " + this.context.speedMultiplier)
 	let animationTime = Math.round(6/this.context.speedMultiplier)
-	console.log("animationTime: " +animationTime)
+	//console.log("animationTime: " +animationTime)
 	let playing = this.state.animationPlaying ? {transform: `translate(${x}px)`, animation:'slide '+animationTime+'s ease-out forwards'} : {transform: `translate(${x}px)`}
 	let buttonDisabled = this.state.playing ? {filter:'grayscale(1)'} : {filter:'grayscale(0)'}
 	let reaperClass = ""

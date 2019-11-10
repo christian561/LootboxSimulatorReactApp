@@ -1,4 +1,9 @@
 import React from 'react'
+import './mainmenu.scss'
+import { ReactComponent as Background } from './assets/backgroundIntro.svg';
+
+import { ReactComponent as Text1 } from './assets/mainMenuText1.svg';
+import { ReactComponent as Text2 } from './assets/mainMenuText2.svg';
 class Mainmenu extends React.Component{
 
 	constructor(){
@@ -16,20 +21,29 @@ class Mainmenu extends React.Component{
 	render(){
 		return(
 		<div class="MainMenuContainer">
-		<div class="MainMenu">
-			<h1>Welcome to Lootbox Clicker</h1>
-			<h2>GOAL: Find five lost souls and bring them home</h2>
-			<ul>
-				<li class="MainMenuli"><h3>Instructions: </h3></li>
-				<li class="MainMenuli"><h3>Purchase keys(you start with 5 free keys) to spend on opening lootboxes</h3></li>
-				<li class="MainMenuli"><h3>Open lootboxes to get items, which you can sell for money</h3></li>
-				<li class="MainMenuli"><h3>Buy upgrades to progress through the story</h3></li>
-				<li class="MainMenuli"><h3>Find the lost souls to win the game</h3></li>
-			</ul>
+		<span>
+			<div id='svgBackgroundContainer'>
+					<div id='gradientOverlay'></div>
+					<div id='treeBackground'>
+						<Background />
+					</div>
+				</div>
+<div id='mainMenuTextContainer'>
+	<div class="MainMenu">
+		<Text1 />
+		<Text2 />
+		
+		<div id="buttonContainer">
 			<button onClick={this.newGame}>New Game</button>
 			{window.localStorage.getItem("playerData") !== null ?
 			<button onClick={this.continueGame}>Continue</button> :<></>}
-			</div>
+		<div id='rainbowOverlayMainMenu'></div>
+			
+		</div>
+	</div>	
+</div>
+</span>
+		
 		</div>
 	);}
 }

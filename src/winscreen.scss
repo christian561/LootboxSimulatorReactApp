@@ -1,27 +1,42 @@
-body{
-	
 
-    background: url(https://media.giphy.com/media/9U9gK6Fx4whyw/giphy.gif);
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
 }
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
 marquee{
 	transition:filter .6s;
 }
 marquee:hover{
 	filter:blur(100px);
 }
-#svgBackgroundContainer{
-	background-color: #bb76e8; 
-	height: 100%;
+#svgWinBackgroundContainer{
+  overflow: hidden;
+  background-color: #bb76e8; 
+  height: 100%;
   position: relative;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
+
+  animation:fadeIn 1.6s forwards 1;
 }
-#winScreenTextContainer{
+#winScreenTextContainer,#MainMenuTextContainer{
   position:fixed;
       width: 100vw;
     height: 100vh;
     top:20vh;
-    z-index: 6;
+    z-index: 36;
   vertical-align: middle;
 	text-align: center;
 	pointer-events: none;
@@ -38,13 +53,13 @@ marquee:hover{
 @keyframes fadeIn{
 to{opacity:1;}
 }
-#winScreenTextContainer svg:nth-child(1){
+#winScreenTextContainer svg:nth-child(1),{
      animation-delay:1s;
 }
-#winScreenTextContainer svg:nth-child(2){
+#winScreenTextContainer svg:nth-child(2),{
      animation-delay:3s;
 }
-#winScreenTextContainer button{
+#winScreenTextContainer button,#MainMenuTextContainer button{
   backface-visibility: hidden;
   cursor: pointer;
   display: inline-block;
@@ -75,24 +90,24 @@ to{opacity:1;}
 	outline:none;
 	margin-top:14px;
 }
-#winScreenTextContainer button:nth-child(1){
+#winScreenTextContainer button:nth-child(1),#MainMenuTextContainer button:nth-child(1){
 
      animation-delay:4s;
 }
-#winScreenTextContainer button:nth-child(2){
+#winScreenTextContainer button:nth-child(2),#MainMenuTextContainer button:nth-child(2){
      animation-delay:4.5s;
 }
-#winScreenTextContainer button:nth-child(3){
+#winScreenTextContainer button:nth-child(3),#MainMenuTextContainer button:nth-child(3){
      animation-delay:5s;
      background: linear-gradient(110deg,#a6a25a 0%,#e3e3e3 10%,#fff 20.1%,#ded9b2 25%,#f0f0f0 26%,#fff 28.000000000000004%,#cac282 55.00000000000001%,#ffffff 100%);
 
 	background-size:140% 170%;
 }
-#winScreenTextContainer button:hover{
+#winScreenTextContainer button:hover,#MainMenuTextContainer button:hover{
 	background-size:240% 270%;
 }
 
-#winScreenTextContainer button:active{
+#winScreenTextContainer button:active,#MainMenuTextContainer button:active{
 	background-size:100% 100%;
 }
 #gradientOverlay{
@@ -117,6 +132,18 @@ to{opacity:1;}
 	  opacity: 0.8;
 
 }
+#winScreenContainer:after {
+    position: fixed;
+    content: '';
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 45%,   #FF9D1D 15%, #A171D6 45%, transparent 57%);
+	mix-blend-mode: soft-light;
+    top: 25%;
+    left: 9;
+    z-index: 20;
+    pointer-events: none;
+}
 #rainbowOverlay{
 	 display: block;
 	  opacity: 0;
@@ -131,7 +158,7 @@ to{opacity:1;}
 	  content: '';
 	  pointer-events: none;
 	  overflow:hidden;
-	  transition:all .6s;
+	  transition:all .6s; 
 }
 #svgBackgroundContainer a{
 	position:absolute;
@@ -139,12 +166,35 @@ to{opacity:1;}
 	left:45%;
 	z-index:6 ;
 }
-#newGamePlusBtn:hover ~ #rainbowOverlay{
+#newGamePlusBtn:hover ~ #rainbowOverlay,#newGamePlusBtn:active ~ #rainbowOverlay{
 	  
 	  background-size:150% 250%;
 	  opacity: 0.6;
 
 }
+#_Image2{
+	height:100vh;
+}
+#treeBackground{
+	
+    height: 100vh;
+  	position:relative;
+  @include for-phone-only {
+    bottom:-35vh;
+  }
+  @include for-tablet-portrait-up {
+    
+    bottom:-25vh;
+  }
+  @include for-tablet-landscape-up {
+    
+    bottom:-15vh;
+  }
+  @include for-desktop-up {
+    
+    bottom:-10vh;
+  }
+	}
 #treeBackground svg path{
 	transition: all 2s ;
 	transition-timing-function: cubic-bezier(0.1, 0.8, 1, 0.1);

@@ -73,12 +73,6 @@ const UpgradesData = [
 		ParentUpgradeID:9,
 		cost:150
 	},{
-		Name: "Kaldr",
-		Description:"Hunts for keys in the wilderness",
-		UpgradeID:13,
-		ParentUpgradeID:9,
-		cost:12700
-	},{
 		Name: "King Kappa",
 		Description: "Refunds 25% of shop upgrade purchases",
 		UpgradeID:14,
@@ -89,7 +83,7 @@ const UpgradesData = [
 		Description: "Exorcise items into gold",
 		UpgradeID:15,
 		ParentUpgradeID:9,
-		cost:25000
+		cost:22000
 	},{
 		Name: "Reaper Sacrifice",
 		Description: "Summon unholy items",

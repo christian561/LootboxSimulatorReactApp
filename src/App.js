@@ -8,6 +8,7 @@ import { UserProvider } from './UserContext'
 import Winscreen from './Winscreen'
 import Mainmenu from './Mainmenu'
 import Navbar from './Navbar'
+import Instructions from './instructions'
 import MainAppContainer from './MainAppContainer'
 
 class App extends React.Component {
@@ -21,7 +22,8 @@ class App extends React.Component {
       notifications:[],
       upgrades:[],
       trash:[],
-      scene:"Main Menu"
+      scene:"Main Menu",
+      showInstructions: false
     }
     //anytime using a method with setState you want to bind it to the class
     //this.toggleLogin = this.toggleLogin.bind(this)
@@ -44,6 +46,7 @@ class App extends React.Component {
     this.removeInventoryItemsByGrade = this.removeInventoryItemsByGrade.bind(this)
     this.sellAll = this.sellAll.bind(this)
     this.sceneSwitch = this.sceneSwitch.bind(this)
+    this.toggleInstructions = this.toggleInstructions.bind(this)
   }
   sceneSwitch(scene){
     this.setState({
@@ -70,11 +73,22 @@ class App extends React.Component {
       this.setState({newGamePlusLevel:level})
     }
   }
+
+  //hide/show instructions by alternating boolean in state
+  toggleInstructions(){
+    this.setState((prevState)=>{
+      //!!!make sure you use curly braces for the return statement if you are returning an object
+      return{
+      
+        showInstructions: !this.state.showInstructions
+      }
+    })
+  }
    //anytime using a method with setState you want to bind it to the class
   toggleLogin(){
     console.log("Save Found or Created.. Logged in successfully")
     var saveData = JSON.parse(window.localStorage.getItem("playerData"))
-    console.log(saveData.speedMultiplier)
+    //console.log(saveData.speedMultiplier)
     let speed = saveData.speedMultiplier
     let valueMultiplier = saveData.valueMultiplier
     //access previous state
@@ -94,7 +108,7 @@ class App extends React.Component {
       trash:[]
       }
     })
-    console.log(this.state.speedMultiplier)
+    //console.log(this.state.speedMultiplier)
   }
   //demon bag upgrade sells all items in bag for $1000 fee
   sellAll(){
@@ -149,21 +163,32 @@ class App extends React.Component {
   }
   //remove inventory items by grade and how many(for legendary and crafting upgrades)
   removeInventoryItemsByGrade(grade,amount){
+
     let newInventory = this.state.inventory
     let newTrash = this.state.trash
     let removedItemCount = 0
+    let itemIndexesToRemove = []
+    //console.log("newInventory: " + newInventory)
     newInventory.map((item,index)=>{
       if(removedItemCount < amount){
         if(item.grade === grade){
           newTrash.push(newInventory[index])
-          newInventory.splice(index,1)
+          //console.log("removed item: " + newInventory[index])
+          
+          //gather all items to remove before you start removing them
+          itemIndexesToRemove.push(index)
+
           removedItemCount++
         }
       }
     })
+    //removes items in reverse order so indexes don't shift when an item gets deleted
+    itemIndexesToRemove.reverse().map((index)=>{
+      newInventory.splice(index,1)
+    })
+    //console.log("Trash: " + newTrash)
     //update state
     this.setState({inventory: newInventory,trash:newTrash})
-    console.log(this.state.trash)
   }
   //handle selling items
   removeInventoryItem(index){
@@ -526,7 +551,7 @@ class App extends React.Component {
   }
    
   render(){
-    console.log(this.state.scene)
+    //console.log(this.state.scene)
     return (
       //provide access to state to all components inside the <UserProvider> Tag
       <UserProvider value={this.state}>
@@ -536,7 +561,8 @@ class App extends React.Component {
 
       {this.state.scene === "Game" || this.state.scene === "ContinueGame" || this.state.scene === "NewGamePlus" ? 
       <div className="App">
-        <Navbar save={this.saveGame} reset={this.resetGameSave} />
+        <Navbar save={this.saveGame} reset={this.resetGameSave} toggleInstructions={this.toggleInstructions}/>
+        {this.state.showInstructions ? <Instructions toggleInstructions={this.toggleInstructions}/> : ""} 
         {this.state.loggedIn &&
           <MainAppContainer  
             upgradeHandler={this.purchaseUpgrade} 
