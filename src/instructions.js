@@ -46,7 +46,7 @@ function Instructions(props){
 						<li class="infoContainer"><h3>Unlock Lootboxes</h3><div class="upgradeSubInfo subInfo"><p>Unlock Box Upgrades will unlock an entirely new lootbox. The more it costs, the better the items it will have! The Immortal Upgrade grants a free lootbox unlock.</p></div></li>
 						<li class="infoContainer"><h3>King Kappa</h3><div class="upgradeSubInfo subInfo"><p>After unlocking King Kappa, He will refund you 20% of any money spent in the shop. A mail in Rebate, not a discount. </p></div></li>
 						<li class="infoContainer"><h3>Demon Bag</h3><div class="upgradeSubInfo subInfo"><p>The Demon King will lend you his bag to help sell all your items. Pay $1000 to sell all your items in one click.</p></div></li>
-						<li class="infoContainer"><h3>Reaper Sacrifice</h3><div class="upgradeSubInfo subInfo"><p>Worth nothing, can be turned into a new key with the Recycler or Hydraulic Press Upgrade .</p></div></li>
+						<li class="infoContainer"><h3>Reaper Sacrifice</h3><div class="upgradeSubInfo subInfo"><p>Unlocks the ability to summon the Reaper with Hellshards. All lootboxes will become corrupted with Hellshards. The Reaper has a chance to bring you a Soul.</p></div></li>
 					</ul>	
 				</section>
 				<section class="col-lg-3  infoContainer layer3" id="tipsInformation">	

@@ -12,7 +12,7 @@ class UpgradeShop extends React.Component{
   render(){
     let unlockedUpgrades = this.context.upgrades
     let upgradeHandler = this.props.upgradeHandler
-    let upgradeComponents = UpgradesData.map(function(upgrade){
+    let upgradeComponents = UpgradesData.map(function(upgrade,index){
 
       //filter out empty template upgrades
       if(upgrade.Name != "" && upgrade.Name != null){
@@ -46,7 +46,8 @@ class UpgradeShop extends React.Component{
           }
         
         
-        return <Upgrade 
+        return <Upgrade
+                key1={index}
                 name={upgrade.Name} 
                 description={upgrade.Description} 
                 upgradeID={upgrade.UpgradeID} 

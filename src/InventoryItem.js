@@ -1,6 +1,7 @@
 import React from 'react'
 import UserContext, { UserConsumer } from './UserContext'
 import BoxData from './BoxData'
+import ItemDescription from './itemDescription'
 class InventoryItem extends React.Component{
 
 	//get info from contextAPI
@@ -38,9 +39,10 @@ class InventoryItem extends React.Component{
 		let animationDuration = {"animation-duration": randomTiming + 's'}
 		let value = Math.round(this.props.value*this.context.valueMultiplier*this.context.newGamePlusLevel)
 		return(
-			<div class={classes}  id="wonItem9" title={item.Description}>
+			<div class={classes}  >
 			<p>{item.Name}</p>
 			<img src={item.src} class={drunk}  style={animationDuration}></img>
+			<ItemDescription description={item.Description} key1={this.props.key1}/>
 			<span style={{display:"none"}}>Good Condition</span>
 			{Number.isInteger(value) ? 
 				<><h6 class="white">Sells for </h6>

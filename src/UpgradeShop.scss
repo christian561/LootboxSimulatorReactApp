@@ -122,7 +122,24 @@ $shopItemBgColor:rgba(193, 158, 60,0.8);
 
   
 }
-
+.infoIcon{
+  display:inline-block;
+  position: relative;
+  left:25%;
+  width:0px;
+  height:0px;
+}
+.infoIcon:hover{
+  cursor:help;
+}
+.itemDescription{
+  display:inline-block;
+  position: absolute;
+  left:0px;
+  top:0;
+  height:195px;
+  width:80px;
+}
 .winUpgrade:hover{
   border-width:1px;
   background-size:895%;
@@ -142,7 +159,7 @@ $shopItemBgColor:rgba(193, 158, 60,0.8);
 }
 .shopItem:hover{
   filter:contrast(1.1);
-  cursor:copy;
+  cursor:pointer;
 }
 .shopItem:active{
 }
@@ -176,6 +193,6 @@ $shopItemBgColor:rgba(193, 158, 60,0.8);
   background: linear-gradient(183deg,#8A6E2D,#AB9000,#FFD700,#8A6E2D);
 }
 .costLabel{
-  display:inline;
-  
+  display:inline-block;
+  width:30%;
 }

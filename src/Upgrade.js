@@ -1,6 +1,6 @@
 import React from 'react'
 import UserContext, { UserConsumer } from './UserContext'
-
+import Description from './description'
 class Upgrade extends React.Component{
 	
 	static contextType = UserContext
@@ -53,9 +53,9 @@ class Upgrade extends React.Component{
 	let classes = "shopItem " + theme
 		return(
 
-			<div  onClick={(e) => this.props.upgradeHandler(this.props.upgradeID,this.props.cost)} className={classes} id={this.props.upgradeID} data-toggle="tooltip" data-trigger="hover" data-placement="auto" title={this.props.description}>
-			
-				<li class={drunk} style={animationDuration}>{this.props.name}<br></br><h6 className="costLabel" id="costLabel'+i+'">{Number.isInteger(this.props.cost) ? "$":""}{this.props.cost}</h6><br></br>
+			<div  onClick={(e) => this.props.upgradeHandler(this.props.upgradeID,this.props.cost)} className={classes} id={this.props.upgradeID}>
+				
+				<li class={drunk} style={animationDuration}>{this.props.name}<br></br><h6 className="costLabel" id="costLabel'+i+'">{Number.isInteger(this.props.cost) ? "$":""}{this.props.cost}</h6><Description key1={this.props.key1} description={this.props.description}/><br></br>
 				</li>
 			</div>   
 		)
