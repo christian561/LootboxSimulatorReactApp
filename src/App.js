@@ -1,8 +1,11 @@
 
 import React from 'react';
 import logo from './logo.svg';
-//App.js
 
+//https://www.npmjs.com/package/simple-crypto-js
+import SimpleCrypto from "simple-crypto-js";
+
+//App.js
 import './App.css'
 import { UserProvider } from './UserContext'
 import Winscreen from './Winscreen'
@@ -23,8 +26,9 @@ class App extends React.Component {
       upgrades:[],
       trash:[],
       scene:"Main Menu",
-      showInstructions: false
+      showInstructions: true
     }
+
     //anytime using a method with setState you want to bind it to the class
     //this.toggleLogin = this.toggleLogin.bind(this)
     this.toggleLogin = this.toggleLogin.bind(this)
@@ -48,6 +52,7 @@ class App extends React.Component {
     this.sceneSwitch = this.sceneSwitch.bind(this)
     this.toggleInstructions = this.toggleInstructions.bind(this)
   }
+
   sceneSwitch(scene){
     this.setState({
       scene:scene
@@ -58,9 +63,11 @@ class App extends React.Component {
     }
     if(scene === "ContinueGame"){
       this.loadGameSave()
+      this.setState({showInstructions: false})
     }
     
     if(scene === "NewGamePlus"){
+      this.setState({showInstructions: false})
       //keep old level while resetting game
       let level = this.state.newGamePlusLevel
       
@@ -87,13 +94,12 @@ class App extends React.Component {
    //anytime using a method with setState you want to bind it to the class
   toggleLogin(){
     console.log("Save Found or Created.. Logged in successfully")
-    var saveData = JSON.parse(window.localStorage.getItem("playerData"))
+    var saveData = JSON.parse(window.simpleCrypto.decrypt(window.localStorage.getItem("playerData")))
     //console.log(saveData.speedMultiplier)
     let speed = saveData.speedMultiplier
     let valueMultiplier = saveData.valueMultiplier
     //access previous state
     this.setState((prevState)=>{
-      //!!!make sure you use curly braces for the return statement if you are returning an object
       return{
       loggedIn: true,
       gold : Number(saveData.gold),
@@ -110,7 +116,7 @@ class App extends React.Component {
     })
     //console.log(this.state.speedMultiplier)
   }
-  //demon bag upgrade sells all items in bag for $1000 fee
+  //demon bag upgrade sells all items in bag for $1000 fee and calls this function to do so
   sellAll(){
       
     if(this.state.gold >= 1000){
@@ -269,17 +275,26 @@ class App extends React.Component {
      
   }
     
-  componentDidMount(){
+  componentWillMount(){
     
+      window._secretKey = "some-unique-key"
+      window.simpleCrypto = new SimpleCrypto(window._secretKey)
   }
   
 
     
 
   saveGame(){
-    this.notify("Game saved!")
+    //create "save" from only necessary to save state values
     let playerData = {gold : this.state.gold, keys : this.state.keys,reaperKeys:this.state.reaperKeys, upgrades : this.state.upgrades, inventory : this.state.inventory, speedMultiplier: this.state.speedMultiplier, valueMultiplier: this.state.valueMultiplier, newGamePlusLevel: this.state.newGamePlusLevel}
-    window.localStorage.setItem("playerData", JSON.stringify(playerData)) 
+    
+
+    //encrypt save data string
+    var encryptedPlayerData = window.simpleCrypto.encrypt(JSON.stringify(playerData))
+
+    //put encrypted save data into local storage
+    window.localStorage.setItem("playerData", encryptedPlayerData) 
+    this.notify("Game saved!")
   }
     //change state method
   changeGold(amount){
@@ -562,7 +577,7 @@ class App extends React.Component {
       {this.state.scene === "Game" || this.state.scene === "ContinueGame" || this.state.scene === "NewGamePlus" ? 
       <div className="App">
         <Navbar save={this.saveGame} reset={this.resetGameSave} toggleInstructions={this.toggleInstructions}/>
-        {this.state.showInstructions ? <Instructions toggleInstructions={this.toggleInstructions}/> : ""} 
+        {this.state.showInstructions  ? <Instructions toggleInstructions={this.toggleInstructions}/> : ""} 
         {this.state.loggedIn &&
           <MainAppContainer  
             upgradeHandler={this.purchaseUpgrade} 
