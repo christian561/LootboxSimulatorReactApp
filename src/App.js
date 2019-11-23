@@ -269,16 +269,17 @@ class App extends React.Component {
      else{
         //instantiate new save
         let playerData = {gold : 0, keys : 5,reaperKeys:0, upgrades : [], inventory : [], speedMultiplier: 1, valueMultiplier:1,newGamePlusLevel:1}
-        window.localStorage.setItem("playerData", JSON.stringify(playerData)) 
+        window.localStorage.setItem("playerData", window.simpleCrypto.encrypt(JSON.stringify(playerData))) 
         this.toggleLogin()
      }
      
   }
     
   componentWillMount(){
-    
-      window._secretKey = "some-unique-key"
-      window.simpleCrypto = new SimpleCrypto(window._secretKey)
+      
+      //publicly available
+      var _secretKey = "some-unique-key"
+      window.simpleCrypto = new SimpleCrypto(_secretKey)
   }
   
 

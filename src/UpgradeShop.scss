@@ -81,7 +81,14 @@ $shopItemBgColor:rgba(193, 158, 60,0.8);
     padding: 4px 10px 5px 10px;
     box-shadow: inset 0px 1px 1px rgba(0%,0%,0%,0.6), 0px 0px 5px rgba(255,255,255,1), 0px 1px 0px 3px rgba(0,0,0,0.2), inset 0px 1px 0px rgba(255,255,255,1);
     color: #574317;
-    font-size: 16px;
+
+    @include for-tablet-landscape-up{
+      font-size: 12px;
+    }
+    @include for-desktop-up{
+      font-size: 15px;
+    }
+    font-size: 15px;
     font-family: Helvetica Neue;
     font-weight: 900;
     font-style: normal;
