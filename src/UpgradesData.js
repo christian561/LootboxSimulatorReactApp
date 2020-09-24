@@ -5,6 +5,12 @@ const UpgradesData = [
 		UpgradeID:1,
 		ParentUpgradeID:0,
 		cost:10
+	},{
+		Name: "Four Leaf Clover",
+		Description: "This will get you started +5% luck",
+		UpgradeID:25,
+		ParentUpgradeID:0,
+		cost:75
 	},
 	{
 		Name: "Unlock Gems Box",
@@ -25,6 +31,12 @@ const UpgradesData = [
 		ParentUpgradeID:0,
 		cost:650
 	},{
+		Name: "Unlock Guns Box",
+		Description: "Unlock a new lootbox",
+		UpgradeID:21,
+		ParentUpgradeID:0,
+		cost:550
+	},{
 		Name: "Quick Roller",
 		Description: "+25% faster rolls",
 		UpgradeID:5,
@@ -43,11 +55,41 @@ const UpgradesData = [
 		ParentUpgradeID:6,
 		cost:50
 	},{
+		Name: "Eight Leaf Clover",
+		Description: "Add to the collection +10% luck",
+		UpgradeID:26,
+		ParentUpgradeID:6,
+		cost:400
+	},{
 		Name: "Quick Roller II",
 		Description: "+50% faster rolls",
 		UpgradeID:8,
 		ParentUpgradeID:6,
 		cost:1650
+	},{
+		Name: "Unlock Cars Box",
+		Description: "Unlock a new lootbox",
+		UpgradeID:19,
+		ParentUpgradeID:6,
+		cost:900
+	},{
+		Name: "Barter Lessons II",
+		Description: "Flea market apprenticeship +30% item value",
+		UpgradeID:17,
+		ParentUpgradeID:6,
+		cost:2300
+	},{
+		Name: "Key Former",
+		Description: "Hydraulic press garbage into keys",
+		UpgradeID:18,
+		ParentUpgradeID:6,
+		cost:800
+	},{
+		Name: "Unlock Rich Box",
+		Description: "Unlock a new lootbox",
+		UpgradeID:22,
+		ParentUpgradeID:6,
+		cost:1250
 	},{
 		Name: "Immortal Upgrades",
 		Description: "O̧th̶͝èrwo̵r̵ĺ͢d̨̢ly̵͟ ̀P̢͟o͟͠w͡e͞͞r̸͡͞s̵̛͘    Requires great sacrifice  (20 Legendary items in Bag)",
@@ -60,6 +102,12 @@ const UpgradesData = [
 		UpgradeID:10,
 		ParentUpgradeID:9,
 		cost:6666
+	},{
+		Name: "16 Leaf Clover",
+		Description: "These ones are actually rare +20% luck",
+		UpgradeID:27,
+		ParentUpgradeID:9,
+		cost:6000
 	},{
 		Name: "Mercury\'s Treads",
 		Description: "𝘌𝘷𝘦𝘯 𝘧𝘢𝘴𝘵𝘦𝘳 rolls.. +66.6% speed",
@@ -80,10 +128,16 @@ const UpgradesData = [
 		cost:9001
 	},{
 		Name: "Demon Bag",
-		Description: "Exorcise items into gold",
+		Description: "Unlocks the Sell All shop upgrade",
 		UpgradeID:15,
 		ParentUpgradeID:9,
 		cost:22000
+	},{
+		Name: "Sell All",
+		Description: "Exorcise items into gold",
+		UpgradeID:24,
+		ParentUpgradeID:15,
+		cost:1000
 	},{
 		Name: "Reaper Sacrifice",
 		Description: "Release the power of hell into your lootboxes. Every lootbox can now reward hellshards.",
@@ -91,41 +145,11 @@ const UpgradesData = [
 		ParentUpgradeID:9,
 		cost:20000
 	},{
-		Name: "Barter Lessons II",
-		Description: "Flea market apprenticeship +30% item value",
-		UpgradeID:17,
-		ParentUpgradeID:6,
-		cost:2300
-	},{
-		Name: "Key Former",
-		Description: "Hydraulic press garbage into keys",
-		UpgradeID:18,
-		ParentUpgradeID:6,
-		cost:800
-	},{
 		Name: "Craft Reaper Key",
 		Description: "Unlocks a portal to hell",
 		UpgradeID:20,
 		ParentUpgradeID:16,
 		cost:"x3 Hellshards"
-	},{
-		Name: "Unlock Guns Box",
-		Description: "Unlock a new lootbox",
-		UpgradeID:21,
-		ParentUpgradeID:0,
-		cost:550
-	},{
-		Name: "Unlock Cars Box",
-		Description: "Unlock a new lootbox",
-		UpgradeID:19,
-		ParentUpgradeID:6,
-		cost:900
-	},{
-		Name: "Unlock Rich Box",
-		Description: "Unlock a new lootbox",
-		UpgradeID:22,
-		ParentUpgradeID:6,
-		cost:1250
 	},{
 		Name: "",
 		Description: "",
@@ -138,6 +162,12 @@ const UpgradesData = [
 		UpgradeID:23,
 		ParentUpgradeID:9,
 		cost:'Save 5 lost souls.'
+	},{
+		Name: "Craft Key",
+		Description: "Trade in two scrap for a key",
+		UpgradeID:28,
+		ParentUpgradeID:0,
+		cost:"x2 Scrap"
 	}
 
 

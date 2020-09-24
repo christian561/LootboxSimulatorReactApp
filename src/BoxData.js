@@ -103,7 +103,7 @@ items: [{
 		Name: "Lucky",
 		src: 'https://media2.giphy.com/media/Ti9bG57GFzVM4/giphy.gif',
 		Description: "Worth A LOT",
-		rarity:20
+		rarity:13
 		},
 		{
 		id:23,
@@ -124,20 +124,20 @@ items: [{
 		Name: "Furreal",
 		src: 'http://33.media.tumblr.com/bac3cee75caa1d42e56873637813c7e8/tumblr_nkd3qqNqYa1syjt2wo1_500.gif',
 		Description: "What is this? Where am I?",
-		rarity:10
+		rarity:11
 		},
 		{
 		id:26,
 		Name: "Duke",
 		src: 'https://media.tenor.com/images/b0fd3338e86f73952e37e1a16f80f47a/tenor.gif',
 		Description: "\"Wanna go for a car ride?\"",
-		rarity:10
+		rarity:9
 		},
 		{
 		id:27,
-		Name: "Furreal",
-		src: 'http://33.media.tumblr.com/bac3cee75caa1d42e56873637813c7e8/tumblr_nkd3qqNqYa1syjt2wo1_500.gif',
-		Description: "What is this? Where am I?",
+		Name: "Drake",
+		src: 'http://cdn2.scratch.mit.edu/get_image/gallery/450617_170x100.png?v=1401773800.2',
+		Description: "Fiery dog",
 		rarity:10
 		}]
   },{
@@ -528,6 +528,13 @@ items: [{
 		{
 		id:999,
 		Name: "Soul",
+		src: 'https://media.giphy.com/media/YVeAsX39QNaTNF2S0c/giphy.gif',
+		Description: "You think you see a reflection of shrek, but it faded away too quickly",
+		rarity:0
+		},
+		{
+		id:696,
+		Name: "Scrap",
 		src: 'https://media.giphy.com/media/YVeAsX39QNaTNF2S0c/giphy.gif',
 		Description: "You think you see a reflection of shrek, but it faded away too quickly",
 		rarity:0

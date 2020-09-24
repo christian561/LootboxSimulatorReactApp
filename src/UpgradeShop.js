@@ -1,17 +1,20 @@
 import React from 'react'
-import UserContext, { UserConsumer } from './UserContext'
 import Upgrade from './Upgrade'
 import UpgradesData from './UpgradesData'
 import Trash from './Trash'
 import './UpgradeShop.scss'
 
 class UpgradeShop extends React.Component{
-  static contextType = UserContext
+ 
+  constructor(props){
+       super(props)
+    }
 
-  
   render(){
-    let unlockedUpgrades = this.context.upgrades
+    console.log(this.props.upgrades)
+    let unlockedUpgrades = this.props.unlockedUpgrades
     let upgradeHandler = this.props.upgradeHandler
+     let drunk = this.props.drunk
     let upgradeComponents = UpgradesData.map(function(upgrade,index){
 
       //filter out empty template upgrades
@@ -47,6 +50,8 @@ class UpgradeShop extends React.Component{
         
         
         return <Upgrade
+                key={upgrade.UpgradeID}
+                drunk={drunk}
                 key1={index}
                 name={upgrade.Name} 
                 description={upgrade.Description} 
@@ -68,8 +73,9 @@ class UpgradeShop extends React.Component{
               {upgradeComponents}
           </ul>
         </div>
-        <h2 className={"cashCounter " + moneyClass}>${Math.round(this.context.gold)}</h2>
-        <Trash trashContents={this.context.trash}/>
+        <h2 className={"cashCounter " + moneyClass}>{Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'})
+.format(Math.round(this.props.gold)).split(".")[0]}</h2>
+        <Trash trashContents={this.props.trash}/>
       </div>
   	);
   }

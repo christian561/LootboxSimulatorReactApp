@@ -1,0 +1,6 @@
+Green: #05EF04
+BLUE: #07E8E8
+Purple: #EA04E5
+orange: #D9750A
+red: #E60425
+purple: #740674

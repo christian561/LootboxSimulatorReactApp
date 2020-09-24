@@ -50,7 +50,7 @@ class Winscreen extends React.Component{
 					<div id="buttonContainer">
 						<button onClick={this.mainMenu}>Main Menu</button>
 						<button onClick={this.continueGame}>Continue Game</button>
-						<button  id='newGamePlusBtn' onClick={this.newGamePlus}>Begin New Game (x{this.props.newGamePlusLevel} value)</button>
+						<button  id='newGamePlusBtn' onClick={this.newGamePlus}>Begin New Game (x{this.props.newGamePlusLevel*2} value)</button>
 					<div id='rainbowOverlay'></div>
 					</div>
 

@@ -1,0 +1,20 @@
+.ChangeLog{
+	text-align:left;
+	color:white;
+	padding:30px;
+	height:0;
+    z-index: -21;
+    position: relative;
+    padding-left:60px;
+    color:#9E9E9E;
+    box-shadow: inset 0px 0px 40px #000;
+    animation:grow1 0.6s 1 forwards ease;
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
+@keyframes grow1{
+	to{height:50vh;}
+}
+.underline{
+text-decoration:underline;
+}

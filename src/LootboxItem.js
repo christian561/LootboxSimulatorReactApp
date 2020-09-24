@@ -14,7 +14,7 @@ function LootboxItem(props){
 		<div class={classes}>
 		<p>{props.data.name}</p>
 		
-		<img src={props.data.src} class={drunk}  style={animationDuration}/>
+		<img src={props.data.src} class={drunk} alt="" style={animationDuration}/>
 		</div>
 	);
 }

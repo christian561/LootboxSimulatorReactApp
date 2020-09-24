@@ -1,0 +1,451 @@
+$yellow:rgb(228, 208, 106);
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+.instructions{
+	height:0;
+	padding:0px 0;
+    z-index: -21;
+    position: relative;
+    color:#9E9E9E;
+    box-shadow: inset 0px 0px 40px #000;
+    animation:grow 0.6s 1 forwards cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
+.instructions::-webkit-scrollbar { 
+    display: none; 
+} 	
+@keyframes grow{
+	to{height:130vh;}
+}
+.title{
+	vertical-align: middle;
+}
+.title h1{
+	width:50%;
+	margin-left:75px;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+}
+.title button,.title button:hover, .title button:active{
+	border:none;
+	background:transparent;
+	outline: 0;
+}
+.title button:hover > div{
+	background-color:#BFBFBF;
+}
+.title button{
+	padding:20px;
+    float: right;
+}
+hr{
+	border-style: ridge;
+	border-color: #050505;
+}
+.title button div{
+	display: inline-block;
+	vertical-align: middle;
+	clip-path: polygon(21% 3%, 4% 22%, 30% 50%, 3% 79%, 20% 98%, 50% 70%, 79% 98%, 96% 79%, 70% 50%, 97% 20%, 79% 4%, 50% 30%);
+	width:50px;
+	height:50px;
+	background-color:#9E9E9E;
+	box-shadow: inset 0px 0px 25px #000,inset 0px 0px 45px white;
+
+}
+.instructions h1{
+	color:rgb(210,150,150);
+	text-shadow: -1px 1px 1px $yellow,-1px 1px 3px #FFF;
+}
+.instructions li{
+	list-style: none;
+
+}
+#tipsInformation span{
+	padding:0 10px;
+	font-size:20px;
+	color: #1c1c1c;
+	text-shadow: 1px 1px 2px magenta;
+	border-left:2px solid white;
+	border-right:1px solid #1c1c1c;
+	border-bottom:1px solid #1c1c1c;
+}
+
+#gradeInformation ul li h3{
+	text-align: left;
+	margin-bottom: 1px;
+}
+#gradeInformation ul li h3 span{
+	text-align: center;
+	border-top:1px solid transparent;
+
+	margin-top: 0;
+	margin-right:10px;
+}
+#gradeInformation ul li h3,#gradeInformation ul li h3 div{
+	color: #1c1c1c;
+	mix-blend-mode:luminosity;
+}
+ul li:hover > .subInfo,ul li:active > .subInfo{
+	height:260px;
+	transition-delay:0.25s;
+	}
+ul li:active > .subInfo{
+	transition: none;
+}
+@keyframes  shrink{
+	to{height:0px}
+}
+#gradeInformation  ul li span{
+	width:40px;
+	margin-top:4px;
+	float:left;
+	height:100%;
+	border-right:2px solid rgba(255,255,255,0.2);
+}
+.subInfo{
+	background-color:rgba(50,50,50,0.4);
+	overflow:hidden;
+	font-size:20px;
+	height:0;
+	transition:height 0.2s ease;
+	transition-delay:2s;
+	@include for-desktop-up {
+		transition-delay:0.35s;
+	}
+	text-align: left;
+}
+.subInfo p{
+	padding:10px;
+	font-weight:bold;
+	color:#DDD;
+
+}
+.infoContainer{
+	box-sizing:border-box;
+	border-radius:8px;
+	background-color:#131313;
+	margin:10px;
+	padding: 20px;
+	width:auto;
+}
+.upgradeSubInfo{
+	border-radius: 8px;
+	
+}
+
+.upgradeSubInfo p{
+	padding:10px;
+
+}
+.infoRow {
+	text-align:center !important;
+	display:block;
+	margin:0;
+}
+.infoRow section{
+	display:inline-block;
+	vertical-align: top;
+}
+/*layers are in receding order, gets darker and darker*/
+.AchievementsLayer1{
+	background-color:#743b80;
+}
+.AchievementsLayer2{
+	background-color:#351d3a;
+}
+.AchievementsLayer3{
+	background-color:#190f1b;
+}
+.achievementGroup{
+	z-index:20;
+	text-align:right;
+	display:inline-flex;
+}
+.achievementGroupLabel{
+
+	vertical-align: middle;
+	padding-top:10px;
+	
+	@include-for-desktop-up{
+	text-align: right !important;
+	h5{
+		float:none;
+	}
+}
+	h5,h2{
+		white-space: nowrap
+	}
+	
+	}
+.achievementGroupLabel h5{
+	float:right;
+    margin-top: 12px;
+
+	@include for-tablet-landscape-up{
+    	margin-top: 0;
+	}
+}
+.achievementGroupLabel h2{
+	float:left;
+	
+	color:rgb(210,150,150);
+ 
+@include for-desktop-up {
+	float:none !important;
+}
+}
+
+@for $i from 1 to 10 {
+   .achievementGroup:nth-child(#{$i}):hover .achievementGroupLabel h2{ animation: glow 12.45s ease forwards infinite;  /*animation-delay: $i * 0.455s + 5s;*/
+}};
+@keyframes glow{
+	0{
+	text-shadow: -1px 1px 1px $yellow,-1px 1px 1px #FFF;}
+	49%{
+		text-shadow: -1px 1px 1px $yellow,-1px 1px 2px #fff;
+	}
+	50%{text-shadow: -1px 1px 5px $yellow,-1px 1px 15px #fff;}
+	51%{text-shadow: -1px 1px 1px $yellow,-1px 1px 2px #fff;}
+	100%{
+	text-shadow: -1px 1px 1px $yellow,-1px 1px 1px #FFF;}
+}
+.achievementContainer img{
+	width:58px;
+	height: 58px;
+	border-width: 6px;
+	border-style: ridge;
+	
+	border-radius: 5px;
+	background-color:#4f4f4f;
+
+
+
+	
+}
+.subAchievement:nth-child(1) img{
+	border-color:yellow;
+}
+.subAchievement:nth-child(2) img{
+	border-color:lime;
+}
+.subAchievement:nth-child(3) img{
+	border-color:cyan;
+}
+.subAchievement:nth-child(4) img{
+	border-color:magenta;
+}
+.subAchievement:nth-child(5) img{
+	border-color:orange;
+}
+.subAchievement:nth-child(6) img{
+	border-color:red;
+}
+.subAchievement:nth-child(7) img{
+	border-color:purple;
+
+}
+.subAchievement:not(.locked):hover img{
+	animation:none;
+	background-color:#8f8f8f;
+	position:relative;
+	border-width: 2px;
+	padding:4px;
+	
+}
+.locked{
+	filter:grayscale(0.8);
+	}
+.locked img,.locked:before{
+	filter:blur(2px) brightness(0.7);
+}
+
+.subAchievement img{
+	display:inline-block	;
+	transition: all 0.3s;
+	animation: fadeBackground 0.3s forwards 1;
+}
+@keyframes fadeBackground{
+	from{
+		 	background-color:#8f8f8f;
+			transform: 	rotate(	5deg)
+		}
+		50%{
+			transform: 	rotate(	-5deg)
+		}
+		to{
+			transform: 	rotate(	0deg);
+		}
+
+
+}
+
+ .subAchievement:not(:first-child):before{
+   content:  "\27A7";
+ 	@include for-phone-only{
+    	content:  "";
+	}
+   font-color:black;
+   position: relative;
+   margin-left:3px;
+   margin-right:2px;	
+   top:47;
+   vertical-align:middle;
+}
+.achievementContainer{
+    border:8px double #351d3a;
+    box-shadow: inset 1px 1px 5px #1c1c1c;
+   vertical-align: 	middle;
+   display:inline-flex;
+   padding:5px;
+   justify-content: center;
+   @include for-tablet-landscape-up{
+   max-width:540px;
+}
+}
+hr{
+border-color:#351d3a;
+}
+#achievementsBody{
+@include for-tablet-landscape-up{
+	/*max-height: 750px;*/
+}
+	}
+#achievementInformation{
+
+	position:fixed;
+	right:0;
+	top:60vh;
+	border:2px solid #743b80;
+	min-width:383px;
+    max-width: 383px;
+    
+@include for-desktop-up {
+  display:inline-block;
+  position: unset;
+	border:4px solid #743b80;
+  border-top:20px solid #743b80;
+  margin-top:-10px;
+}
+
+}
+#achievementInformation h2{
+max-width: fit-content;
+    text-align: center;
+    margin: auto;
+    min-height: 80px;
+}
+#achievementInformation p{
+	text-align: left;
+    padding-left: 15px;
+	display:inline-block;
+	max-width: 65%;
+	margin-top:20px;
+}
+#achievementInformation p div{
+	font-weight: bold;
+	}
+#achievementInformation img{
+border:8px ridge rgb(112,57,122);
+    width: 100%;
+	box-shadow:0px 0px 10px rgb(112,57,122), inset 0px 0px 20px rgb(112,57,122);
+	display:inline-block;
+}
+.subAchievement{
+	position: relative;
+}
+.subAchievement button{
+	position: absolute;
+    left: 0;
+    height: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    background-image: url(https://media0.giphy.com/media/8Am4Njdu7imzLbnIhc/giphy.gif);
+    background-size: 150%;
+    line-height: 20px;
+    background-position: center;
+    font-size: 20px;
+    font-weight: bold;
+    vertical-align: top;
+    height: 100%;
+    width: 100%;
+}		
+
+.sparkles{
+ background-image: url(https://media0.giphy.com/media/8Am4Njdu7imzLbnIhc/giphy.gif);
+    background-size: 60%;
+    background-position: center;
+}
+/*#achievementList{
+	margin-right:345px;
+@include for-desktop-up {
+  margin-right:0;
+}
+	}*/
+
+
+$infoBoxColor: #000;
+$infoBoxHeight: 69px;
+$infoBoxWidth: 69px;
+
+
+.hover{
+    background: linear-gradient(270deg, #a0a0a0, black, transparent);
+    /* height: 69px; */
+    opacity: 0;
+    transition: margin-left 0.8s,  opacity 0.8s;
+    transition-delay:opacity 0.2s;
+    /* margin-right: 300%; */
+    /* margin-left: -130%; */
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    /* left: 40%; */
+    top: 0;
+    transform: skewX(-30deg);
+    margin-left: -20%;
+  
+}
+
+
+.achievementContainer .subAchievement:nth-child(7):not(.locked){
+ 
+  overflow:hidden;
+  
+  
+  &:hover .hover{
+    animation:slideRight 2s ;
+    animation-fill-mode:forwards;
+    margin-left:140%;
+    
+  }
+  &:active .hover{
+    background: linear-gradient(270deg,blue,black,transparent);
+  }
+}
+
+@keyframes slideRight{
+  0%{opacity:0;
+    ;
+  }
+  5%{
+    opacity:.4;
+  }
+  100%{opacity:1;
+    }
+}

@@ -1,0 +1,21 @@
+PLAY THE GAME HERE:
+https://lootclicker.netlify.com/
+
+THE GAMEPLAY: 
+It’s a game where clicking is the main gameplay and has a hellish ending, inspired by grandmapocalypse. Not nearly as infinitely addictive as cookie clicker but you can play it out in 20-30 min, and it does have a new game+ if your into it. Probably gonna add a leader board and more upgrades you can choose to unlock every time you beat the game, basically like ascending. 
+
+I tried to spice up the clicking gameplay and it’s fairly different than cookie clicker. You open boxes and sell the items inside(like the CS:GO loot boxes), and also make decisions on what not to sell. 
+
+
+
+There are no ads running right now, just tryna share a fun game I made because I was trying to practice ReactJS, a framework for developing web applications.
+
+FEEDBACK: 
+I figure people who like cookie clicker would also like to try my game. I’d love to have ppl try the game and give feedback, especially the cookie clicker veterans on this sub who know the ins and outs of this kind of dopamine cycle. 
+
+Any input on things like progression feeling too slow/fast, anything looking buggy, if it gets laggy on your system, anything you think of that could have more detail. I also want to add newgame+ upgrades, first idea would be when you win you get to add 5 points into categories like [+5% value] [+5% speed] [+5%luck] so you can strategically improve each time. Any other ideas for newgame+ would be appreciated
+
+BACKSTORY: 
+I'm a 20 yr old college kid with fond memories of leaving cookie clicker running all day and buying new upgrades after school when I was 12. Always wanted to make something like cookie clicker after experiencing the glory of the grandmas. After trying to make my own clicker game with a little bit of depth I'm even more impressed~~disgusted~~ with how much content there is in Cookie clicker. 
+
+Just got done developing the game to a point where it is playable, so it has a temporary domain name for now. If people like the game I might go for a domain name and real web host but that costs money. If you like it, I would appreciate some motivational comments because I'm not gonna keep developing it just for me, it's your turn to play haha

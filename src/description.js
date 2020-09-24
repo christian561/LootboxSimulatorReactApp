@@ -8,7 +8,7 @@ const Example = (props) => {
 
   const toggle = () => setTooltipOpen(!tooltipOpen);
   let id = "Tooltip"+props.key1
-  console.log(id)
+  
   return (
     
     <div class="infoIcon">

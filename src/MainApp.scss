@@ -21,6 +21,41 @@ $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
 @mixin for-big-desktop-up {
   @media (min-width: 1800px) { @content; }
 }
+/*
+.inventory::-webkit-scrollbar {
+  width: 27px;
+  height: 27px;
+}
+.inventory::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+.inventory::-webkit-scrollbar-thumb {
+  background: #f5fa47;
+  border: 0px dotted #13cc2f;
+  border-radius: 0px;
+}
+.inventory::-webkit-scrollbar-thumb:hover {
+  background: #f1ed54;
+}
+.inventory::-webkit-scrollbar-thumb:active {
+  background: #e7ef47;
+}
+.inventory::-webkit-scrollbar-track {
+  background: #b5a917;
+  border: 4px groove #edf829;
+  border-radius: 0px;
+}
+.inventory::-webkit-scrollbar-track:hover {
+  background: #776f09;
+}
+.inventory::-webkit-scrollbar-track:active {
+  background: #595704;
+}
+.inventory::-webkit-scrollbar-corner {
+  background: transparent;
+}*/
+
 *{
   padding:0;
   margin:0;
@@ -58,7 +93,61 @@ $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
     padding-top:-5px;
   }
 }
+.addSoulButton{
+  position:absolute;
+  max-width: 58px;
+    top: 0px;
+    left:calc(125px + 2vw);
+    align-items: center;
+    height: 38px;
+    min-width: 54px !important;
+    margin: 0;
+    padding:0 !important;
+    padding-left:6px !important;
+    outline: none !important; 
+@include for-phone-only {
+    left:2px;
+  max-width: 58px;
+    top:2px;
+    
+    
+  }
+}
+.addSoulButtonImg{
+   filter: grayscale(0);
+   position: relative;
+   left: -5px;
+   max-width: 35px;
+   height: 35px;
+   min-width: 35px;
+   padding: 0;
+   pointer-events: none;
+ }
+ .tinySouls{
+   max-width: 35px;
+   height:35px;
+   opacity:0;
+   animation: soulFadeIn 0.2s ease forwards 1;
+   animation-delay: 0.2s;
+   
+ }
+@keyframes soulFadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+ .soulContainer{
 
+   height:35px;
+  background-color:#1c1c1cdd;
+  border-top-right-radius:10px;
+  border-bottom-right-radius:10px;
+  position:absolute;
+  left:calc(100% + 2px);
+  /*width: max-content;*/
+  transition:width 0.2s ease-out;
+  display:inline-block;
+  top:0px;
+ }
 .lootboxes button{
   //white-space: nowrap;
   background: linear-gradient(0deg,#ff9 0%,#fff 50%,#e92 100%);
@@ -136,7 +225,7 @@ $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
   //background-image:url($menuBackgroundImage);
   
     background-size: cover;
-  border-radius:35px;
+  border-radius:5px;
   min-height:356px;
   padding-bottom:15px;
   @include for-tablet-landscape-up {
@@ -147,6 +236,8 @@ $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
   margin:auto;
   padding-bottom:5px;
   width:94%;
+
+  position: relative;
   @include for-tablet-portrait-up {
     /*margin-left:8%;
     margin-right:8%;*/
@@ -165,8 +256,8 @@ $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
 // }
 .menuHeader{
   background: rgba(40,40,40,0.8);
-  border-top-left-radius: 35px;
-  border-top-right-radius: 35px;
+  border-top-left-radius: 5px;
+  border-top-right-radius:5px;
   margin-bottom:4px;
 } 
 .menuHeader h3,.menuHeader h2{
@@ -191,12 +282,12 @@ $volumeSliderGradient:linear-gradient(90deg,#fbff87,pink);
   z-index: 10;
     padding-top:20px;
     padding-bottom:20px;
-
   
 }
 .bagContainer{
-background-image:url(https://i.imgur.com/cpNYMAp.jpg);
+background-image:url(https://christianlong.design/assets/LootboxSimulator/woodBackground2.png);
   overflow: hidden;
+  /*tilted style
   @include for-desktop-up {
     transform: rotateX(40deg) rotateY(9.5deg) rotateZ(-8deg);
     transform-origin: bottom;
@@ -205,7 +296,7 @@ background-image:url(https://i.imgur.com/cpNYMAp.jpg);
     padding-bottom: 150px;
     margin-top: -350px;
     min-width: 120vw;
-  }
+  }*/
 }
 .bagContainer:before{
   content:"";
@@ -216,14 +307,14 @@ background-image:url(https://i.imgur.com/cpNYMAp.jpg);
     left: 0;
     width: 100%;    
     pointer-events: none;
-    background: linear-gradient(125deg,transparent, rgba(20,20,20,0.35) 50%, transparent 65%,transparent 75%,rgba(30,20,20,0.23) 70%);
+    background: linear-gradient(125deg, transparent, rgba(43, 43, 43, 0.15) 50%, transparent 65%, transparent 75%, rgba(30, 20, 20, 0.15) 70%);
     @include for-tablet-landscape-up{
-
-    background: linear-gradient(125deg,transparent, rgba(20,20,20,0.35) 45%, transparent 60%,transparent 70%,rgba(30,20,20,0.23) 70%);
+      background: linear-gradient(125deg, transparent, rgba(43, 43, 43, 0.15) 45%, transparent 60%, transparent 70%, rgba(30, 20, 20, 0.15) 70%);
     }
     @include for-desktop-up {
-    background: linear-gradient(125deg,transparent, rgba(20,20,20,0.35) 18%, transparent 30%,transparent 40%,rgba(30,20,20,0.23) 70%);
-  }
+    
+      background: linear-gradient(125deg, transparent, rgba(43, 43, 43, 0.15) 18%, transparent 30%, transparent 40%, rgba(30, 20, 20, 0.15) 70%);
+    }
   }
 .ticker{
   @include for-tablet-landscape-up {
@@ -244,6 +335,7 @@ background-image:url(https://i.imgur.com/cpNYMAp.jpg);
 .tickerItems{
   box-shadow:2px 0px 17px #fff;
   display:inline-block;
+  position:relative;
   width:60px;
   background-color:black;
   border-left:2px solid white;
@@ -373,17 +465,19 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
   background-color:#494949;
   border-top: 3px solid red;
   text-shadow:#2d2d2d 2px 2px;
-  background: url(https://orig00.deviantart.net/982d/f/2015/126/a/7/celestia_and_sun6ex_by_equumamici-d8sf8uv.gif);
-  background-position:center -200px;
+  background: url(https://christianlong.design/assets/codepen/lootboxgame/flameBG.gif);
+  background-position:center ;
 
+  background-size:100% 100%;
   filter:hue-rotate(226deg);
 }
 .R{
   background-color:#494949;
   border-top: 3px solid red;
   text-shadow:#2d2d2d 2px 2px;
-  background: url(https://orig00.deviantart.net/982d/f/2015/126/a/7/celestia_and_sun6ex_by_equumamici-d8sf8uv.gif);
-  background-position:center -200px;
+  background: url(https://christianlong.design/assets/codepen/lootboxgame/flameBG.gif);
+  background-position:center ;
+  background-size:100% 100%;
 }
 /*grade classes with no background color*/
 .Areduced{
@@ -413,13 +507,13 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
   border-top: 3px solid red;
   text-shadow:#2d2d2d 2px 2px;
 }
-.bagItems.R:hover{
+.bagItems.R:hover,.bagItems.Z:hover{
   
   animation:growBackground2 1s ease forwards 1;
 }
 @keyframes growBackground2{
-  0%{background-position:center -200px;}
-  100%{background-position:center -350px;}
+  from{background-size:100% 100%}
+  to{background-size:120% 100%}
 }
 .white{
   color:white;
@@ -428,34 +522,64 @@ border-top: 3px solid gray;text-shadow:#2d2d2d 2px 2px;
 .bagItems{
   /*transition:transform 0.15s ease;*/
   height:195px;  
+
+    margin: 2px;
+    border-radius:3px;
   box-shadow:-1px -1px 2px black;
   animation: fall 0.35s ease-out none;
   box-shadow:-1px 3px 3px black;
 }
+.bagItems .notificationBubble{
+  font-weight: 600;
+    color: #ffffff;
+    display: block;
+    width: 24px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #fdc554;
+    border-bottom: 2px solid #727272;
+    border-right: 2px solid #727272;
+    mix-blend-mode: luminosity;
+    position: absolute;
+    margin-top: 20px;
+    padding-right: 2px;
+    margin-left: 5px;
+    line-height:19px;
+    box-shadow: 0px 0px 7px #f7ff00;
+  }
+ 
+
 .bagAnimation{
   animation:fall 0.35s ease-out none,intoBag .5s 1 ease;
 }
 @keyframes fall{
   from{
-    transform:translateY(-5px) translateX(2px) rotateZ(3deg) ;
+    transform:translateY(-5px)/* translateX(2px) rotateZ(3deg) */;
     box-shadow:-4px 7px 9px black;
   }
   to{
-transform:translateY(0px) translateX(0px) rotateZ(0deg) ;
+transform:translateY(0px)/* translateX(0px) rotateZ(0deg) */;
   box-shadow:-1px 3px 3px black;
   }
   }
-.bagItems img{width:60px;height:60px;margin-top:-4px}
+.bagItems img{
+  z-index: 900;
+  position: relative;
+  width:60px;
+  pointer-events: none;
+  height:60px;
+  margin-top:-4px;
+}
 .bagItems:hover{
   animation: none;
   transform-origin: bottom right 40px;
-  transition:transform 0.25s ease-out, box-shadow 0.15s ease-out;
+  transition:transform 0.15s ease-out, box-shadow 0.15s ease-out;
   -webkit-perspective: 100px; /* Safari 4-8 */
     perspective: 100px;
-    @include for-desktop-up{
+   /* @include for-desktop-up{
 
       transform:translateY(-5px) translateX(2px) rotateZ(3deg) ;
-    }
+    }*/
   transform:translateY(-5px);
   
   box-shadow:-4px 7px 9px black;
@@ -493,19 +617,43 @@ transform:translateY(0px) translateX(0px) rotateZ(0deg) ;
 }
 .inventory{
   transition:all 0.4s ease;
-  min-height: 600px;
   padding:15px;
   padding-bottom:10px;
+  margin-bottom:15vh;
   text-align:left;
   width:80vw;
-  overflow-x: hidden;
-  background: url(https://christianlong.design/assets/codepen/lootboxgame/menuBg1.jpg);
+    /*overflow-x: scroll;
+    overflow-y: hidden;*/
+    background: url(https://christianlong.design/assets/LootboxSimulator/velvet.png);
+    /*display: flex;*/
+    min-height: 430px;
+  background-size:cover;
   box-shadow: inset 0px 3px 9px #000000;
   border-top:2px solid #63412B;
   border-left:2px solid #63412B;
   border-bottom:2px solid #CB9D70;
   border-right:2px solid #CB9D70;
+  position:relative;
 }
+.inventoryPageBtn{
+  background-color:transparent;
+  border:none;
+  /*position:absolute;*/
+  width:50px;
+}
+.inventoryPageBtn:focus {outline:0;}
+.inventoryPageBtn svg{
+  width:50px;
+  height:50px;
+}
+#UpPage{
+/*left button*/
+}
+#DownPage svg{
+  /*right button*/
+  transform: rotateY(180deg);
+}
+
 
 .sellButton{
   width:80%;
@@ -729,6 +877,16 @@ pointer-events: none;
   }
 }
 
+@keyframes hideShrink{
+  0%{ opacity:1;}
+  80%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+
+  }
+}
 .disabled{
   
   height:100px;
@@ -744,6 +902,9 @@ pointer-events: none;
 }
 .invisible{
   display:none;
+}
+.fadeIn{
+  animation:soulFadeIn 0.25s ease forwards 1;
 }
 .boxPrice{
   color:white;
@@ -847,8 +1008,86 @@ $primary-color: #2ecc71;
 .hidden{
   display:none;
 }
-
-/*p5 canvas css*/
+/*----------Hides and shows inventory buttons----------*/
+.hide{
+    animation: hideShrink 2.75s 1;
+    animation-fill-mode:forwards;
+    pointer-events: none;
+}
+.invisible{
+  opacity: 0;
+  pointer-events: none;
+  animation:none;
+  height:0;
+  }
+.slideIn{
+  overflow: hidden;
+  animation: slideIn cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s forwards 1;
+}
+.details{
+   opacity:0;
+  animation:none;
+}
+@for $i from 1 to 7 {
+   .details:nth-child(#{$i}) { opacity:0;animation:soulFadeIn 0.30s ease forwards 1;  animation-delay: $i * 0.045s;
+}};
+.details:nth-child(6){
+animation-delay: 0.35s;
+  }
+  @keyframes slideIn{
+    from{height:0px}
+    99%{height:692px}
+    to{height:unset}
+  }
+.unhide{
+    animation: showUp ease-out 1.3s 1;
+  }
+.inventoryBtns h3{
+  display:inline-block;
+  min-width:50px;
+  text-align: center;
+  color:#CB9D70;
+}
+.inventoryBtns svg{
+  fill:#CB9D70;
+}
+.inventoryBtns{
+  display:flex;
+  justify-content: space-around;
+  @include for-big-desktop-up{
+  }
+}
+.inventoryPageBtnContainer{
+  @include for-big-desktop-up{
+    float:right;
+    margin-left: 10px;
+  }
+}
+.inventoryBtns div{
+  display:inline-block;
+}
+.scrapContainer h3, .scrapContainer img{
+  display:inline-block;
+  vertical-align: middle;
+  color:#FFF;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  @include for-big-desktop-up{
+    float:left;
+    margin-left: 10px;
+  }
+}
+.scrapContainer img{
+  width:50px;
+}
+@keyframes showUp{
+  0%{transform: rotateZ(5deg);opacity: 0.3}
+  30%{transform: rotateZ(-5deg);opacity: 1}
+  50%{transform: rotateZ(5deg)}
+  70%{transform: rotateZ(-5deg)}
+  100%{transform: rotateZ(0deg)}
+}
+/*-----------------------------------------------------*/
+  /*p5 canvas css*/
 #sketchHolder{
   position:absolute;
   width:100vw;
@@ -856,6 +1095,13 @@ $primary-color: #2ecc71;
   top:0;
   left:0;
   z-index:-1;
+}
+.bonus{
+  position: absolute;z-index: 53;width: 200px;opacity: 0.6;filter: brightness(1.2);left: 90%;top: 38%;transition: all 0.3s;pointer-events: cursor;cursor: pointer;
+}
+.bonus:hover{
+  cursor: pointer;
+  filter: scale(1.1);
 }
 
 

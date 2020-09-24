@@ -1,0 +1,80 @@
+.achievementContainer svg{
+	width:58px;
+	height: 58px;
+	border-width: 6px;
+	border-style: ridge;
+	
+	border-radius: 5px;
+	background-color:#4f4f4f;
+
+
+
+	
+}
+.achievementContainer:nth-child(1) svg{
+	border-color:yellow;
+}
+.subAchievement:nth-child(2) svg{
+	border-color:lime;
+}
+.subAchievement:nth-child(3) svg{
+	border-color:cyan;
+}
+.subAchievement:nth-child(4) svg{
+	border-color:magenta;
+}
+.subAchievement:nth-child(5) svg{
+	border-color:orange;
+}
+.subAchievement:nth-child(6) svg{
+	border-color:red;
+}
+.subAchievement:nth-child(7) svg{
+	border-color:purple;
+
+}
+.subAchievement:not(.locked):hover svg{
+	animation:none;
+
+	background-color:#8f8f8f;
+	position:relative;
+	border-width: 2px;
+	padding:4px;
+	
+}
+.subAchievement svg{
+	display:inline-block	;
+	transition: all 0.3s;
+	animation: fadeBackground 0.3s forwards 1;
+}
+@keyframes fadeBackground{
+	from{
+		 	background-color:#8f8f8f;
+			transform: 	rotate(	5deg)
+		}
+		50%{
+			transform: 	rotate(	-5deg)
+		}
+		to{
+			transform: 	rotate(	0deg);
+		}
+
+
+}
+ .subAchievement:not(:first-child):before{
+   content:  "\27A7";
+   font-color:black;
+   position: relative;
+   margin-left:3px;
+   margin-right:2px;	
+   top:-30px;
+
+}
+.achievementContainer{
+    border:8px double black;
+    box-shadow: inset 1px 1px 5px #1c1c1c;
+   vertical-align: 	middle;
+   display:inline-flex;
+   padding:5px;
+
+}

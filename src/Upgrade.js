@@ -3,7 +3,7 @@ import UserContext, { UserConsumer } from './UserContext'
 import Description from './description'
 class Upgrade extends React.Component{
 	
-	static contextType = UserContext
+	
 	
 	constructor(props) {
 	    super(props);
@@ -26,7 +26,7 @@ class Upgrade extends React.Component{
 	//drunk styling
 	let animationDuration = {}
 	let drunk = ""
-	if(this.context.drunk){
+	if(this.props.drunk){
 		drunk = "drunk"
 		let randomTiming = parseInt(Math.floor(Math.random() * 8)+1)
 		animationDuration = {"animation-duration": randomTiming + 's'}
@@ -44,7 +44,7 @@ class Upgrade extends React.Component{
 	if(this.props.upgradeID == 9){
 		theme = "godUpgrade"
 	}
-	if(this.props.parentID == 16){
+	if(this.props.parentID == 16 || this.props.parentID == 15){
 		theme = "tier3Upgrade"
 	}
 	if(this.props.upgradeID == 23){
@@ -53,7 +53,7 @@ class Upgrade extends React.Component{
 	let classes = "shopItem " + theme
 		return(
 
-			<div  onClick={(e) => this.props.upgradeHandler(this.props.upgradeID,this.props.cost)} className={classes} id={this.props.upgradeID}>
+			<div  onClick={(e) => this.props.upgradeHandler(this.props.upgradeID,this.props.cost)} className={classes} id={this.props.upgradeID} >
 				
 				<li class={drunk} style={animationDuration}>{this.props.name}<br></br><h6 className="costLabel" id="costLabel'+i+'">{Number.isInteger(this.props.cost) ? "$":""}{this.props.cost}</h6><Description key1={this.props.key1} description={this.props.description}/><br></br>
 				</li>

@@ -3,21 +3,20 @@ import UserContext, { UserConsumer } from './UserContext'
 import Notification from './Notification'
 
 class NotificationDisplay extends React.Component{
-	//get info from contextAPI
-	static contextType = UserContext
+	
 state = {
     isMouseTooltipVisible: true,
   };
 	render(){
 		
       
-		let notificationList = this.context.notifications
-		let notificationComponents = notificationList.map(function(note){
-			return <Notification note={note} />
+		let notificationList = this.props.notifications
+		
+		let notificationComponents = notificationList.map(function(note,index){
+			return <Notification key={note.key} note={note.notification} />
 			
 		})
-		
-		console.log(this.context)
+
 		return(
 			
 				<div class="notificationBox">

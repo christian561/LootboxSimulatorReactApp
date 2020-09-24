@@ -2,13 +2,13 @@ const BackgroundsData = [
 	{
 		id:1,
 		name:"No upgrades",
-		src:"https://christianlong.design/assets/codepen/lootboxgame/menuBg1.jpg",
+		src:"https://christianlong.design/assets/LootboxSimulator/menuBg1.png",
 		color:"#fff"
 	},
 	{
 		id:2,
 		name:"1 box upgrade",
-		src:"https://christianlong.design/assets/codepen/lootboxgame/menuBg2.jpg",
+		src:"https://christianlong.design/assets/LootboxSimulator/menuBg2.png",
 		color:"#00FF4C"
 	},
 	{
@@ -20,13 +20,13 @@ const BackgroundsData = [
 	{
 		id:4,
 		name:"shop upgrade",
-		src:"https://christianlong.design/assets/codepen/lootboxgame/menuBg4.jpg",
+		src:"https://christianlong.design/assets/LootboxSimulator/menuBg4.png",
 		color:"gold"
 	},
 	{
 		id:5,
 		name:"immortal box upgrade",
-		src:"https://orig00.deviantart.net/982d/f/2015/126/a/7/celestia_and_sun6ex_by_equumamici-d8sf8uv.gif",
+		src:"https://www.christianlong.design/assets/LootboxSimulator/sunBG.gif",
 		color:"#FCD400"
 	},
 	{
@@ -38,14 +38,14 @@ const BackgroundsData = [
 	{
 		id:7,
 		name:"immortal shop upgrade",
-		src:"https://christianlong.design/assets/codepen/lootboxgame/menuBg4.jpg",
+		src:"https://christianlong.design/assets/LootboxSimulator/menuBg4.png",
 		color:"#212529"
 	},
 	{
 		id:8,
 		name:"default shop",
-		src:"https://blueblots.com/wp-content/uploads/2011/12/35-seamless-wood-texture.jpg",
-		color:"#FCD400"
+		src:"https://christianlong.design/assets/LootboxSimulator/woodBackground.png",
+		color:"rgb(226, 163, 110)"
 	}
 ]
 

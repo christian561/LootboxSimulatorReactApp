@@ -1,0 +1,78 @@
+
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+.slider{
+  
+  background-color:white;
+  border:2px solid white;
+  border-radius: 20px;
+  height:100%;
+  overflow:hidden;
+  width:100%;
+}
+.sliderToggled{
+  margin-left:66.67%;
+}
+.sliderCircle{
+  transition: margin-left 0.3s;
+  height:100%;
+  fill:grey;
+}
+.container1{
+  width: 58px;
+    height: 30px;
+    position: absolute;
+    left: calc(125px + 2vw);
+    z-index: 999;
+    bottom: 6px;
+    font-size:10px;
+    margin-left: 3.5vw;
+    opacity: 0;
+   animation: toggleFadeIn 0.3s ease forwards 1;
+   animation-delay: 0.1s;
+    @include for-phone-only {
+      left:80%;
+      max-width: 58px;
+      top:5px;
+    } 
+}
+@keyframes toggleFadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+.clickable{
+  cursor:pointer;
+}
+.greyPurple{
+ background-color:magenta; 
+  background-image:url("https://i.gifer.com/FnYU.gif");
+ border-color:magenta;
+ box-shadow: 1px 2px 3px black;
+}
+.greyPurple svg rect{
+  fill:#753173;
+  opacity:0.8;
+}
+.greyPurple svg ellipse{
+  fill:#ED6BE9;
+/*   stroke:#c1c1c1;
+  stroke-width:1px; */
+}
+.hellColors{
+background-color:orange;
+  background-image:url(https://christianlong.design/assets/codepen/lootboxgame/flameBG.gif);
+  /*border-color:white;*/
+  border-color:orange;
+ box-shadow: 1px 2px 3px black;
+  }
+.hellColors svg rect{
+  fill:#E61F04;
+  opacity:0.8;
+}
+.hellColors svg ellipse{
+  fill:#D58513;
+   
+/*   stroke:#c1c1c1;
+  stroke-width:1px; */
+}

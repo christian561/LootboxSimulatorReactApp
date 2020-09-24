@@ -13,14 +13,22 @@ class Mainmenu extends React.Component{
     	this.continueGame = this.continueGame.bind(this)
 	}
 	newGame(){
-		this.props.sceneSwitch("Game")
+		if(window.localStorage.getItem("playerData") != null){
+        //if save exists prompt user before resetting
+	        if (window.confirm('Do you want to reset your game?\n\nWARNING: EVERYTHING WILL BE DELETED!')) {
+	      		this.props.sceneSwitch("Game")	
+	    	} 
+		}
+		else{
+			this.props.sceneSwitch("Game")
+		}
 	}
 	continueGame(){
 		this.props.sceneSwitch("ContinueGame")
 	}
 	render(){
 		return(
-		<div class="MainMenuContainer">
+		<div className="MainMenuContainer">
 		<span>
 			<div id='svgBackgroundContainer'>
 					<div id='gradientOverlay'></div>
@@ -29,7 +37,7 @@ class Mainmenu extends React.Component{
 					</div>
 				</div>
 <div id='mainMenuTextContainer'>
-	<div class="MainMenu">
+	<div className="MainMenu">
 		<Text1 />
 		<Text2 />
 		

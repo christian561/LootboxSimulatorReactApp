@@ -159,6 +159,7 @@ to{opacity:1;}
 	  pointer-events: none;
 	  overflow:hidden;
 	  transition:all .6s; 
+    z-index:999;
 }
 #svgBackgroundContainer a{
 	position:absolute;
@@ -214,7 +215,7 @@ to{opacity:1;}
 	top:0;
 	width:100vw;
 	height:100px;
-	z-index: 5;
+	z-index: 998;
 }
 #cloud1{
   filter:blur(2px);

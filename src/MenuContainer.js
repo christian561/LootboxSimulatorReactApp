@@ -7,12 +7,12 @@ import Inventory from './Inventory'
 class MenuContainer extends React.Component{
 	//get info from contextAPI
 	static contextType = UserContext
-	constructor(){
-    super()
+	constructor(props){
+    super(props)
 
     this.getUpgradeBackground = this.getUpgradeBackground.bind(this)
     this.getUpgradeColor = this.getUpgradeColor.bind(this)
-  this.getBorderColors = this.getBorderColors.bind(this)
+    this.getBorderColors = this.getBorderColors.bind(this)
   }
   getBorderColors(){
     //find what tier
@@ -61,12 +61,18 @@ class MenuContainer extends React.Component{
   }
 	render(){
       let borderColors = this.getBorderColors()
+      console.log(this.props.upgrades)
+      let unlockedUpgrades = this.props.upgrades
     	let background = {"background":"url("+this.getUpgradeBackground()+")","border-top": "2px solid "+borderColors[0],"border-bottom": "2px solid" +borderColors[1]}
 		return(
 			<div class="row firstRow" style={background}>
 
 			  	<UpgradeShop 
+
+            trash={this.props.trash}
 			  		gold={this.context.gold} 
+            unlockedUpgrades={unlockedUpgrades}
+            drunk={this.context.drunk}
 			  		upgrades={this.Upgrades} 
 			  		upgradeHandler={this.props.upgradeHandler}
 					checkUpgrade={this.props.checkUpgrade}  
@@ -75,11 +81,24 @@ class MenuContainer extends React.Component{
 				    
 				<LootboxMenu 
 					keys={this.context.keys}
+          speedMultiplier={this.context.speedMultiplier}
+          valueMultiplier={this.context.valueMultiplier}
+          luckMultiplier={this.context.luckMultiplier}
+          newGamePlusLevel={this.context.newGamePlusLevel}
+          drunk={this.context.drunk} 
+          refill={this.context.refill}
+          upgrades={this.context.upgrades}
+          reaperKeys={this.context.reaperKeys}
 					checkUpgrade={this.props.checkUpgrade}  
 					changeKeys={this.props.changeKeys}
+          changeLootboxesOpened={this.props.changeLootboxesOpened}
           changeReaperKeys={this.props.changeReaperKeys} 
     			insertInventoryItem={this.props.insertInventoryItem}
-
+          countItemsByGrade={this.props.countItemsByGrade}
+        removeInventoryItemsByGrade={this.props.removeInventoryItemsByGrade}
+          notify={this.props.notify}
+          getSoulUpgradeCount={this.props.getSoulUpgradeCount}
+          unlockSoulUpgrade={this.props.unlockSoulUpgrade}
 				/>
 		       
 		    </div>
